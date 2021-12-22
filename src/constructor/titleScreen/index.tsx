@@ -8,16 +8,22 @@ import { TitleScreenProps } from '../../interface'
 
 const Hr = styled(Box)(() => ({
     height: 2,
-    width: '90%',
-    background: '#245852'
+    background: '#245852',
+    width: '100%',
+
 }))
 
-const TitleScreen: React.FC<TitleScreenProps> = ({ color, variant, children }) => {
+const TitleScreen: React.FC<TitleScreenProps> = ({ color, variant, children, width, description }) => {
     return (
-        <Box style={{ display: 'flex', alignItems: 'center', marginTop: 30, textAlign: 'center' }}>
-            <Hr />
-            <MyText variant={variant} sx={{ minWidth: 300, color: color }}>{children}</MyText>
-            <Hr />
+        <Box style={{ textAlign: 'center' }}>
+            <Box style={{ display: 'flex', alignItems: 'center', marginTop: 30, textAlign: 'center' }}>
+                <Hr />
+                <MyText variant={variant} sx={{ color: color, width: width, fontWeight: 'bold' }}>{children}</MyText>
+                <Hr />
+            </Box>
+            <MyText variant="body1">
+                {description}
+            </MyText>
         </Box>
     )
 }

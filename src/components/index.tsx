@@ -6,6 +6,7 @@ import MyLink from './link'
 import CardPerson from "./cards/CardPerson"
 import CardAbout from './cards/CardAbout'
 import CardUsefulLinks from "./cards/CardUsefulLinks"
+import CardSurveyCarusel from "./cards/CardSurveyCarusel"
 
 export {
     Layout,
@@ -15,5 +16,6 @@ export {
     MyLink,
     CardPerson,
     CardAbout,
-    CardUsefulLinks
+    CardUsefulLinks,
+    CardSurveyCarusel
 }

@@ -62,9 +62,18 @@ interface CardUsefulLinksProps {
 
 interface TitleScreenProps {
     color?: string,
-    variant?: any,
-    children: any
+    variant: any,
+    children: any,
+    width: number,
+    description?: string
 }
+
+interface CaruselSurveyProps {
+    label: string,
+    img: any,
+    link: any
+}
+
 
 export type {
     ButtonProps,
@@ -74,5 +83,6 @@ export type {
     CardPersonProps,
     CardAboutProps,
     CardUsefulLinksProps,
-    TitleScreenProps
+    TitleScreenProps,
+    CaruselSurveyProps
 }

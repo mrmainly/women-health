@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { Box } from '@mui/material'
 import Slider from 'react-slick'
 
-import { CardUsefulLinks } from '../components'
-import CardUsefulLinksList from '../Data/CardUsefulLinksList'
+import { CardUsefulLinks } from '../../components'
+import CardUsefulLinksList from '../../Data/CardUsefulLinksList'
 
 const CaruselUsefulLinks = () => {
     const [slidesToShow, setSlidesToShow] = useState(0)

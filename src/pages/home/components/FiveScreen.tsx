@@ -16,7 +16,9 @@ const TitleBox = styled(Box)(({ theme }) => ({
     [theme.breakpoints.down('lg')]: {
         width: '50%'
     },
-
+    [theme.breakpoints.down('sm')]: {
+        width: '100%'
+    },
 }))
 
 const CardItem = styled(Box)(({ theme }) => ({
@@ -63,10 +65,10 @@ const FiveScreen: React.FC = () => {
     return (
         <MyContainer wrapper={false} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 8 }}>
             <TitleBox>
-                <MyText variant="h3" sx={{ fontFamily: 'serif', fontWeight: 'bold' }}>Ваше здоровье - для нас важно!</MyText>
+                <MyText variant="h3" sm={30} sx={{ fontFamily: 'serif', fontWeight: 'bold' }}>Ваше здоровье - для нас важно!</MyText>
                 <MyText variant="h6">Мы заботимся о вас, поэтому создали максимально простую и эффективную систему скрининга.</MyText>
             </TitleBox>
-            <Grid container sx={{ mt: 10, display: 'flex', justifyContent: 'center' }} >
+            <Grid container sx={{ mt: 8, display: 'flex', justifyContent: 'center' }} >
                 {
                     cardList.map(item => (
                         <Grid item key={item.title} lg={4} xl={4} xs={11} md={4} sm={12} sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>

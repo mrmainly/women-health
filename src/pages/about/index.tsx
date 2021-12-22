@@ -4,7 +4,8 @@ import StartScreen from './components/StartScreen'
 import TwoCaruselScreen from './components/TwoCaruselScreen'
 import ThreeScreen from './components/ThreeSreen'
 import FourScreenUsefulLinks from './components/FourScreen'
-import { MyContainer } from '../../components'
+import FiveScreen from './components/FiveScreen'
+import SixSurveyCaruselScreen from './components/SixSurveyCaruselScreen'
 
 const About = () => {
     return (
@@ -13,6 +14,8 @@ const About = () => {
             <TwoCaruselScreen />
             <ThreeScreen />
             <FourScreenUsefulLinks />
+            <FiveScreen />
+            <SixSurveyCaruselScreen />
         </div>
     )
 }

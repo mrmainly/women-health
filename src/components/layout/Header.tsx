@@ -98,7 +98,7 @@ const Header: React.FC = () => {
     const Logo = () => {
         return (
             <BoxLogo>
-                <Box style={{ background: 'red', height: 30, width: 30 }}></Box>
+                <img style={{ width: 40 }} src={'/img/Element/logo2.png'} />
                 <Typography variant="body1" sx={{ ml: 1 }}>Ты не один онкосаха</Typography>
             </BoxLogo>
         )
