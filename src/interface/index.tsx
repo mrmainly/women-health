@@ -6,7 +6,8 @@ interface ButtonProps {
     onClick?: () => void,
     variant?: string,
     style?: any,
-    sx?: any
+    sx?: any,
+    color?: any
 }
 
 interface MyContainerProps {
@@ -74,6 +75,16 @@ interface CaruselSurveyProps {
     link: any
 }
 
+interface TextInfoScreenProps {
+    data: any,
+}
+
+interface InfoBlockScreenProps {
+    title: string,
+    description: string,
+    img: any,
+    infoImg: any
+}
 
 export type {
     ButtonProps,
@@ -84,5 +95,7 @@ export type {
     CardAboutProps,
     CardUsefulLinksProps,
     TitleScreenProps,
-    CaruselSurveyProps
+    CaruselSurveyProps,
+    TextInfoScreenProps,
+    InfoBlockScreenProps
 }

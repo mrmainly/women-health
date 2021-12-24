@@ -17,7 +17,7 @@ const SixCaruselScreen = () => {
         slidesToShow: 1,
     };
     return (
-        <MyContainer wrapper={false} minHeight={600} sx={{ display: 'flex', alignItems: 'center' }}>
+        <MyContainer wrapper={false} minHeight={600} sx={{ display: 'flex', alignItems: 'center', mb: 20 }}>
             <Box style={{ overflow: 'hidden', }}>
                 <Slider {...settings} >
                     {CardArray ? CardArray.map((item, index) => (

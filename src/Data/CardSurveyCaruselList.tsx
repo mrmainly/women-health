@@ -3,17 +3,17 @@ const CardSurveyCaruselList = [
     {
         img: 'liver',
         label: 'Скриниг Рака печени',
-        link: ''
+        link: '/liver'
     },
     {
         img: 'gut',
         label: 'Скриниг рака ободочной кишки',
-        link: ''
+        link: '/gut'
     },
     {
         img: 'breath',
         label: 'Скрининг рака лекгих',
-        link: ''
+        link: '/breath'
     },
     {
         img: 'breath',

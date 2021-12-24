@@ -8,6 +8,12 @@ import CardAbout from './cards/CardAbout'
 import CardUsefulLinks from "./cards/CardUsefulLinks"
 import CardSurveyCarusel from "./cards/CardSurveyCarusel"
 
+import InfoScreen from './infoSurveysScreens/InfoBlockScreen'
+import TextInfoScreen from './infoSurveysScreens/TextInfoScreen'
+import ThreeScreen from './infoSurveysScreens/ThreeScreen'
+import FourScreen from "./infoSurveysScreens/FourScreen"
+import LinkToSurveysScreen from "./infoSurveysScreens/LinkToSurveysScreen"
+
 export {
     Layout,
     MyButton,
@@ -17,5 +23,11 @@ export {
     CardPerson,
     CardAbout,
     CardUsefulLinks,
-    CardSurveyCarusel
+    CardSurveyCarusel,
+
+    InfoScreen,
+    TextInfoScreen,
+    ThreeScreen,
+    FourScreen,
+    LinkToSurveysScreen
 }

@@ -12,37 +12,57 @@ const MyContainer: React.FC<MyContainerProps> = ({ children, wrapper, bgImg, lg,
         backgroundSize: 'cover',
         minHeight: minHeight ? minHeight : 600,
         [theme.breakpoints.down('lg')]: {
-            minHeight: lg ? lg : ''
+            minHeight:
+                lg ?
+                    lg : ''
         },
         [theme.breakpoints.down('xl')]: {
-            minHeight: xl ? xl : ''
+            minHeight:
+                xl ?
+                    xl : ''
         },
         [theme.breakpoints.down('md')]: {
-            minHeight: md ? md : ''
+            minHeight:
+                md ?
+                    md : ''
         },
         [theme.breakpoints.down('sm')]: {
-            minHeight: sm ? sm : ''
+            minHeight:
+                sm ?
+                    sm : ''
         },
         [theme.breakpoints.down('xs')]: {
-            minHeight: xs ? xs : ''
+            minHeight:
+                xs ?
+                    xs : ''
         },
     }))
     const CustomContainer = styled(Container)(({ theme }) => ({
         minHeight: minHeight ? minHeight : 800,
         [theme.breakpoints.down('lg')]: {
-            minHeight: lg ? lg : ''
+            minHeight:
+                lg ?
+                    lg : ''
         },
         [theme.breakpoints.down('xl')]: {
-            minHeight: xl ? xl : ''
+            minHeight:
+                xl ?
+                    xl : ''
         },
         [theme.breakpoints.down('md')]: {
-            minHeight: md ? md : ''
+            minHeight:
+                md ?
+                    md : ''
         },
         [theme.breakpoints.down('sm')]: {
-            minHeight: sm ? sm : ''
+            minHeight:
+                sm ?
+                    sm : ''
         },
         [theme.breakpoints.down('xs')]: {
-            minHeight: xs ? xs : ''
+            minHeight:
+                xs ?
+                    xs : ''
         },
     }))
     return (

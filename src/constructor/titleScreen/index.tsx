@@ -18,7 +18,7 @@ const TitleScreen: React.FC<TitleScreenProps> = ({ color, variant, children, wid
         <Box style={{ textAlign: 'center' }}>
             <Box style={{ display: 'flex', alignItems: 'center', marginTop: 30, textAlign: 'center' }}>
                 <Hr />
-                <MyText variant={variant} sx={{ color: color, width: width, fontWeight: 'bold' }}>{children}</MyText>
+                <MyText variant={variant} sx={{ color: color, width: width, fontWeight: 'normal' }}>{children}</MyText>
                 <Hr />
             </Box>
             <MyText variant="body1">
