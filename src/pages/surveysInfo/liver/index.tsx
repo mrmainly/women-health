@@ -68,7 +68,7 @@ const Liver = () => {
                 infoImg="Frame27"
             />
             <TextInfoScreen data={data1} />
-            <ThreeScreen data={data2} />
+            <ThreeScreen data={data2} showInfoText={true} />
             <FourScreen data={data3} />
             <LinkToSurveysScreen link="" />
             <MyContainer

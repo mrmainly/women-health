@@ -78,15 +78,14 @@ const Breath = () => {
                 infoImg="Frame7"
             />
             <TextInfoScreen data={data1} />
-            <ThreeScreen data={data2} />
+            <ThreeScreen data={data2} showInfoText={false} />
             <FourScreen data={data3} />
             <LinkToSurveysScreen link="" />
-            <TitleScreen variant="h4" width={900} description='“Регистрация - Тестирование - Осмотр”'>Берегите здоровье!</TitleScreen>
             <MyContainer
                 wrapper={false}
                 minHeight={600}
-                sx={{ display: 'flex', alignItems: 'center' }}
             >
+                <TitleScreen variant="h4" width={900} description='“Регистрация - Тестирование - Осмотр”'>Берегите здоровье!</TitleScreen>
                 <CaruselSurvey />
             </MyContainer>
         </div>

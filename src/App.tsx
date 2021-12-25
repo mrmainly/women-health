@@ -10,6 +10,8 @@ import AboutPage from './pages/about'
 import Breast from './pages/surveysInfo/breast'
 import Breath from './pages/surveysInfo/breath'
 import Liver from './pages/surveysInfo/liver'
+import Gut from './pages/surveysInfo/gut'
+import Cervix from './pages/surveysInfo/cervix'
 
 import { Layout } from './components';
 
@@ -23,6 +25,8 @@ const App = () => {
           <Route path="breast" element={<Breast />} />
           <Route path="breath" element={<Breath />} />
           <Route path="liver" element={<Liver />} />
+          <Route path="gut" element={<Gut />} />
+          <Route path="cervix" element={<Cervix />} />
         </Route>
       </Routes>
     </BrowserRouter>

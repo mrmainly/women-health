@@ -15,11 +15,22 @@ const TitleBox = styled(Box)(({ theme }) => ({
     },
 }))
 
+const GreenLine = styled(Box)(({ theme }) => ({
+    height: 3,
+    width: '50%',
+    background: '#61D8C5',
+    marginBottom: 40,
+    [theme.breakpoints.down('sm')]: {
+        width: '90%'
+    },
+}))
+
 interface ThreeScreenProps {
-    data: any
+    data: any,
+    showInfoText: boolean
 }
 
-const ThreeScreen: React.FC<ThreeScreenProps> = ({ data }) => {
+const ThreeScreen: React.FC<ThreeScreenProps> = ({ data, showInfoText }) => {
     return (
         <MyContainer wrapper={false} minHeight={600}>
             <TitleBox>
@@ -40,6 +51,21 @@ const ThreeScreen: React.FC<ThreeScreenProps> = ({ data }) => {
                         </Box>
                     ))}
                 </Grid>
+                {showInfoText &&
+                    <Grid item lg={12} xl={12} sm={12} md={12} xs={12}
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexDirection: 'column',
+                            mt: 10,
+                            textAlign: 'center'
+                        }}
+                    >
+                        <GreenLine></GreenLine>
+                        <MyText variant="h5" sx={{ color: '#245852', width: '90%' }} sm={18}>В рамках реализации Национального проекта «Здравоохранение»  разработан универсальный анкетный скрининг для выявления групп риска с учетом региональной специфики.</MyText>
+                    </Grid>
+                }
             </Grid>
         </MyContainer>
     )

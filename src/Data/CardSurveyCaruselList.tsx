@@ -17,8 +17,13 @@ const CardSurveyCaruselList = [
     },
     {
         img: 'breath',
-        label: 'Скрининг рака лекгих',
-        link: ''
+        label: 'Скрининг рака молочной железы',
+        link: '/breast'
+    },
+    {
+        img: 'breath',
+        label: 'Скрининг рака шеки матки',
+        link: '/cervix'
     }
 ]
 

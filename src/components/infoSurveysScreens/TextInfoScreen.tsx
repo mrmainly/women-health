@@ -24,7 +24,7 @@ const TitleBox = styled(Box)({
 })
 
 
-const TextInfoScreen: React.FC<TextInfoScreenProps> = ({ data }) => {
+const TextInfoScreen: React.FC<TextInfoScreenProps> = ({ data, dangerText }) => {
     return (
         <MyContainer
             wrapper={false}
@@ -71,6 +71,7 @@ const TextInfoScreen: React.FC<TextInfoScreenProps> = ({ data }) => {
                     }
                 </Box>
             ))}
+            {dangerText ? <MyText sx={{ mt: 7, color: '#EA5858' }} variant="h4">{dangerText}</MyText> : ''}
         </MyContainer>
     )
 }

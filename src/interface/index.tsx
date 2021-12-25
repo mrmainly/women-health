@@ -77,6 +77,7 @@ interface CaruselSurveyProps {
 
 interface TextInfoScreenProps {
     data: any,
+    dangerText?: string
 }
 
 interface InfoBlockScreenProps {
