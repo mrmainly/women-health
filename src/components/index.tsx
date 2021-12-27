@@ -14,6 +14,9 @@ import ThreeScreen from './infoSurveysScreens/ThreeScreen'
 import FourScreen from "./infoSurveysScreens/FourScreen"
 import LinkToSurveysScreen from "./infoSurveysScreens/LinkToSurveysScreen"
 
+import { Form } from './UI/form'
+import Input from './UI/input'
+
 export {
     Layout,
     MyButton,
@@ -29,5 +32,8 @@ export {
     TextInfoScreen,
     ThreeScreen,
     FourScreen,
-    LinkToSurveysScreen
+    LinkToSurveysScreen,
+
+    Input,
+    Form
 }

@@ -1,4 +1,4 @@
-const CardArray = [
+const CardPerson = [
     {
         img: '/img/Element/Image.png',
         name: 'Айсен Сергеевич Николаев',
@@ -22,4 +22,4 @@ const CardArray = [
     },
 ]
 
-export default CardArray
+export default CardPerson

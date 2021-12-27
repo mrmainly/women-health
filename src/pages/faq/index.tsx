@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { MyContainer } from '../../components'
+import { FormFeedBack } from '../../constructor'
 
 import FaqPageHeader from './components/FaqPageHeader'
 import FaqTextInfoScreen from './components/FaqTextInfoScreen'
@@ -13,6 +14,7 @@ const Faq = () => {
             <MyContainer wrapper={false}>
                 <FaqTextInfoScreen />
                 <FaqQuestionScreen />
+                <FormFeedBack />
             </MyContainer>
         </div>
     )

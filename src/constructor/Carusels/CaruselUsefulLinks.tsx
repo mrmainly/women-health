@@ -4,6 +4,7 @@ import { Box } from '@mui/material'
 import Slider from 'react-slick'
 
 import { CardUsefulLinks } from '../../components'
+import { TitleScreen } from '..'
 import CardUsefulLinksList from '../../Data/CardUsefulLinksList'
 
 const CaruselUsefulLinks = () => {
@@ -33,6 +34,7 @@ const CaruselUsefulLinks = () => {
     })
     return (
         <Box style={{ overflow: 'hidden', }}>
+            <TitleScreen variant="h4" sx={{ mb: 5 }} color="#245852" width={900} description='на партнеров проекта'>Полезные ссылки </TitleScreen>
             <Slider {...settings} >
                 {CardUsefulLinksList ? CardUsefulLinksList.map((item, index) => (
                     <Box style={{ margin: '0 auto' }} key={index}>

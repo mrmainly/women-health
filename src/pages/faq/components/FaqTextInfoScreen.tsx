@@ -20,7 +20,7 @@ const FaqTextInfoScreen = () => {
             <Box sx={{ mt: 5 }}>
                 <MyText variant="h6" >Круглосуточный Республиканский психологический телефон доверия:<span style={{ fontWeight: 'bold', marginLeft: 20 }}>8-800-100-35-50</span></MyText>
             </Box>
-            <Box >
+            <Box>
                 <MyText variant="h6">Всероссийскую бесплатную круглосуточную горячую линию психологической помощи для онкологических больных и их близких <span style={{ fontWeight: 'bold', marginLeft: 20 }}>8-800-100-01-91</span></MyText>
             </Box>
         </div>

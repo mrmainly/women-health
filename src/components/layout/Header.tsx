@@ -58,7 +58,7 @@ const headerData: any = [
     },
     {
         text: 'Контакты',
-        link: '/contact'
+        link: '/contacts'
     },
     {
         text: 'Вопрос&Ответ',

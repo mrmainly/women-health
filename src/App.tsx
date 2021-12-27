@@ -7,6 +7,7 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 import HomePage from './pages/home';
 import AboutPage from './pages/about'
 import Faq from './pages/faq'
+import Contacts from './pages/contacts'
 
 import Breast from './pages/surveysInfo/breast'
 import Breath from './pages/surveysInfo/breath'
@@ -24,6 +25,7 @@ const App = () => {
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="faq" element={<Faq />} />
+          <Route path="contacts" element={<Contacts />} />
 
           <Route path="breast" element={<Breast />} />
           <Route path="breath" element={<Breath />} />

@@ -66,7 +66,8 @@ interface TitleScreenProps {
     variant: any,
     children: any,
     width: number,
-    description?: string
+    description?: string,
+    sx?: any
 }
 
 interface CaruselSurveyProps {
@@ -87,6 +88,16 @@ interface InfoBlockScreenProps {
     infoImg: any
 }
 
+interface FormProps {
+    children: any
+}
+
+interface InputProps {
+    ref: any,
+    label?: string,
+    sx?: any
+}
+
 export type {
     ButtonProps,
     MyContainerProps,
@@ -98,5 +109,7 @@ export type {
     TitleScreenProps,
     CaruselSurveyProps,
     TextInfoScreenProps,
-    InfoBlockScreenProps
+    InfoBlockScreenProps,
+    FormProps,
+    InputProps
 }

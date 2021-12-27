@@ -4,8 +4,9 @@ import { Box } from '@mui/material'
 import { styled } from '@mui/system'
 import Slider from 'react-slick'
 
-import CardArray from '../../../Data/CardArray'
+import CardArray from '../../../Data/CardPerson'
 import { MyContainer, CardPerson } from '../../../components'
+import { CaruselPerson } from '../../../constructor'
 
 const SixCaruselScreen = () => {
     const settings = {
@@ -19,13 +20,7 @@ const SixCaruselScreen = () => {
     return (
         <MyContainer wrapper={false} minHeight={600} sx={{ display: 'flex', alignItems: 'center', mb: 20 }}>
             <Box style={{ overflow: 'hidden', }}>
-                <Slider {...settings} >
-                    {CardArray ? CardArray.map((item, index) => (
-                        <Box style={{ margin: '0 auto' }} key={index}>
-                            <CardPerson img={item.img} description={item.description} infoImg={item.infoImg} tag={item.tag} name={item.name} />
-                        </Box>
-                    )) : ''}
-                </Slider>
+                <CaruselPerson />
             </Box>
         </MyContainer>
     )
