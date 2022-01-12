@@ -4,21 +4,8 @@ import { Box, Typography, Grid, MenuItem, } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { styled } from '@mui/system'
 
-import { MyContainer, MyText, MyLink } from '../../../components'
-
-const TitleBox = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    textAlign: 'center',
-    [theme.breakpoints.down('lg')]: {
-        width: '50%'
-    },
-    [theme.breakpoints.down('sm')]: {
-        width: '100%'
-    },
-}))
+import { MyContainer, MyText, MyLink, } from '../../../components'
+import { PageHeaderText } from '../../../constructor'
 
 const Circle = styled(Box)(({ theme }) => ({
     display: 'flex',
@@ -76,11 +63,7 @@ const FiveScreen: React.FC = () => {
     ]
     return (
         <MyContainer wrapper={false} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 8, mb: 8 }}>
-            <TitleBox>
-                <MyText variant="body1" sx={{ color: '#EB5757' }}>О НАС</MyText>
-                <MyText variant="h3" sm={30}>Ваше здоровье - для нас<br /> важно!</MyText>
-                <MyText variant="body1" sx={{ fontStyle: 'normal', mt: 1 }}>Мы заботимся о вас, поэтому создали максимально простую и эффективную систему скрининга.</MyText>
-            </TitleBox>
+            <PageHeaderText titleSize="h3" title="Ваше здоровье - для нас важно!" description="Мы заботимся о вас, поэтому создали максимально простую и эффективную систему скрининга." />
             <Grid container sx={{ mt: 8, display: 'flex', justifyContent: 'center' }} >
                 {
                     cardList.map(item => (

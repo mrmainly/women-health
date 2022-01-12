@@ -98,6 +98,12 @@ interface InputProps {
     sx?: any
 }
 
+interface PageHeaderTextProps {
+    title: any,
+    description: string,
+    titleSize: any
+}
+
 export type {
     ButtonProps,
     MyContainerProps,
@@ -111,5 +117,6 @@ export type {
     TextInfoScreenProps,
     InfoBlockScreenProps,
     FormProps,
-    InputProps
+    InputProps,
+    PageHeaderTextProps
 }
