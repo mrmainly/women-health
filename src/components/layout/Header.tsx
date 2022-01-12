@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react'
 
-import { AppBar, Toolbar, MenuItem, Typography, Box, Drawer, IconButton } from '@mui/material'
+import { AppBar, Toolbar, MenuItem, Typography, Box, Drawer, IconButton, Container } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom'
 import { styled } from '@mui/system'
 
-import { MyButton } from '../index'
-
 const Root = styled('div')(() => ({
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    width: '100%'
+    width: '100%',
+    minHeight: 110,
 }))
 const BoxLinks = styled(Box)(({ theme }) => ({
     display: 'flex',
@@ -26,15 +25,17 @@ const BoxLogo = styled(Box)(({ theme }) => ({
     flexDirection: 'row',
     alignItems: 'center',
 }))
+
 const Cuslink = styled(Link)(({ theme }) => ({
-    color: 'black',
+    color: 'white',
     textDecoration: 'none',
     marginLeft: 5,
     marginRight: 5,
     [theme.breakpoints.down('lg')]: {
         flexDirection: 'column',
         justifyContent: 'center',
-        marginTop: theme.spacing(1)
+        marginTop: theme.spacing(1),
+        color: 'black',
     },
 
 }))
@@ -47,22 +48,34 @@ const BoxLogin = styled(Box)(({ theme }) => ({
     },
 }))
 
+const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
+    fontSize: 22,
+    width: 180,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
+}))
+
 const headerData: any = [
     {
-        text: 'Главная',
-        link: '/'
+        text: 'Вопрос&Ответ',
+        link: '/faq'
     },
     {
         text: 'О проекте',
         link: '/about'
     },
     {
+        text: 'Главная',
+        link: '/'
+    },
+    {
         text: 'Контакты',
         link: '/contacts'
     },
     {
-        text: 'Вопрос&Ответ',
-        link: '/faq'
+        text: 'Вoйти',
+        link: '/sad'
     },
 ]
 
@@ -87,9 +100,9 @@ const Header: React.FC = () => {
             <BoxLinks>
                 {headerData.map((item: any) => (
                     <Cuslink to={item.link} key={item.link}>
-                        <MenuItem>
+                        <CustomMenuItem>
                             {item.text}
-                        </MenuItem>
+                        </CustomMenuItem>
                     </Cuslink >
                 ))}
             </ BoxLinks>
@@ -98,26 +111,15 @@ const Header: React.FC = () => {
     const Logo = () => {
         return (
             <BoxLogo>
-                <img style={{ width: 40 }} src={'/img/Element/logo2.png'} />
-                <Typography variant="body1" sx={{ ml: 1 }}>Ты не один онкосаха</Typography>
+                <img style={{ width: 100 }} src={'/img/Element/logo2.png'} />
             </BoxLogo>
         )
     }
-    const Login = () => {
-        return (
-            <BoxLogin>
-                <MyButton sx={{ bgcolor: '#61D8C5' }}>Войти</MyButton>
-                <MyButton sx={{ bgcolor: '#01996D', ml: 1 }}>Регистрация</MyButton>
-            </BoxLogin>
-        )
-    }
-
     const Desktop = () => {
         return (
             <Root>
-                <Links />
                 <Logo />
-                <Login />
+                <Links />
             </Root>
         )
     }
@@ -152,17 +154,18 @@ const Header: React.FC = () => {
                         height: '100%'
                     }}>
                         <Links />
-                        <Login />
                     </Box>
                 </Drawer>
             </Box>
         )
     }
     return (
-        <AppBar position="static" sx={{ bgcolor: 'white', color: 'black' }}>
-            <Toolbar>
-                {mobileView ? Mobile() : Desktop()}
-            </Toolbar>
+        <AppBar position="static" sx={{ bgcolor: '#49DDC5' }}>
+            <Container>
+                <Toolbar>
+                    {mobileView ? Mobile() : Desktop()}
+                </Toolbar>
+            </Container>
         </AppBar>
     )
 }

@@ -27,7 +27,7 @@ const FaqPageHeader = () => {
             }}
             minHeight={400}
         >
-            <MyText variant="h5">рубрика</MyText>
+            <MyText variant="h5" >рубрика</MyText>
             <MyText variant="h4" sx={{ mt: 2, mb: 2 }}>Вопрос ответ</MyText>
             <TextBox>
                 <MyText variant="h6" sx={{ fontWeight: 'normal' }}>Здесь мы решили написать ответы на популярные вопросы, связанные с работой сервиса и темой скрининга.</MyText>

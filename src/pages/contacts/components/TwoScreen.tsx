@@ -33,7 +33,7 @@ const Span = styled('span')({
     color: '#245852'
 })
 
-const TwoScreenCarusel = () => {
+const TwoScreen = () => {
     const data = [
         {
             label: ' Главный врач:',
@@ -81,4 +81,4 @@ const TwoScreenCarusel = () => {
     )
 }
 
-export default TwoScreenCarusel
+export default TwoScreen
