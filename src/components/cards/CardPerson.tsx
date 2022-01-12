@@ -11,18 +11,18 @@ const MainCardBox = styled(Box)(({ theme }) => ({
     justifyContent: 'center',
     alignItems: 'center',
     minHeight: 550,
-    boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.25)',
+    boxShadow: '2px 4px 12px rgba(0, 0, 0, 0.15)',
     borderRaduis: 11,
     backgroundColor: '#FCFCFC',
-    marginTop: 20,
-    marginBottom: 30,
+    borderTopLeftRadius: 25,
     marginLeft: 20,
     marginRight: 20,
-    paddingLeft: 20,
-    paddingRight: 20,
     [theme.breakpoints.down('md')]: {
-        paddingTop: 20,
-        paddingBottom: 20
+        width: 440,
+        margin: '0 auto',
+    },
+    [theme.breakpoints.down('sm')]: {
+        width: 260,
     },
 }))
 
@@ -31,43 +31,45 @@ const MainCardItem = styled(Grid)(({ theme }) => ({
     alignItems: 'center',
     flexDirection: 'column',
     textAlign: 'center',
+    justifyContent: 'center',
     [theme.breakpoints.down('md')]: {
-        paddingTop: 10,
-    },
-}))
-
-const InfoImg = styled('img')(({ theme }) => ({
-    position: 'absolute',
-    top: 300,
-    marginLeft: '-40px',
-    [theme.breakpoints.down('md')]: {
-        opacity: 0
+        padding: 20,
     },
 }))
 
 const BoxText = styled(Box)(({ theme }) => ({
-    marginTop: 40,
-    marginBottom: 40,
+    marginTop: 20,
+    marginBottom: 20,
     [theme.breakpoints.down('md')]: {
         marginTop: 10,
         marginBottom: 10
     },
 }))
 
-const CardPerson: React.FC<CardPersonProps> = ({ img, description, infoImg, tag, name }) => {
+const Img = styled('img')(({ theme }) => ({
+    width: '100%',
+    height: '100%',
+    borderTopLeftRadius: 25,
+    objectFit: 'cover',
+    [theme.breakpoints.down('md')]: {
+        height: 300
+    },
+}))
+
+
+const CardPerson: React.FC<CardPersonProps> = ({ img, description, tag, name }) => {
     return (
         <MainCardBox>
-            <Grid container>
-                <Grid item lg={6} xl={6} md={7}>
-                    <img src={img} style={{ width: '100%' }} />
-                    <InfoImg src={infoImg} />
+            <Grid container sx={{ minHeight: 550 }}>
+                <Grid item lg={6} xl={6} md={6} sm={12}>
+                    <Img src={img} />
                 </Grid>
-                <MainCardItem item lg={6} xl={6} md={5}>
-                    <MyText variant="h6">{tag}</MyText>
+                <MainCardItem item lg={6} xl={6} md={6} sm={12}>
+                    <MyText variant="h5" sm={25} sx={{ color: '#EB5757' }}>{name}</MyText>
                     <BoxText>
-                        <MyText variant="h3" sm={25} sx={{ color: '#01996D', fontWeight: 'bold' }}>{name}</MyText>
+                        <MyText variant="h6">{tag}</MyText>
                     </BoxText>
-                    <MyText variant="body1">{description}</MyText>
+                    <MyText variant="h6">{description}</MyText>
                 </MainCardItem>
             </Grid>
         </MainCardBox>

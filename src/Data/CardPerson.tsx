@@ -1,10 +1,10 @@
 const CardPerson = [
     {
-        img: '/img/Element/Image.png',
+        img: 'img/Element/Rectangle451.png',
         name: 'Айсен Сергеевич Николаев',
         tag: 'Глава Республики Саха',
         description: 'Для достижения целевых показателй реализации национальных проектов нам требуется перейти от штабных решений на современое и эффективное управление   ',
-        infoImg: '/img/Element/Card.png'
+        infoImg: '/img/Element/Rectangle451.png'
     },
     {
         img: '',

@@ -10,7 +10,7 @@ const MyContainer: React.FC<MyContainerProps> = ({ children, wrapper, bgImg, lg,
         backgroundImage: `url(/img/${bgImg}.png)`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        minHeight: minHeight ? minHeight : 600,
+        minHeight: minHeight ? minHeight : 100,
         [theme.breakpoints.down('lg')]: {
             minHeight:
                 lg ?
@@ -38,7 +38,7 @@ const MyContainer: React.FC<MyContainerProps> = ({ children, wrapper, bgImg, lg,
         },
     }))
     const CustomContainer = styled(Container)(({ theme }) => ({
-        minHeight: minHeight ? minHeight : 800,
+        minHeight: minHeight ? minHeight : 100,
         [theme.breakpoints.down('lg')]: {
             minHeight:
                 lg ?

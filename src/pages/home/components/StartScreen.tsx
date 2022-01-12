@@ -5,40 +5,86 @@ import { styled } from '@mui/system'
 
 import { MyButton, MyContainer } from '../../../components'
 
-const TitleBox = styled(Grid)(({ theme }) => ({
-
-}))
-
 const Title = styled(Typography)(({ theme }) => ({
     color: 'white',
-    fontFamily: 'serif',
+    fontFamily: 'sans-serif',
     fontWeight: 'bold',
+    fontStyle: 'normal',
     [theme.breakpoints.down('sm')]: {
-        fontSize: 30
+        fontSize: 30,
+        textAlign: 'center'
     },
 }))
 
-const Description = styled(Typography)(({ theme }) => ({
-    color: 'black',
-    marginTop: 40,
-    marginBottom: 30
+const GridItem = styled(Grid)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    [theme.breakpoints.down('sm')]: {
+        display: 'none'
+    },
+}))
+
+const GridItemShow = styled(Grid)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    [theme.breakpoints.down('sm')]: {
+        marginBottom: '-100px',
+        marginTop: '-50px'
+    },
+}))
+
+const GridItemColumn = styled(Grid)(({ theme }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    [theme.breakpoints.down('sm')]: {
+        display: 'none'
+    },
+}))
+
+const Img = styled('img')(({ theme }) => ({
+    width: '95%',
+    [theme.breakpoints.down('sm')]: {
+        width: '100%'
+    },
 }))
 
 const StartScreen: React.FC = () => {
 
     return (
-        <MyContainer wrapper={true} md={500} sx={{ bgcolor: 'rgba(73, 221, 197, 0.46)', display: 'flex', alignItems: 'center' }}>
-            <TitleBox lg={6} xl={6} md={8} sm={12} xs={12} item>
-                <Title variant="h3">
+        <MyContainer wrapper={true} md={500} sx={{ bgcolor: '#49DDC5', pb: 5 }}>
+            <Box
+                sx={{
+                    pt: 5,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    alignItems: 'center'
+                }}
+            >
+                <Title variant="h4">
                     СКРИНИНГ И РАННЯЯ
                     ДИАГНОСТИКА
                     РАКА В ЯКУТИИ
                 </Title>
-                <Description variant="body1">
-                    В рамках реализации национального проекта «Здравоохранение» Якутским республиканским онкологическим диспансером разработан пилотный проект «ОНКОПОИСКСАХА.РФ»
-                </Description>
-                <MyButton sx={{ bgcolor: '#01996D' }}>Читать далее</MyButton>
-            </TitleBox>
+                <Grid container sx={{ mt: 5 }}>
+                    <GridItemShow item lg={3} xl={3} md={3} sm={3} xs={12}>
+                        <img style={{ width: '120%', marginTop: 30 }} src="/img/Element/Frame1.png" />
+                    </GridItemShow>
+                    <GridItemColumn item lg={3} xl={3} md={3} sm={3} xs={12}>
+                        <Img src="/img/Element/Frame2.png" />
+                        <Img sx={{ mt: 1 }} src="/img/Element/Frame3.png" />
+                    </GridItemColumn>
+                    <GridItem item lg={3} xl={3} md={3} sm={3} xs={12}>
+                        <Img src="/img/Element/Frame4.png" />
+                    </GridItem>
+                    <GridItem item lg={3} xl={3} md={3} sm={3} xs={12}>
+                        <Img src="/img/Element/Frame5.png" />
+                    </GridItem>
+                </Grid>
+            </Box>
         </MyContainer>
     )
 }

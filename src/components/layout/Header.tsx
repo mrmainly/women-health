@@ -49,8 +49,8 @@ const BoxLogin = styled(Box)(({ theme }) => ({
 }))
 
 const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
-    fontSize: 22,
-    width: 180,
+    fontSize: 20,
+    width: 160,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'

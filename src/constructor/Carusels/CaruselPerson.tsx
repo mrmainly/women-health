@@ -20,12 +20,13 @@ const CaruselPerson = () => {
         <Box style={{ overflow: 'hidden', }}>
             <Slider {...settings} >
                 {CardPersonData ? CardPersonData.map((item, index) => (
-                    <Box style={{ margin: '0 auto' }} key={index}>
+                    <Box sx={{ pt: 2, pb: 2 }} key={index}>
                         <CardPerson img={item.img} description={item.description} infoImg={item.infoImg} tag={item.tag} name={item.name} />
                     </Box>
-                )) : ''}
-            </Slider>
-        </Box>
+                )) : ''
+                }
+            </Slider >
+        </Box >
     )
 }
 

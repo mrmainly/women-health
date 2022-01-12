@@ -18,7 +18,7 @@ const SixCaruselScreen = () => {
         slidesToShow: 1,
     };
     return (
-        <MyContainer wrapper={false} minHeight={600} sx={{ display: 'flex', alignItems: 'center', mb: 20 }}>
+        <MyContainer wrapper={false} sx={{ display: 'flex', alignItems: 'center', mb: 8 }}>
             <Box style={{ overflow: 'hidden', }}>
                 <CaruselPerson />
             </Box>

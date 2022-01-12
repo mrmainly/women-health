@@ -24,6 +24,11 @@ const CardSurveyCaruselList = [
         img: 'breath',
         label: 'Скрининг рака шеки матки',
         link: '/cervix'
+    },
+    {
+        img: 'prostata',
+        label: 'Скрининг рака простаты',
+        link: '/prostate'
     }
 ]
 
