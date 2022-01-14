@@ -25,7 +25,7 @@ const TitleScreen: React.FC<TitleScreenProps> = ({ color, variant, children, wid
     return (
         <Root>
             <MyText variant={variant} sx={{ color: color, width: width, fontWeight: 'normal' }}>{children}</MyText>
-            <MyText variant="body1">
+            <MyText variant="body1" sx={{ mt: 1 }}>
                 {description}
             </MyText>
         </Root>

@@ -6,9 +6,9 @@ import { Box, Card, CardMedia, MenuItem } from '@mui/material'
 import { CaruselSurveyProps } from '../../interface'
 import { MyText, MyLink } from '..'
 
-const CardRoot = styled(Card)(({ theme }) => ({
+const CardRoot = styled(Box)(({ theme }) => ({
     width: 342,
-    height: 430,
+    height: 400,
     margin: '0 auto',
     display: 'flex',
     flexDirection: 'column',
@@ -35,12 +35,11 @@ const Box1 = styled(Box)(({ theme }) => ({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    height: '50%'
+    height: 210
 }))
 
 const Box2 = styled(Box)(({ theme }) => ({
     height: '50%',
-    background: '#F3F8FF',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
@@ -56,8 +55,8 @@ const CardSurveyCarusel: React.FC<CaruselSurveyProps> = ({ img, link, label }) =
                 <CardImg image={`/img/Element/${img}.png`} />
             </Box1>
             <Box2>
-                <MyText variant="h4" sm={25}>{label}</MyText>
-                <MyLink href={link} sx={{ mt: 2, color: '#6658EA' }}><MenuItem>перейти к тестированию</MenuItem></MyLink>
+                <MyText variant="h6" sm={25}>{label}</MyText>
+                <MyLink href={link} sx={{ mt: 2, color: '#EB5757' }}><MenuItem>перейти</MenuItem></MyLink>
             </Box2>
         </CardRoot>
     )
