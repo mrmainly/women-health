@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { MyContainer, MyText, Input, Form, MyButton } from '../../components'
+import { PageHeaderText } from '../../constructor'
 import { Box, TextField } from '@mui/material'
 import { styled } from '@mui/system'
 
@@ -9,14 +10,8 @@ const Root = styled(Box)(({ theme }) => ({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
-    borderRadius: 30,
-    background: 'radial-gradient(112.51% 225.51% at 3.04% 6.02%, rgba(1, 153, 109, 0.5) 0%, rgba(4, 163, 117, 0) 100%), radial-gradient(39.2% 112.64% at 82.34% 110.89%, rgba(1, 153, 109, 0.5) 0%, rgba(4, 163, 117, 0) 100%), #245852;',
     minHeight: 600,
-    paddingLeft: 150,
-    paddingRight: 150,
-    paddingTop: 50,
-    paddingBottom: 50,
-    color: 'white',
+    color: 'black',
     [theme.breakpoints.down('md')]: {
         paddingRight: 20,
         paddingLeft: 20
@@ -27,40 +22,79 @@ const Root = styled(Box)(({ theme }) => ({
     },
 }))
 
-const Line = styled(Box)(({ theme }) => ({
-    width: 100,
-    height: 3,
-    backgroundColor: 'white',
+const InputBox = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
+    width: '100%',
     [theme.breakpoints.down('sm')]: {
-        width: 20
+        flexDirection: 'column'
+    },
+}))
+
+const BoxInfo = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    width: '100%',
+    [theme.breakpoints.down('sm')]: {
+        flexDirection: 'column',
+        marginTop: 20
+    },
+}))
+
+const BoxInfoWrapper = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    width: '100%',
+    marginTop: 80,
+    marginBottom: 40,
+    [theme.breakpoints.down('sm')]: {
+        flexDirection: 'column',
+    },
+}))
+
+const InputCustom = styled(Input)(({ theme }) => ({
+    width: '45%',
+    [theme.breakpoints.down('sm')]: {
+        width: '100%'
     },
 }))
 
 const FormFeedBack = () => {
     return (
         <Box sx={{ textAlign: 'center', mt: 8, mb: 8 }}>
-            <MyText variant="h3">Остались вопросы?</MyText>
-            <MyText variant="body1" sx={{ mt: 4, mb: 4, }}>ответим на дополнительные вопросы в специальной форме, там же можно написать отзыв об платформе и поделится рекомендациями по улучшению сервиса.</MyText>
+            <PageHeaderText showLine={false} titleSize="h2" title="Остались вопросы?" description='ответим на дополнительные вопросы в специальной форме, там же можно написать отзыв об платформе и поделится рекомендациями по улучшению сервиса.' tag="СВЯЖИТЕСЬ С НАМИ" />
             <Root>
-                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Line></Line>
-                    <MyText variant="h4" sx={{ ml: 2, mr: 2 }} sm={25}>Обратная связь</MyText>
-                    <Line></Line>
-                </Box>
-                <Input label="ФИО пользователя" sx={{ bgcolor: 'white', borderRadius: 1, mt: 8 }} />
-                <Input label="ФИО пользователя" sx={{ bgcolor: 'white', borderRadius: 1, }} />
-                <Input label="ФИО пользователя" sx={{ bgcolor: 'white', borderRadius: 1 }} />
-                <TextField
-                    label="ФИО пользователя"
-                    fullWidth
+                <BoxInfoWrapper>
+                    <BoxInfo>
+                        <img src="/img/Element/Message_duotone.png" />
+                        <MyText sx={{ fontWeight: '600' }}>НАПИШИТЕ НАМ</MyText>
+                        <MyText>Мы ответим в течернии ~24 часов</MyText>
+                    </BoxInfo>
+                    <BoxInfo>
+                        <img src="/img/Element/Vector189.png" />
+                        <MyText sx={{ fontWeight: '600', mt: 2 }}>НАПИШИТЕ НАМ</MyText>
+                        <MyText>8-18 в течении дня</MyText>
+                    </BoxInfo>
+                </BoxInfoWrapper>
+                <InputBox>
+                    <InputCustom label="Ваше имя" variant="standard" />
+                    <InputCustom label="Ваша почта" variant="standard" />
+                </InputBox>
+                <Input
+                    label="Ваше сообщение"
+                    variant="outlined"
                     rows={10}
                     id="outlined-multiline-static"
                     multiline
-                    margin='normal'
                     sx={{ bgcolor: 'white', borderRadius: 1 }}
                 />
-                <MyButton sx={{ mt: 2, bgcolor: 'white', color: 'black', fontSize: 20 }}>Отправить</MyButton>
-                <MyText variant="h6" sx={{ mt: 2, }}>Я согласен с условиями обработки персональных данных</MyText>
+                <MyButton sx={{ mt: 2, bgcolor: '#EB5757', color: 'white', fontSize: 16 }}>Отправить сообщение</MyButton>
             </Root>
         </Box>
     )

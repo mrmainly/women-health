@@ -1,22 +1,19 @@
 import React from 'react'
 
 import { MyContainer } from '../../components'
-import { FormFeedBack } from '../../constructor'
+import { FormFeedBack, PageHeaderText } from '../../constructor'
 
-import FaqPageHeader from './components/FaqPageHeader'
 import FaqTextInfoScreen from './components/FaqTextInfoScreen'
 import FaqQuestionScreen from './components/FaqQuestionsScreen'
 
 const Faq = () => {
     return (
-        <div style={{ marginBottom: 50 }}>
-            <FaqPageHeader />
-            <MyContainer wrapper={false}>
-                <FaqTextInfoScreen />
-                <FaqQuestionScreen />
-                <FormFeedBack />
-            </MyContainer>
-        </div>
+        <MyContainer wrapper={false} sx={{ marginTop: 8 }}>
+            <PageHeaderText showLine={true} titleSize="h2" title="“Вопрос - Ответ”" description='Здесь мы решили написать ответы на популярные вопросы, связанные с работой сервиса и темой скрининга.' tag="РУБРИКА" />
+            {/* <FaqTextInfoScreen /> */}
+            <FaqQuestionScreen />
+            <FormFeedBack />
+        </MyContainer>
     )
 }
 

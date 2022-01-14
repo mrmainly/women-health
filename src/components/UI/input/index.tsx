@@ -8,7 +8,6 @@ export default forwardRef<HTMLInputElement, InputProps>(function Input(props, re
     return (
         <TextField
             margin="normal"
-            variant="outlined"
             fullWidth
             inputRef={ref}
             {...props}

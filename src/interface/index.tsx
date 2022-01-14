@@ -95,14 +95,19 @@ interface FormProps {
 interface InputProps {
     ref: any,
     label?: string,
-    sx?: any
+    sx?: any,
+    variant: any,
+    rows?: number,
+    id?: any,
+    multiline?: any
 }
 
 interface PageHeaderTextProps {
     title: any,
     description?: string,
     titleSize: any,
-    tag: string
+    tag: string,
+    showLine?: boolean,
 }
 
 interface ArrowNextProps {

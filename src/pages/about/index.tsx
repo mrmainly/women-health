@@ -15,6 +15,20 @@ const About = () => {
             <ThreeScreen />
             <FourScreenUsefulLinks />
             <SixSurveyCaruselScreen />
+            {/* <div style={{
+                background: 'url(/img/Element/logo2.png)',
+                width: 100,
+                height: 100,
+                borderRadius: '50%',
+                border: '1px solid black',
+                backgroundRepeat: 'no-repeat',
+                backgroundOrigin: 'content-box',
+                backgroundPosition: 'center',
+                backgroundSize: 80,
+                padding: 10
+            }}>
+
+            </div> */}
         </div>
     )
 }

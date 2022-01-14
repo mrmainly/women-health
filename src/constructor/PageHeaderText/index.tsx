@@ -25,14 +25,33 @@ const TextBox = styled(Box)(({ theme }) => ({
     },
 }))
 
-const PageHeaderText: React.FC<PageHeaderTextProps> = ({ title, description, titleSize, tag, ...props }) => {
+const DescriptionBox = styled(Box)(({ theme }) => ({
+    width: '60%',
+    [theme.breakpoints.down('md')]: {
+        width: '100%'
+    },
+}))
+
+const Line = styled(Box)(({ theme }) => ({
+    width: 100,
+    backgroundColor: '#F2C94C',
+    height: 5,
+    marginTop: 100
+}))
+
+const PageHeaderText: React.FC<PageHeaderTextProps> = ({ title, description, titleSize, tag, showLine, ...props }) => {
     return (
         <TitleBox {...props}>
             <MyText variant="body1" sx={{ color: '#EB5757' }}>{tag}</MyText>
             <TextBox>
                 <MyText variant={titleSize} sm={30} sx={{ fontWeight: 600 }}>{title}</MyText>
             </TextBox>
-            <MyText variant="body1" sx={{ fontStyle: 'normal', mt: 1 }}>{description}</MyText>
+            <DescriptionBox>
+                <MyText variant="body1" sx={{ fontStyle: 'normal', mt: 2, color: '#575A7B' }}>{description}</MyText>
+            </DescriptionBox>
+            {showLine &&
+                <Line></Line>
+            }
         </TitleBox>
     )
 }
