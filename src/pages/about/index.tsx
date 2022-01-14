@@ -14,7 +14,6 @@ const About = () => {
             <TwoCaruselScreen />
             <ThreeScreen />
             <FourScreenUsefulLinks />
-            <FiveScreen />
             <SixSurveyCaruselScreen />
         </div>
     )

@@ -13,18 +13,22 @@ const Hr = styled(Box)(() => ({
 
 }))
 
+const Root = styled(Box)(() => ({
+    textAlign: 'center',
+    display: 'flex',
+    alignItems: 'center',
+    justofyContent: 'center',
+    flexDirection: 'column'
+}))
+
 const TitleScreen: React.FC<TitleScreenProps> = ({ color, variant, children, width, description }) => {
     return (
-        <Box style={{ textAlign: 'center' }}>
-            <Box style={{ display: 'flex', alignItems: 'center', marginTop: 30, textAlign: 'center' }}>
-                <Hr />
-                <MyText variant={variant} sx={{ color: color, width: width, fontWeight: 'normal' }}>{children}</MyText>
-                <Hr />
-            </Box>
+        <Root>
+            <MyText variant={variant} sx={{ color: color, width: width, fontWeight: 'normal' }}>{children}</MyText>
             <MyText variant="body1">
                 {description}
             </MyText>
-        </Box>
+        </Root>
     )
 }
 
