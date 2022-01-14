@@ -70,7 +70,6 @@ const Gut = () => {
                 wrapper={false}
                 minHeight={600}
             >
-                <TitleScreen variant="h4" width={900} description='“Регистрация - Тестирование - Осмотр”'>Берегите здоровье!</TitleScreen>
                 <CaruselSurvey />
             </MyContainer>
         </div>

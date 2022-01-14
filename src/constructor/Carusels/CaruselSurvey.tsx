@@ -4,6 +4,7 @@ import { Box } from '@mui/material'
 import Slider from 'react-slick'
 
 import { CardSurveyCarusel, ArrowPrev, ArrowNext } from '../../components'
+import { TitleScreen } from '..'
 import CardSurveyCaruselList from '../../Data/CardSurveyCaruselList'
 
 const CaruselSurvey = () => {
@@ -35,6 +36,7 @@ const CaruselSurvey = () => {
     })
     return (
         <Box style={{ overflow: 'hidden', }}>
+            <TitleScreen variant="h4" width={1200} description='“Регистрация - Тестирование - Осмотр”'>Берегите здоровье!</TitleScreen>
             <Slider {...settings}>
                 {CardSurveyCaruselList ? CardSurveyCaruselList.map((item, index) => (
                     <CardSurveyCarusel key={index} img={item.img} label={item.label} link={item.link} />
