@@ -48,11 +48,14 @@ const BoxText = styled(Box)(({ theme }) => ({
 
 const Img = styled('img')(({ theme }) => ({
     width: '100%',
-    height: '100%',
+    height: 550,
     borderTopLeftRadius: 25,
     objectFit: 'cover',
     [theme.breakpoints.down('md')]: {
         height: 300
+    },
+    [theme.breakpoints.down('sm')]: {
+        width: 260
     },
 }))
 

@@ -63,19 +63,17 @@ const FiveScreen: React.FC = () => {
     ]
     return (
         <MyContainer wrapper={false} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 8, mb: 8 }}>
-            <PageHeaderText titleSize="h3" title="Ваше здоровье - для нас важно!" description="Мы заботимся о вас, поэтому создали максимально простую и эффективную систему скрининга." />
+            <PageHeaderText tag="О нас" titleSize="h3" title="Ваше здоровье - для нас важно!" description="Мы заботимся о вас, поэтому создали максимально простую и эффективную систему скрининга." />
             <Grid container sx={{ mt: 8, display: 'flex', justifyContent: 'center' }} >
-                {
-                    cardList.map(item => (
-                        <Grid item key={item.title} lg={4} xl={4} xs={11} md={4} sm={12} sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-                            <CardItem>
-                                <Circle><MyText variant="h4" sx={{ fontFamily: 'serif' }}>{item.number}</MyText></Circle>
-                                <MyText variant="h4" sx={{ fontWeight: 400, fontStyle: 'normal' }}>{item.title}</MyText>
-                                <MyText variant="body2" sx={{ mt: 2 }}>{item.description}</MyText>
-                            </CardItem>
-                        </Grid>
-                    ))
-                }
+                {cardList.map(item => (
+                    <Grid item key={item.title} lg={4} xl={4} xs={11} md={4} sm={12} sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+                        <CardItem>
+                            <Circle><MyText variant="h4" sx={{ fontFamily: 'serif' }}>{item.number}</MyText></Circle>
+                            <MyText variant="h4" sx={{ fontWeight: 400, fontStyle: 'normal' }}>{item.title}</MyText>
+                            <MyText variant="body2" sx={{ mt: 2 }}>{item.description}</MyText>
+                        </CardItem>
+                    </Grid>
+                ))}
             </Grid>
         </MyContainer >
     )

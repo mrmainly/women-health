@@ -20,6 +20,9 @@ import SurveysListScreen from "./screens/SurveysListScreen"
 import { Form } from './UI/form'
 import Input from './UI/input'
 
+import ArrowNext from './arrows/ArrowNext'
+import ArrowPrev from './arrows/ArrowPrev'
+
 export {
     Layout,
     MyButton,
@@ -42,4 +45,7 @@ export {
 
     Input,
     Form,
+
+    ArrowNext,
+    ArrowPrev
 }

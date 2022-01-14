@@ -100,8 +100,21 @@ interface InputProps {
 
 interface PageHeaderTextProps {
     title: any,
-    description: string,
-    titleSize: any
+    description?: string,
+    titleSize: any,
+    tag: string
+}
+
+interface ArrowNextProps {
+    onClick?: any,
+    className?: any,
+    style?: any
+}
+
+interface ArrowPrevProps {
+    onClick?: any,
+    className?: any,
+    style?: any
 }
 
 export type {
@@ -118,5 +131,7 @@ export type {
     InfoBlockScreenProps,
     FormProps,
     InputProps,
-    PageHeaderTextProps
+    PageHeaderTextProps,
+    ArrowNextProps,
+    ArrowPrevProps
 }

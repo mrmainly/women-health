@@ -2,6 +2,7 @@ import React from 'react'
 import { Grid, Box, Container } from '@mui/material'
 
 import { MyText, MyContainer } from '../../../components'
+import { PageHeaderText } from '../../../constructor'
 import { styled } from '@mui/system'
 
 const Img = styled('img')(({ theme }) => ({
@@ -30,10 +31,7 @@ const TextBox = styled(Box)(({ theme }) => ({
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    [theme.breakpoints.down('lg')]: {
-        paddingTop: 80,
-
-    },
+    paddingTop: 80
 }))
 
 const ImgBox = styled(Grid)(({ theme }) => ({
@@ -67,17 +65,12 @@ const StartScreen = () => {
     return (
         <MyContainer wrapper={false}>
             <TextBox>
-                <MyText variant="h6" sx={{ color: '' }}>Наша миссия</MyText>
-                <MyText variant="h3" sm={25} sx={{ mt: 1 }}>
-                    СКРИНИНГ И РАННЯЯ
-                    ДИАГНОСТИКА РАКА
-                    В ЯКУТИИ
-                </MyText>
+                <PageHeaderText title="СКРИНИНГ И РАННЯЯ ДИАГНОСТИКА РАКА В ЯКУТИИ" titleSize="h2" tag="Наша миссия" />
                 <Grid container style={{ marginTop: 80 }}>
                     {data.map(item => (
                         <Grid item lg={3} xl={3} md={3} sm={3} xs={6} key={item.number}>
-                            <MyText variant="h5">{item.number}</MyText>
-                            <MyText variant="body1">{item.description}</MyText>
+                            <MyText variant="h4" sx={{ fontWeight: 600 }}>{item.number}</MyText>
+                            <MyText variant="body1" sx={{ width: '95%' }}>{item.description}</MyText>
                         </Grid>
                     ))}
                 </Grid>

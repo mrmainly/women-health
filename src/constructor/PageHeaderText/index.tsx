@@ -25,12 +25,12 @@ const TextBox = styled(Box)(({ theme }) => ({
     },
 }))
 
-const PageHeaderText: React.FC<PageHeaderTextProps> = ({ title, description, titleSize, ...props }) => {
+const PageHeaderText: React.FC<PageHeaderTextProps> = ({ title, description, titleSize, tag, ...props }) => {
     return (
         <TitleBox {...props}>
-            <MyText variant="body1" sx={{ color: '#EB5757' }}>О НАС</MyText>
+            <MyText variant="body1" sx={{ color: '#EB5757' }}>{tag}</MyText>
             <TextBox>
-                <MyText variant={titleSize} sm={30}>{title}</MyText>
+                <MyText variant={titleSize} sm={30} sx={{ fontWeight: 600 }}>{title}</MyText>
             </TextBox>
             <MyText variant="body1" sx={{ fontStyle: 'normal', mt: 1 }}>{description}</MyText>
         </TitleBox>

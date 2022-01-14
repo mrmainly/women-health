@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Box } from '@mui/material'
 import Slider from 'react-slick'
 
-import { CardUsefulLinks } from '../../components'
+import { CardUsefulLinks, ArrowPrev, ArrowNext } from '../../components'
 import { TitleScreen } from '..'
 import CardUsefulLinksList from '../../Data/CardUsefulLinksList'
 
@@ -17,6 +17,8 @@ const CaruselUsefulLinks = () => {
         slidesToScroll: 1,
         slidesToShow,
         Infinity: true,
+        nextArrow: <ArrowNext />,
+        prevArrow: <ArrowPrev />
     };
     React.useEffect(() => {
         function handleResize() {
@@ -35,9 +37,9 @@ const CaruselUsefulLinks = () => {
     return (
         <Box style={{ overflow: 'hidden', }}>
             <TitleScreen variant="h4" sx={{ mb: 5 }} color="#245852" width={900} description='на партнеров проекта'>Полезные ссылки </TitleScreen>
-            <Slider {...settings} >
+            <Slider {...settings}>
                 {CardUsefulLinksList ? CardUsefulLinksList.map((item, index) => (
-                    <Box style={{ margin: '0 auto' }} key={index}>
+                    <Box key={index}>
                         <CardUsefulLinks img={item.img} description={item.description} link={item.link} />
                     </Box>
                 )) : ''}

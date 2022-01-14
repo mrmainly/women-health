@@ -12,7 +12,8 @@ const CardRoot = styled(Box)({
     alignItems: 'center',
     textAlign: 'center',
     width: '80%',
-    margin: '0 auto'
+    margin: '0 auto',
+    minHeight: 250,
 })
 
 const CardUsefulLinks: React.FC<CardUsefulLinksProps> = ({ img, link, description }) => {

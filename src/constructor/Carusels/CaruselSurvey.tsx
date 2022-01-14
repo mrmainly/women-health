@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Box } from '@mui/material'
 import Slider from 'react-slick'
 
-import { CardSurveyCarusel } from '../../components'
+import { CardSurveyCarusel, ArrowPrev, ArrowNext } from '../../components'
 import CardSurveyCaruselList from '../../Data/CardSurveyCaruselList'
 
 const CaruselSurvey = () => {
@@ -16,6 +16,8 @@ const CaruselSurvey = () => {
         slidesToScroll: 1,
         slidesToShow,
         Infinity: true,
+        nextArrow: <ArrowNext />,
+        prevArrow: <ArrowPrev />
     };
     React.useEffect(() => {
         function handleResize() {

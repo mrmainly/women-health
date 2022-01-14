@@ -11,9 +11,6 @@ const ThreeScreen = () => {
     return (
         <MyContainer wrapper={false} sx={{ mt: 10 }}>
             <Box style={{ textAlign: 'center' }}>
-                <MyText variant="h4" sm={20} md={30} sx={{ color: '#245852' }}>В рамках реализации национального проекта «Здравоохранение»
-                    Якутским республиканским онкологическим диспансером
-                    разработан пилотный проект «ОНКОПОИСКСАХА.РФ»</MyText>
                 <TitleScreen variant="h5" color="#245852" width={300}>О проекте</TitleScreen>
                 <Box style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', marginTop: 30 }}>
                     {CardAboutList.map((item, index) => (
