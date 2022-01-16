@@ -2,32 +2,32 @@
 const CardSurveyCaruselList = [
     {
         img: 'liver',
-        label: 'Скриниг Рака печени',
+        label: 'Быары чинчийии',
         link: '/liver'
     },
     {
         img: 'gut',
-        label: 'Скриниг рака ободочной кишки',
+        label: 'Суон оһоҕоһу чинчийии.',
         link: '/gut'
     },
     {
         img: 'breath',
-        label: 'Скрининг рака лекгих',
+        label: 'Тыҥаны чинчийии',
         link: '/breath'
     },
     {
         img: 'breast',
-        label: 'Скрининг рака молочной железы',
+        label: 'Эмиийи чинчийии',
         link: '/breast'
     },
     {
         img: 'cervix',
-        label: 'Скрининг рака шеки матки',
+        label: 'Киэли хапчаҕайын чинчийии',
         link: '/cervix'
     },
     {
         img: 'prostata',
-        label: 'Скрининг рака простаты',
+        label: 'Самах былчархайын чинчийии',
         link: '/prostate'
     }
 ]

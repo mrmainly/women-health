@@ -68,33 +68,33 @@ const InputCustom = styled(TextField)(({ theme }) => ({
 const FormFeedBack = () => {
     return (
         <Box sx={{ textAlign: 'center', mt: 8, mb: 8 }}>
-            <PageHeaderText showLine={false} titleSize="h2" title="Остались вопросы?" description='ответим на дополнительные вопросы в специальной форме, там же можно написать отзыв об платформе и поделится рекомендациями по улучшению сервиса.' tag="СВЯЖИТЕСЬ С НАМИ" />
+            <PageHeaderText showLine={false} titleSize="h2" title="Эбии ыйытыылааххын дуо?" description='Өскөтө эбии ыйытыылар баар буоллахтарына аналлаах сиргэ суруйуоххутун сөп, эмиэ онно бырайыак туһунан бэйэҕит санааҕытын суруйуоххутун, хайдах тупсарыахха сөбүгэр бэйэҕит этиигитин ыытыаххытын сөп.' tag="БИҺИЭХЭ ТАХСЫЫ" />
             <Root>
                 <BoxInfoWrapper>
                     <BoxInfo>
                         <img src="/img/Element/Message_duotone.png" />
-                        <MyText sx={{ fontWeight: '600' }}>НАПИШИТЕ НАМ</MyText>
-                        <MyText>Мы ответим в течернии ~24 часов</MyText>
+                        <MyText sx={{ fontWeight: '600' }}>Биһиэхэ суруйуҥ</MyText>
+                        <MyText>24 чаас иһигэр хоруйдуурга бэлэммит</MyText>
                     </BoxInfo>
                     <BoxInfo>
                         <img src="/img/Element/Vector189.png" />
-                        <MyText sx={{ fontWeight: '600', mt: 2 }}>НАПИШИТЕ НАМ</MyText>
-                        <MyText>8-18 в течении дня</MyText>
+                        <MyText sx={{ fontWeight: '600', mt: 2 }}>ТӨЛӨПҮӨННЭЭҤ</MyText>
+                        <MyText>Сарсыарда 08:00 киэһэ 18:00 диэри</MyText>
                     </BoxInfo>
                 </BoxInfoWrapper>
                 <InputBox>
-                    <InputCustom label="Ваше имя" variant="standard" />
-                    <InputCustom label="Ваша почта" variant="standard" />
+                    <InputCustom label="Аатыҥ-суолуҥ" variant="standard" />
+                    <InputCustom label="Почтаҥ" variant="standard" />
                 </InputBox>
                 <Input
-                    label="Ваше сообщение"
+                    label="Этииҥ"
                     variant="outlined"
                     rows={10}
                     id="outlined-multiline-static"
                     multiline
                     sx={{ bgcolor: 'white', borderRadius: 1 }}
                 />
-                <MyButton sx={{ mt: 2, bgcolor: '#EB5757', color: 'white', fontSize: 16 }}>Отправить сообщение</MyButton>
+                <MyButton sx={{ mt: 2, bgcolor: '#EB5757', color: 'white', fontSize: 16 }}>Ыытарга</MyButton>
             </Root>
         </Box>
     )

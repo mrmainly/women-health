@@ -65,9 +65,7 @@ const StartScreen: React.FC = () => {
                 }}
             >
                 <Title variant="h4">
-                    СКРИНИНГ И РАННЯЯ
-                    ДИАГНОСТИКА
-                    РАКА В ЯКУТИИ
+                    САХА СИРИГЭР РААГЫ ЭРДЭ БИЛИИ, ДИАГНОЗ ТУРУОРУУ
                 </Title>
                 <Grid container sx={{ mt: 5 }}>
                     <GridItemShow item lg={3} xl={3} md={3} sm={3} xs={12}>

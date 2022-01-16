@@ -38,11 +38,11 @@ const Span = styled('span')({
 const TwoScreen = () => {
     const data = [
         {
-            label: ' Главный врач:',
+            label: 'Сүрүн быраас:',
             span: 'Афанасьева Лена Николаевна'
         },
         {
-            label: 'Адрес:',
+            label: 'Аадырыс:',
             span: 'г. Якутск, ул. Стадухина 81 корп. 1'
         },
         {
@@ -50,19 +50,19 @@ const TwoScreen = () => {
             span: 'yarod@gov14.ru'
         },
         {
-            label: 'Факс:',
+            label: 'Приемнай:',
             span: '(4112) 43-21-63'
         },
         {
-            label: 'Сайт:',
+            label: 'Сaайт:',
             span: 'onkosakha.ru'
         },
         {
-            label: 'Круглосуточная "горячая линия":',
+            label: 'Куруук үлэлиир лииньийэ:',
             span: '89142705379'
         },
         {
-            label: 'Телефон Всероссийской горячей линии помощи онкологическим больным:',
+            label: 'Бүтүн Арассыыйатааҕы онкологияннан ыалдьааччыларга көмөлөһөр төлөпүөн:',
             span: '+7 (800) 100 01 91'
         }
     ]
@@ -73,7 +73,7 @@ const TwoScreen = () => {
                     <img src={'/img/Element/men.png'} style={{ width: '150%' }} />
                 </GridImg>
                 <GridText item lg={7} xl={7} md={7} sm={12} xs={12}>
-                    <MyText variant="h6" sm={18}>Якутский республиканский онкологический диспансер, г. Якутск ГБУ РС (Я) "Якутский республиканский онкологический диспансер"</MyText>
+                    <MyText variant="h6" sm={18}>Саха сиринээҕи Онкология диспансера, Дьокуускай куорат</MyText>
                     {data.map((item, index) => (
                         <MyText variant="h6" sm={16} sx={{ fontWeight: 'normal', mt: 1 }} key={index}>{item.label}<Span>{item.span}</Span></MyText>
                     ))}

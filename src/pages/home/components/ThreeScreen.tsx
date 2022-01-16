@@ -27,7 +27,7 @@ const ThreeScreen: React.FC = () => {
             }}
         >
             <Companys container>
-                <MyText variant="h5">ПАРТНЕРЫ ПРОЕКТА</MyText>
+                <MyText variant="h5">БЫРЫЙЫАК КЫТТЫЫЛААХТАРА</MyText>
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 3 }}>
                     {CompanyList.map((itemCompany) => (
                         <CompanyItem item key={itemCompany}>

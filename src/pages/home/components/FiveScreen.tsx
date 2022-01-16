@@ -43,19 +43,19 @@ const FiveScreen: React.FC = () => {
     const cardList = [
         {
             title: 'Регистрация',
-            description: 'Быстрая регистрация обеспечивается путем получения смс сообщений, также удобным интерфейсом с простыми формами для регистрации.',
+            description: 'Түргэн регистрация СМС көмөтүнэн уонна судургу толоруу көмөтүнэн хааччыллар.',
             bgcolor: '#245852',
             number: '1'
         },
         {
-            title: 'Анкетирование',
-            description: 'Эффективный процесс анкетирования обеспечивается благодаря проработанным анкетам, которые созданы лучшими специалистами.',
+            title: 'Анкеталааһын',
+            description: 'Анкеталары анал үөрэхтээх дьон кичэйэн оҥордулар.',
             bgcolor: '#01996D',
             number: '2'
         },
         {
-            title: 'Приём',
-            description: 'Наша система записи позволит вам быстро и удобно выбрать время приема, чтобы не стоять в очередях.',
+            title: 'Бырааска көрдөрүү',
+            description: 'Уочаракка турбаккыт туһугар бырааска суруттарыыны судургу гынныбыт',
             bgcolor: '#61D8C5',
             number: '3'
         },
@@ -63,7 +63,7 @@ const FiveScreen: React.FC = () => {
     ]
     return (
         <MyContainer wrapper={false} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', mt: 8, mb: 8 }}>
-            <PageHeaderText tag="О нас" titleSize="h3" title="Ваше здоровье - для нас важно!" description="Мы заботимся о вас, поэтому создали максимально простую и эффективную систему скрининга." />
+            <PageHeaderText tag="О нас" titleSize="h3" title="Эн туруккун билэрбит суолталаах!" description="Эһиги тускутугар кыһаллар буолан, судургу уонна туһалаах чинчийиини тэрийдибит." />
             <Grid container sx={{ mt: 8, display: 'flex', justifyContent: 'center' }} >
                 {cardList.map(item => (
                     <Grid item key={item.title} lg={4} xl={4} xs={11} md={4} sm={12} sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>

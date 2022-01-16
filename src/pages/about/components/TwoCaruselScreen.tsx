@@ -15,9 +15,7 @@ const TwoCaruselScreen = () => {
     return (
         <MyContainer wrapper={false} minHeight={600} sx={{ display: 'flex', mt: 5, flexDirection: 'column', justifyContent: 'center', textAlign: 'center' }}>
             <CaruselPerson />
-            <MyText variant="body1" sx={{ width: '90%', mt: 4 }}>В рамках реализации национального проекта «Здравоохранение»
-                Якутским республиканским онкологическим диспансером
-                разработан пилотный проект «ОНКОПОИСКСАХА.РФ»
+            <MyText variant="body1" sx={{ width: '90%', mt: 4 }}>“Доруобуйа харыстабыла” национальнай бырайыак иһинэн Саха өрөспүүбүлүкэтээҕи онкодиспансера “ОНКОПОИСК.РФ” диэн пилотнай бырайыагы оҥордо
             </MyText>
         </MyContainer>
     )

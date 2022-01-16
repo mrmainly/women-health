@@ -18,6 +18,7 @@ import Prostate from './pages/surveysInfo/prostate'
 
 import Login from './pages/auth/login'
 import Register from './pages/auth/register'
+import ForgotPassword from './pages/auth/forgotPassword'
 
 import { Layout } from './components';
 
@@ -40,6 +41,7 @@ const App = () => {
 
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="forgot" element={<ForgotPassword />} />
         </Route>
       </Routes>
     </BrowserRouter>

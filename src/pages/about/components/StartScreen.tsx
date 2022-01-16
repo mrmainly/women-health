@@ -46,26 +46,26 @@ const StartScreen = () => {
     const data = [
         {
             number: '964 330',
-            description: 'Население Республики Саха (Якутии)'
+            description: 'СӨ олохтоохторун ахсаана'
         },
         {
             number: '12 881',
-            description: 'Человек состоит на онкологическом учете в Республике Саха(Якутии)'
+            description: 'киһи СӨ онкологияҕа учуокка турар'
         },
         {
             number: '1 250',
-            description: 'Человек в среднем умирает на территории Республики Саха (Якутии) от рака'
+            description: 'СӨ сылга ортотунан рактан сылтаан өлөр'
         },
         {
             number: '24%',
-            description: 'Нселения Республики Саха(Якутии) от 50 лет и старше'
+            description: 'Өрөспүүбүлүкэ олохтоохторун 50 саастарыттан аҕа дьон'
         }
     ]
 
     return (
         <MyContainer wrapper={false}>
             <TextBox>
-                <PageHeaderText title="СКРИНИНГ И РАННЯЯ ДИАГНОСТИКА РАКА В ЯКУТИИ" titleSize="h2" tag="Наша миссия" />
+                <PageHeaderText title="Саха сиригэр элбэх киһини чинчийэн рагы эрдэ булуу" titleSize="h2" tag="Биһиги сүрүн сорукпут" />
                 <Grid container style={{ marginTop: 80 }}>
                     {data.map(item => (
                         <Grid item lg={3} xl={3} md={3} sm={3} xs={6} key={item.number}>

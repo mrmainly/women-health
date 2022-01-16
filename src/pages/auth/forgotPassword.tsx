@@ -10,7 +10,7 @@ import themeMain from '../../theme'
 
 const theme = createTheme();
 
-export default function Login() {
+export default function ForgotPassword() {
     function Copyright(props: any) {
         return (
             <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -19,7 +19,6 @@ export default function Login() {
             </Typography>
         );
     }
-
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
@@ -36,40 +35,23 @@ export default function Login() {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Вход
+                        Аһарыгы (пароль) сөргүтүү
                     </Typography>
                     <Form sx={{ mt: 1 }}>
+                        <Typography component="h1" variant="body2" style={{ marginBottom: '-10px', fontWeight: 600 }}>
+                            Бэлиэтэнэргэр ыйбыт төлөпүөнүҥ нүөмэрин киллэр.
+                        </Typography>
                         <Input
                             variant="outlined"
-                            label="Номер телефона"
-                        />
-                        <Input
-                            variant="outlined"
-                            label="Пароль"
-                        />
-                        <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
-                            label="Запомнить устройство"
+                            label="Төлөпүөнүҥ нүөмэрэ *"
                         />
                         <MyButton
                             variant="contained"
                             sx={{ mt: 3, mb: 2, width: '100%', bgcolor: themeMain.palette.primary.main, color: 'black' }}
                         >
-                            Войти
+                            Восстановить пароль
                         </MyButton>
                     </Form>
-                    <Grid container>
-                        <Grid item xs>
-                            <MyLink href="/forgot" sx={{ fontSize: 14, color: themeMain.palette.primary.main }}>
-                                Забыли пароль?
-                            </MyLink>
-                        </Grid>
-                        <Grid item>
-                            <MyLink href="/register" sx={{ fontSize: 14, color: themeMain.palette.primary.main, fontWeight: 'bold' }}>
-                                У вас нет аккаунта? Зарегистрируйтесь
-                            </MyLink>
-                        </Grid>
-                    </Grid>
                     <Copyright sx={{ mt: 2, mb: 4 }} />
                 </Box>
             </Container>

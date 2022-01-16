@@ -24,6 +24,10 @@ const BoxLogo = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
+    marginLeft: '-60px',
+    [theme.breakpoints.down('md')]: {
+        marginLeft: 0
+    },
 }))
 
 const Cuslink = styled(Link)(({ theme }) => ({
@@ -50,7 +54,7 @@ const BoxLogin = styled(Box)(({ theme }) => ({
 
 const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
     fontSize: 20,
-    width: 160,
+    minWidth: 160,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'
@@ -58,23 +62,23 @@ const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
 
 const headerData: any = [
     {
-        text: 'Вопрос&Ответ',
+        text: 'Ыйытыы/хоруй',
         link: '/faq'
     },
     {
-        text: 'О проекте',
+        text: 'Бырайыак туһунан',
         link: '/about'
     },
     {
-        text: 'Главная',
+        text: 'Сүрүн',
         link: '/'
     },
     {
-        text: 'Контакты',
+        text: 'Аадырыс',
         link: '/contacts'
     },
     {
-        text: 'Вoйти',
+        text: 'Тус хос',
         link: '/login'
     },
 ]
