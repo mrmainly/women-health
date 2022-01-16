@@ -89,7 +89,8 @@ interface InfoBlockScreenProps {
 }
 
 interface FormProps {
-    children: any
+    children: any,
+    sx?: any
 }
 
 interface InputProps {

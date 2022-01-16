@@ -9,10 +9,7 @@ const TitleBox = styled(Box)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     textAlign: 'center',
-    [theme.breakpoints.down('sm')]: {
-        flexDirection: 'column',
-        justifyContent: 'center'
-    },
+    flexDirection: 'column',
 }))
 
 const GreenLine = styled(Box)(({ theme }) => ({
@@ -34,8 +31,8 @@ const ThreeScreen: React.FC<ThreeScreenProps> = ({ data, showInfoText }) => {
     return (
         <MyContainer wrapper={false} minHeight={600}>
             <TitleBox>
-                <MyText variant="h5">Для определения группы риска просим зарегистрироваться на портале и пройти универсальный анкетный тест </MyText>
-                <MyButton color="error">Начать</MyButton>
+                <MyText variant="h6">Для определения группы риска просим зарегистрироваться на портале и пройти универсальный анкетный тест </MyText>
+                <MyButton color="error" sx={{ mt: 2 }}>Посмотреть доступные анкеты</MyButton>
             </TitleBox>
             <Grid container sx={{ mt: 10 }}>
                 <Grid item lg={6} xl={6} sm={12} md={6} xs={12}>

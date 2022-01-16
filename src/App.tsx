@@ -15,6 +15,9 @@ import Liver from './pages/surveysInfo/liver'
 import Gut from './pages/surveysInfo/gut'
 import Cervix from './pages/surveysInfo/cervix'
 
+import Login from './pages/auth/login'
+import Register from './pages/auth/register'
+
 import { Layout } from './components';
 
 const App = () => {
@@ -32,6 +35,9 @@ const App = () => {
           <Route path="liver" element={<Liver />} />
           <Route path="gut" element={<Gut />} />
           <Route path="cervix" element={<Cervix />} />
+
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
         </Route>
       </Routes>
     </BrowserRouter>

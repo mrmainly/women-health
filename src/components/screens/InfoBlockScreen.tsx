@@ -6,6 +6,8 @@ import { styled } from '@mui/system'
 import { MyContainer, MyText } from '..'
 import { InfoBlockScreenProps } from '../../interface'
 
+import themeMain from '../../theme'
+
 const RootGrid = styled(Grid)(({ theme }) => ({
     [theme.breakpoints.down('md')]: {
         paddingTop: 50,
@@ -68,7 +70,7 @@ const InfoBlockScreen: React.FC<InfoBlockScreenProps> = ({ title, description, i
         <MyContainer
             wrapper={true}
             sx={{
-                bgcolor: '#245852',
+                bgcolor: themeMain.palette.primary.main,
                 borderEndEndRadius: 50,
                 borderEndStartRadius: 50,
                 color: 'white',

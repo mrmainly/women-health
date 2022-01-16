@@ -75,7 +75,7 @@ const headerData: any = [
     },
     {
         text: 'Вoйти',
-        link: '/sad'
+        link: '/login'
     },
 ]
 

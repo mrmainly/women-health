@@ -6,7 +6,7 @@ import { Grid, Box } from '@mui/material'
 import { MyText, MyContainer } from '..'
 import { TextInfoScreenProps } from '../../interface'
 
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
 
 const YellowLine = styled(Box)({
     height: 5,
@@ -20,7 +20,8 @@ const TitleBox = styled(Box)({
     borderRadius: 5,
     color: 'white',
     minWidth: 280,
-    marginTop: 50
+    marginTop: 50,
+    textAlign: 'center'
 })
 
 
@@ -32,7 +33,7 @@ const TextInfoScreen: React.FC<TextInfoScreenProps> = ({ data, dangerText }) => 
                 display: 'flex',
                 justifyContent: 'center',
                 flexDirection: 'column',
-                textAlign: 'center',
+                textAlign: 'start',
                 alignItems: 'center',
                 mt: 10,
                 mb: 10
@@ -50,7 +51,7 @@ const TextInfoScreen: React.FC<TextInfoScreenProps> = ({ data, dangerText }) => 
                         <Box sx={{ mt: 5, display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'start' }}>
                             {item.elem.map((itemElem: any, index: number) => (
                                 <Box sx={{ display: 'flex', alignItems: 'center', mt: 2 }} key={index}>
-                                    <CheckCircleOutlineIcon />
+                                    <img src="/img/Element/Subtract.png" />
                                     <MyText variant="h6" sx={{ fontWeight: 'normal', ml: 1 }} sm={16}>{itemElem}</MyText>
                                 </Box>
                             ))}
