@@ -19,9 +19,9 @@ const TitleBox = styled(Box)({
     background: '#3FBCA6',
     borderRadius: 5,
     color: 'white',
-    minWidth: 280,
+    width: 'max-content',
     marginTop: 50,
-    textAlign: 'center'
+    textAlign: 'center',
 })
 
 
@@ -34,28 +34,30 @@ const TextInfoScreen: React.FC<TextInfoScreenProps> = ({ data, dangerText }) => 
                 justifyContent: 'center',
                 flexDirection: 'column',
                 textAlign: 'start',
-                alignItems: 'center',
                 mt: 10,
                 mb: 10
             }}
         >
-            <YellowLine></YellowLine>
+            {/* <YellowLine></YellowLine> */}
             {data.map((item: any, index: number) => (
-                <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }} key={index}>
+                <Box sx={{ display: 'flex', flexDirection: 'column' }} key={index}>
                     {item.title ?
-                        <TitleBox>
-                            <MyText variant="h5">{item.title}</MyText>
-                        </TitleBox>
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
+                            <TitleBox>
+                                <MyText variant="h5">{item.title}</MyText>
+                            </TitleBox>
+                        </div>
                         : ''}
                     {item.type == 'column' ?
-                        <Box sx={{ mt: 5, display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'start' }}>
+                        <Box sx={{ mt: 5, ml: 2, display: 'flex', justifyContent: 'center', flexDirection: 'column', textAlign: 'start' }}>
                             {item.elem.map((itemElem: any, index: number) => (
                                 <Box sx={{ display: 'flex', alignItems: 'center', mt: 2 }} key={index}>
                                     <img src="/img/Element/Subtract.png" />
                                     <MyText variant="h6" sx={{ fontWeight: 'normal', ml: 1 }} sm={16}>{itemElem}</MyText>
                                 </Box>
                             ))}
-                        </Box> :
+                        </Box>
+                        :
                         <Box>
                             {item.elem.map((itemElem: any, index: number) => (
                                 <Box key={index}>
@@ -72,7 +74,7 @@ const TextInfoScreen: React.FC<TextInfoScreenProps> = ({ data, dangerText }) => 
                     }
                 </Box>
             ))}
-            {dangerText ? <MyText sx={{ mt: 7, color: '#EA5858' }} variant="h4">{dangerText}</MyText> : ''}
+            {dangerText ? <MyText sx={{ mt: 7, color: '#EB5757' }} variant="h4">{dangerText}</MyText> : ''}
         </MyContainer>
     )
 }
