@@ -4,12 +4,14 @@ import { MyContainer, MyText } from '../../../components'
 import { Box, Grid } from '@mui/material'
 import { styled } from '@mui/system'
 
+import themeMain from '../../../theme'
+
 const GridImg = styled(Grid)({
-    background: 'radial-gradient(119.94% 119.94% at 20.13% 114.07%, rgba(173, 186, 255, 0.25) 0%, rgba(97, 216, 197, 0) 69.79%), linear-gradient(154.16deg, rgba(173, 186, 255, 0.5) 3.71%, rgba(97, 216, 197, 0) 94.54%), #ABEFE4;',
+    background: themeMain.palette.secondary.main,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10
+    borderRadius: 10,
 })
 
 const GridRoot = styled(Grid)(({ theme }) => ({

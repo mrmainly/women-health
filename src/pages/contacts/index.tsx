@@ -11,7 +11,6 @@ const Contacts = () => {
         <div>
             <StartScreen />
             <TwoScreen />
-            <ThreeScreen />
             <MyContainer wrapper={false} sx={{ mt: 5 }}>
                 <CaruselUsefulLinks />
                 <FormFeedBack />

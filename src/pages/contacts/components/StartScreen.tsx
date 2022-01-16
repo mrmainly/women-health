@@ -1,17 +1,19 @@
 import React from 'react'
 
 import { MyContainer, MyText } from '../../../components'
+import themeMain from '../../../theme'
+
 import { Box, Grid } from '@mui/material'
 import { styled } from '@mui/system'
 
 const Root = styled(Grid)(({ theme }) => ({
-    backgroundColor: 'white',
     width: '100%',
-    borderRadius: 15,
-    boxShadow: '1px 2px 15px rgba(0, 0, 0, 0.25)',
     padding: 50,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     [theme.breakpoints.down('md')]: {
-        padding: 20,
+        padding: 10,
         marginTop: 50,
         marginBottom: 50
     },
@@ -19,44 +21,38 @@ const Root = styled(Grid)(({ theme }) => ({
 
 const Img = styled('img')(({ theme }) => ({
     width: '100%',
-    [theme.breakpoints.down('md')]: {
-        width: 300,
-    },
 }))
 
-const GridItemText = styled(Grid)({
+const GridItemText = styled(Grid)(({ theme }) => ({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
-})
-
-const Span = styled('span')({
-    marginLeft: 20,
-    color: '#0B806B',
-    fontSize: 25,
-    fontFamily: 'serif'
-})
-
+    textAlign: 'center',
+    paddingLeft: 20,
+    [theme.breakpoints.down('md')]: {
+        paddingLeft: 0,
+        marginTop: 50,
+    },
+}))
 
 const StartScreen = () => {
     return (
         <MyContainer wrapper={true}
             sx={{
-                bgcolor: '#245852',
+                bgcolor: themeMain.palette.primary.main,
                 display: 'flex',
                 alignItems: 'center',
             }}
         >
             <Root container>
-                <GridItemText item lg={6} xl={6} md={6} sm={12} xs={12}>
-                    <MyText variant="h4" sx={{ color: '#245852' }}>Справочные телефоны: </MyText>
-                    <MyText variant="h6" sx={{ mt: 5, mb: 5, color: '#313131', fontWeight: 500 }}>Телефоны медецинских учреждений, горячей линиии, администрации, полезная информация </MyText>
-                    <MyText variant="h6">ПН-ПТ :<Span>08:00-19:00</Span></MyText>
-                    <MyText variant="h6">ВС-СБ:<Span>Выходные</Span></MyText>
-                </GridItemText>
                 <Grid item lg={6} xl={6} md={6} sm={12} xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Img src={'/img/Element/undraw.png'} />
+                    <Img src={'/img/Element/Group420.png'} />
                 </Grid>
+                <GridItemText item lg={6} xl={6} md={6} sm={12} xs={12}>
+                    <MyText variant="h4" sx={{ color: 'black' }}>Справочные телефоны: </MyText>
+                    <MyText variant="h6" sx={{ mt: 5, mb: 5, color: '#313131', fontWeight: 500 }}>Телефоны медецинских учреждений, горячей линиии, администрации, полезная информация </MyText>
+                    <MyText variant="h2" sx={{ color: '#1B1642', fontWeight: 500 }}>8 962 731-18-00</MyText>
+                </GridItemText>
             </Root>
         </MyContainer>
     )
