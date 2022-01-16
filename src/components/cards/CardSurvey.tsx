@@ -3,7 +3,7 @@ import React from 'react'
 import { styled } from '@mui/system'
 import { Box, Card, CardMedia, MenuItem } from '@mui/material'
 
-import { CaruselSurveyProps } from '../../interface'
+import { CaruselSurveyProps } from '../../interface';
 import { MyText, MyLink } from '..'
 
 const CardRoot = styled(Card)(({ theme }) => ({

@@ -4,7 +4,6 @@ import { styled } from '@mui/system'
 import { Box, Grid, Typography } from '@mui/material'
 
 import { MyContainer, MyButton } from '../../../components'
-import { Plus } from '../../../svg'
 
 const MainBox = styled(Grid)(({ theme }) => ({
     display: 'flex',
@@ -51,15 +50,15 @@ const FourScreen: React.FC = () => {
                         Плюсы:</Typography>
                     <Box sx={{ mt: 2 }}>
                         <TextBox>
-                            <Plus />
+                            <img src="/img/Element/plus.png" />
                             <Typography variant="body1" sx={{ ml: 1 }}>Доступ 24/7</Typography>
                         </TextBox>
                         <TextBox>
-                            <Plus />
+                            <img src="/img/Element/plus.png" />
                             <Typography variant="body1" sx={{ ml: 1 }}>Интеграция с мед. системами</Typography>
                         </TextBox>
                         <TextBox>
-                            <Plus />
+                            <img src="/img/Element/plus.png" />
                             <Typography variant="body1" sx={{ ml: 1 }}>Выбор удобного времени приема</Typography>
                         </TextBox>
                         <MyButton sx={{ mt: 2, bgcolor: '#EB5757' }}>Перейти в личный кабинет</MyButton>

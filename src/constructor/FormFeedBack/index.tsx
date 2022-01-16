@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { MyContainer, MyText, Input, Form, MyButton } from '../../components'
-import { PageHeaderText } from '../../constructor'
+import { PageHeaderText } from '..'
 import { Box, TextField } from '@mui/material'
 import { styled } from '@mui/system'
 
@@ -58,7 +58,7 @@ const BoxInfoWrapper = styled(Box)(({ theme }) => ({
     },
 }))
 
-const InputCustom = styled(Input)(({ theme }) => ({
+const InputCustom = styled(TextField)(({ theme }) => ({
     width: '45%',
     [theme.breakpoints.down('sm')]: {
         width: '100%'
