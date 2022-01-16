@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-import { InfoScreen, TextInfoScreen, ThreeScreen, FourScreen, LinkToSurveysScreen, MyContainer } from '../../../components'
+import { InfoScreen, TextInfoScreen, ThreeScreen, FourScreen, LinkToSurveysScreen, MyContainer, MyButton } from '../../../components'
 
 import { CaruselSurvey, TitleScreen } from '../../../constructor'
 
 const Breath = () => {
+    const [state, setState] = useState(false)
     const data1 = [
         {
             type: 'text',
@@ -86,7 +87,27 @@ const Breath = () => {
                 minHeight={600}
             >
                 <CaruselSurvey />
-            </MyContainer>
+            </MyContainer> <div style={{ display: 'flex', justifyContent: 'center' }}>
+                <MyButton
+                    sx={{
+                        bgcolor: '#EB5757',
+                        mb: 5
+                    }}
+                    onClick={() => {
+                        setState(!state)
+                    }}
+                >
+                    Посмотреть доступные анкеты
+                </MyButton>
+            </div>
+            {state &&
+                <MyContainer
+                    wrapper={false}
+                    minHeight={600}
+                >
+                    <CaruselSurvey />
+                </MyContainer>
+            }
         </div>
     )
 }

@@ -14,6 +14,7 @@ import Breath from './pages/surveysInfo/breath'
 import Liver from './pages/surveysInfo/liver'
 import Gut from './pages/surveysInfo/gut'
 import Cervix from './pages/surveysInfo/cervix'
+import Prostate from './pages/surveysInfo/prostate'
 
 import Login from './pages/auth/login'
 import Register from './pages/auth/register'
@@ -35,6 +36,7 @@ const App = () => {
           <Route path="liver" element={<Liver />} />
           <Route path="gut" element={<Gut />} />
           <Route path="cervix" element={<Cervix />} />
+          <Route path="prostate" element={<Prostate />} />
 
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
