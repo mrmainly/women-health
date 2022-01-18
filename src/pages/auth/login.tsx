@@ -1,16 +1,25 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 import { Avatar, FormControlLabel, Checkbox, Grid, Box, Typography, CssBaseline, Container } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useForm } from 'react-hook-form'
 
 import { Input, Form, MyButton, MyLink } from '../../components'
+import { DispatchContext, StateContext } from '../../store'
+import API from '../../utils/api'
 import themeMain from '../../theme'
 
 const theme = createTheme();
 
 export default function Login() {
+    const state = useContext(StateContext)
+    const dispatch = useContext(DispatchContext)
+    const navigate = useNavigate()
+    const { register, handleSubmit } = useForm({
+        mode: "onBlur"
+    })
     function Copyright(props: any) {
         return (
             <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -18,6 +27,10 @@ export default function Login() {
                 {new Date().getFullYear()}.
             </Typography>
         );
+    }
+
+    const onSubmit = (data: any) => {
+        API.getToken({ ...data }, dispatch, navigate)
     }
 
     return (
@@ -38,15 +51,9 @@ export default function Login() {
                     <Typography component="h1" variant="h5">
                         Вход
                     </Typography>
-                    <Form sx={{ mt: 1 }}>
-                        <Input
-                            variant="outlined"
-                            label="Номер телефона"
-                        />
-                        <Input
-                            variant="outlined"
-                            label="Пароль"
-                        />
+                    <Form sx={{ mt: 1 }} onSubmit={handleSubmit(onSubmit)}>
+                        <Input variant="outlined" label="Номер телефона" {...register('username')} id="username" type="number" />
+                        <Input variant="outlined" label="Пароль" {...register('password')} id="password" />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
                             label="Запомнить устройство"

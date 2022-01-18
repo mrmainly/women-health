@@ -1,16 +1,25 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
-import { Avatar, FormControlLabel, Checkbox, Grid, Box, Typography, CssBaseline, Container } from '@mui/material'
+import { Avatar, FormControlLabel, Checkbox, Grid, Box, Typography, CssBaseline, Container, TextField, MenuItem } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useForm } from 'react-hook-form'
 
 import { Input, Form, MyButton, MyLink } from '../../components'
 import themeMain from '../../theme'
+import { DispatchContext } from '../../store'
+import API from '../../utils/api'
 
 const theme = createTheme();
 
 export default function Register() {
+    const [city, setCity] = useState([{ name: '1', id: '1' }])
+    const dispatch = useContext(DispatchContext)
+    const navigate = useNavigate()
+    const { register, handleSubmit } = useForm({
+        mode: "onBlur"
+    })
     function Copyright(props: any) {
         return (
             <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -19,7 +28,20 @@ export default function Register() {
             </Typography>
         );
     }
+    const onSubmit = (data: any) => {
+        API.register(data, dispatch, navigate)
+    }
 
+    const get_city = async () => {
+        await API.getCity().then((res) => {
+            setCity(res.data.results)
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+    useEffect(() => {
+        get_city()
+    }, [])
     return (
         <ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
@@ -38,26 +60,42 @@ export default function Register() {
                     <Typography component="h1" variant="h5">
                         Бэлиэтэнии (регистрация)
                     </Typography>
-                    <Form sx={{ mt: 1 }}>
+                    <Form sx={{ mt: 1 }} onSubmit={handleSubmit(onSubmit)}>
                         <Input
                             variant="outlined"
                             label="Аатыҥ*"
+                            {...register('first_name')}
                         />
                         <Input
                             variant="outlined"
                             label="Араспаанньаҥ*"
+                            {...register('last_name')}
                         />
                         <Input
                             variant="outlined"
                             label="Аҕаҥ аата*"
+                            {...register('patronymic')}
                         />
-                        <Input
-                            variant="outlined"
+                        <TextField
+                            id="filled-select-currency-native"
+                            select
                             label="Куорат"
-                        />
+                            SelectProps={{
+                                native: true,
+                            }}
+                            {...register('city')}
+                            fullWidth
+                            variant="outlined"
+                            margin="normal"
+                        >
+                            {city.map((item, index) => (
+                                <option key={index} value={item.id}>{item.name}</option>
+                            ))}
+                        </TextField>
                         <Input
                             variant="outlined"
                             label="Төлөпүөнүҥ нүөмэрэ*"
+                            {...register('phone')}
                         />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}

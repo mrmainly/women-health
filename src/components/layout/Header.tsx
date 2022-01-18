@@ -4,6 +4,7 @@ import { AppBar, Toolbar, MenuItem, Typography, Box, Drawer, IconButton, Contain
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom'
 import { styled } from '@mui/system'
+import cookie from 'js-cookie'
 
 const Root = styled('div')(() => ({
     display: 'flex',
@@ -79,7 +80,7 @@ const headerData: any = [
     },
     {
         text: 'Тус хос',
-        link: '/login'
+        link: cookie.get('jwttoken') ? 'form-profile' : 'login'
     },
 ]
 

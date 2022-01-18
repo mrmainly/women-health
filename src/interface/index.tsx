@@ -90,7 +90,8 @@ interface InfoBlockScreenProps {
 
 interface FormProps {
     children: any,
-    sx?: any
+    sx?: any,
+    onSubmit?: any
 }
 
 interface InputProps {
@@ -100,7 +101,8 @@ interface InputProps {
     variant: any,
     rows?: number,
     id?: any,
-    multiline?: any
+    multiline?: any,
+    type?: string
 }
 
 interface PageHeaderTextProps {
