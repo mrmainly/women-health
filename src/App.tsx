@@ -1,10 +1,10 @@
-import React, { useReducer } from 'react';
+import React, {useReducer, useState} from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { Route, BrowserRouter, Routes } from "react-router-dom";
-import { DispatchContext, StateContext, defaultStore } from './store'
-import { stateReducer } from './reducer'
+import {Route, BrowserRouter, Routes} from "react-router-dom";
+import {DispatchContext, StateContext, defaultStore} from './store'
+import {stateReducer} from './reducer'
 
 import HomePage from './pages/home';
 import AboutPage from './pages/about'
@@ -27,42 +27,50 @@ import Schedule from './pages/profile/schedule'
 import Results from './pages/profile/results'
 import Surveys from './pages/profile/surveys'
 
-import { Layout } from './components';
+import {LOCALES} from "./i18n/locales";
+import {messages} from "./i18n/messages";
+import {Layout} from './components';
+import {IntlProvider} from "react-intl";
 
 const App = () => {
-  const [state, dispatch] = useReducer(stateReducer, defaultStore)
-  return (
-    <DispatchContext.Provider value={dispatch}>
-      <StateContext.Provider value={state}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<HomePage />} />
-              <Route path="about" element={<AboutPage />} />
-              <Route path="faq" element={<Faq />} />
-              <Route path="contacts" element={<Contacts />} />
+    const [state, dispatch] = useReducer(stateReducer, defaultStore)
+    const locale = LOCALES.RUSSIAN
+    const [currentLocale, setCurrentLocale] = useState(locale)
 
-              <Route path="breast" element={<Breast />} />
-              <Route path="breath" element={<Breath />} />
-              <Route path="liver" element={<Liver />} />
-              <Route path="gut" element={<Gut />} />
-              <Route path="cervix" element={<Cervix />} />
-              <Route path="prostate" element={<Prostate />} />
+    return (
+        <IntlProvider messages={messages[locale]} defaultLocale={locale} locale={LOCALES.RUSSIAN}>
+            <DispatchContext.Provider value={dispatch}>
+                <StateContext.Provider value={state}>
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path="/" element={<Layout/>}>
+                                <Route index element={<HomePage/>}/>
+                                <Route path="about" element={<AboutPage/>}/>
+                                <Route path="faq" element={<Faq/>}/>
+                                <Route path="contacts" element={<Contacts/>}/>
 
-              <Route path="login" element={<Login />} />
-              <Route path="register" element={<Register />} />
-              <Route path="forgot" element={<ForgotPassword />} />
+                                <Route path="breast" element={<Breast/>}/>
+                                <Route path="breath" element={<Breath/>}/>
+                                <Route path="liver" element={<Liver/>}/>
+                                <Route path="gut" element={<Gut/>}/>
+                                <Route path="cervix" element={<Cervix/>}/>
+                                <Route path="prostate" element={<Prostate/>}/>
 
-              <Route path="form-profile" element={<FormProfile />} />
-              <Route path="schedule" element={<Schedule />} />
-              <Route path="results" element={<Results />} />
-              <Route path="surveys" element={<Surveys />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </StateContext.Provider>
-    </DispatchContext.Provider >
-  );
+                                <Route path="login" element={<Login/>}/>
+                                <Route path="register" element={<Register/>}/>
+                                <Route path="forgot" element={<ForgotPassword/>}/>
+
+                                <Route path="form-profile" element={<FormProfile/>}/>
+                                <Route path="schedule" element={<Schedule/>}/>
+                                <Route path="results" element={<Results/>}/>
+                                <Route path="surveys" element={<Surveys/>}/>
+                            </Route>
+                        </Routes>
+                    </BrowserRouter>
+                </StateContext.Provider>
+            </DispatchContext.Provider>
+        </IntlProvider>
+    );
 }
 
 export default App;
