@@ -33,7 +33,7 @@ class API {
             password: password
         }).then(res => {
             cookie.set('jwttoken', res.data.access)
-            dispatch({ type: 'notification', payload: { status: 'success', active: true, text: 'аккаунт создан' } })
+            dispatch({ type: 'notification', payload: { status: 'success', active: true, text: 'авторизация прошла успешно' } })
             navigate('/form-profile')
             console.log(res)
         }).catch(() => { dispatch({ type: 'notification', payload: { status: 'error', active: true, text: 'такого пользователя не существует' } }) })
@@ -63,8 +63,8 @@ class API {
     }
     putAccountUser(data, dispatch) {
         api('api/accounts/user').put(null, data).then(res => {
-            dispatch({ type: 'notification', payload: { status: 'success', active: true, text: 'аккаунт создан' } })
-        }).catch(() => { dispatch({ type: 'notification', payload: { status: 'error', active: true, text: 'такого пользователя не существует' } }) })
+            dispatch({ type: 'notification', payload: { status: 'success', active: true, text: 'аккаунт изменен' } })
+        }).catch(() => { dispatch({ type: 'notification', payload: { status: 'error', active: true, text: 'аккаунт не изменен' } }) })
     }
 }
 

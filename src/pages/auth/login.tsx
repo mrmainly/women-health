@@ -52,8 +52,8 @@ export default function Login() {
                         Вход
                     </Typography>
                     <Form sx={{ mt: 1 }} onSubmit={handleSubmit(onSubmit)}>
-                        <Input variant="outlined" label="Номер телефона" {...register('username')} id="username" type="number" />
-                        <Input variant="outlined" label="Пароль" {...register('password')} id="password" />
+                        <Input variant="outlined" label="Номер телефона" {...register('username')} id="username" required type="number" />
+                        <Input variant="outlined" label="Пароль" {...register('password')} id="password" required />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
                             label="Запомнить устройство"

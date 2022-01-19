@@ -102,7 +102,8 @@ interface InputProps {
     rows?: number,
     id?: any,
     multiline?: any,
-    type?: string
+    type?: string,
+    required?: any
 }
 
 interface PageHeaderTextProps {
@@ -125,6 +126,12 @@ interface ArrowPrevProps {
     style?: any
 }
 
+interface BreastFormProps {
+    arr?: any,
+    id?: any,
+    date?: any
+}
+
 export type {
     ButtonProps,
     MyContainerProps,
@@ -141,5 +148,6 @@ export type {
     InputProps,
     PageHeaderTextProps,
     ArrowNextProps,
-    ArrowPrevProps
+    ArrowPrevProps,
+    BreastFormProps
 }

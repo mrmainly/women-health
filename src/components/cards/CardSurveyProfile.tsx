@@ -7,7 +7,7 @@ import { CaruselSurveyProps } from '../../interface'
 import { MyText, MyLink } from '..'
 
 const CardRoot = styled(Box)(({ theme }) => ({
-    width: 300,
+    width: '95%',
     height: 400,
     margin: '0 auto',
     display: 'flex',
@@ -17,13 +17,9 @@ const CardRoot = styled(Box)(({ theme }) => ({
     paddingTop: 20,
     boxShadow: '1px 2px 5px rgba(0, 0, 0, 0.15)',
     borderRadius: '25px 0px',
-    [theme.breakpoints.down('md')]: {
-        width: 300,
-        height: 400
-    },
-    [theme.breakpoints.down('sm')]: {
-        width: '90%',
-        height: 400
+    transition: 'all 1s ease',
+    "&:hover": {
+        boxShadow: '0px 0px 20px rgba(0,0,0,0.8)'
     },
 }))
 

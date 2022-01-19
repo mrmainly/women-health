@@ -1,10 +1,10 @@
-import React, {useReducer, useState} from 'react';
+import React, { useReducer, useState } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import {Route, BrowserRouter, Routes} from "react-router-dom";
-import {DispatchContext, StateContext, defaultStore} from './store'
-import {stateReducer} from './reducer'
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { DispatchContext, StateContext, defaultStore } from './store'
+import { stateReducer } from './reducer'
 
 import HomePage from './pages/home';
 import AboutPage from './pages/about'
@@ -18,6 +18,13 @@ import Gut from './pages/surveysInfo/gut'
 import Cervix from './pages/surveysInfo/cervix'
 import Prostate from './pages/surveysInfo/prostate'
 
+import BreastForm from './pages/profile/surveys/surveysDetail/Breast/breastWrapper'
+import BreathForm from './pages/profile/surveys/surveysDetail/Breath/breathWrapper'
+import CervixForm from './pages/profile/surveys/surveysDetail/Cervix/cervixWrapper'
+import GutForm from './pages/profile/surveys/surveysDetail/Gut/gutWrapper'
+import ProstateForm from './pages/profile/surveys/surveysDetail/Prostate/prostateWrapper'
+import LiverForm from './pages/profile/surveys/surveysDetail/Liver/liverWrapper'
+
 import Login from './pages/auth/login'
 import Register from './pages/auth/register'
 import ForgotPassword from './pages/auth/forgotPassword'
@@ -27,10 +34,10 @@ import Schedule from './pages/profile/schedule'
 import Results from './pages/profile/results'
 import Surveys from './pages/profile/surveys'
 
-import {LOCALES} from "./i18n/locales";
-import {messages} from "./i18n/messages";
-import {Layout} from './components';
-import {IntlProvider} from "react-intl";
+import { LOCALES } from "./i18n/locales";
+import { messages } from "./i18n/messages";
+import { Layout } from './components';
+import { IntlProvider } from "react-intl";
 
 const App = () => {
     const [state, dispatch] = useReducer(stateReducer, defaultStore)
@@ -43,27 +50,34 @@ const App = () => {
                 <StateContext.Provider value={state}>
                     <BrowserRouter>
                         <Routes>
-                            <Route path="/" element={<Layout/>}>
-                                <Route index element={<HomePage/>}/>
-                                <Route path="about" element={<AboutPage/>}/>
-                                <Route path="faq" element={<Faq/>}/>
-                                <Route path="contacts" element={<Contacts/>}/>
+                            <Route path="/" element={<Layout />}>
+                                <Route index element={<HomePage />} />
+                                <Route path="about" element={<AboutPage />} />
+                                <Route path="faq" element={<Faq />} />
+                                <Route path="contacts" element={<Contacts />} />
 
-                                <Route path="breast" element={<Breast/>}/>
-                                <Route path="breath" element={<Breath/>}/>
-                                <Route path="liver" element={<Liver/>}/>
-                                <Route path="gut" element={<Gut/>}/>
-                                <Route path="cervix" element={<Cervix/>}/>
-                                <Route path="prostate" element={<Prostate/>}/>
+                                <Route path="breast" element={<Breast />} />
+                                <Route path="breath" element={<Breath />} />
+                                <Route path="liver" element={<Liver />} />
+                                <Route path="gut" element={<Gut />} />
+                                <Route path="cervix" element={<Cervix />} />
+                                <Route path="prostate" element={<Prostate />} />
 
-                                <Route path="login" element={<Login/>}/>
-                                <Route path="register" element={<Register/>}/>
-                                <Route path="forgot" element={<ForgotPassword/>}/>
+                                <Route path="breast-form" element={<BreastForm />} />
+                                <Route path="breath-form" element={<BreathForm />} />
+                                <Route path="cervix-form" element={<CervixForm />} />
+                                <Route path="gut-form" element={<GutForm />} />
+                                <Route path="prostate-form" element={<ProstateForm />} />
+                                <Route path="liver-form" element={<LiverForm />} />
 
-                                <Route path="form-profile" element={<FormProfile/>}/>
-                                <Route path="schedule" element={<Schedule/>}/>
-                                <Route path="results" element={<Results/>}/>
-                                <Route path="surveys" element={<Surveys/>}/>
+                                <Route path="login" element={<Login />} />
+                                <Route path="register" element={<Register />} />
+                                <Route path="forgot" element={<ForgotPassword />} />
+
+                                <Route path="form-profile" element={<FormProfile />} />
+                                <Route path="schedule" element={<Schedule />} />
+                                <Route path="results" element={<Results />} />
+                                <Route path="surveys" element={<Surveys />} />
                             </Route>
                         </Routes>
                     </BrowserRouter>
