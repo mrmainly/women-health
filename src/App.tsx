@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react';
+import React, {useReducer, useState} from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -27,13 +27,18 @@ import Schedule from './pages/profile/schedule'
 import Results from './pages/profile/results'
 import Surveys from './pages/profile/surveys'
 
+import {LOCALES} from "./i18n/locales";
+import {messages} from "./i18n/messages";
 import {Layout} from './components';
 import {IntlProvider} from "react-intl";
 
 const App = () => {
     const [state, dispatch] = useReducer(stateReducer, defaultStore)
+    const locale = LOCALES.RUSSIAN
+    const [currentLocale, setCurrentLocale] = useState(locale)
+
     return (
-        <IntlProvider messages={{}} defaultLocale={'ru'} locale={'ru'}>
+        <IntlProvider messages={messages[locale]} defaultLocale={locale} locale={LOCALES.RUSSIAN}>
             <DispatchContext.Provider value={dispatch}>
                 <StateContext.Provider value={state}>
                     <BrowserRouter>
