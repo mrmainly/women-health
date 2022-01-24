@@ -4,6 +4,7 @@ import { MyContainer, CardSurvey, MyText } from '..'
 import DataSurveys from '../../Data/CardSurveyCaruselList'
 
 import { Grid } from '@mui/material'
+import {FormattedMessage} from "react-intl";
 
 const SurveysListScreen = () => {
     return (
@@ -16,7 +17,7 @@ const SurveysListScreen = () => {
             }}
             minHeight={600}
         >
-            <MyText variant="h5">Анкеталар</MyText>
+            <MyText variant="h5"><FormattedMessage id={'questioning_main_page'}/></MyText>
             <Grid container>
                 {DataSurveys.map((item, index) => (
                     <Grid item lg={4} xl={4} md={4} sm={6} xs={12} key={index}>

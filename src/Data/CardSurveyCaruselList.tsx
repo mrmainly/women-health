@@ -1,33 +1,36 @@
+import React from "react";
+
+import {FormattedMessage} from "react-intl";
 
 const CardSurveyCaruselList = [
     {
         img: 'liver',
-        label: 'Быары чинчийии',
+        label: <FormattedMessage id={'screening_liver'}/>,
         link: '/liver'
     },
     {
         img: 'gut',
-        label: 'Суон оһоҕоһу чинчийии.',
+        label: <FormattedMessage id={'screening_colon'}/>,
         link: '/gut'
     },
     {
         img: 'breath',
-        label: 'Тыҥаны чинчийии',
+        label: <FormattedMessage id={'screening_lungs'}/>,
         link: '/breath'
     },
     {
         img: 'breast',
-        label: 'Эмиийи чинчийии',
+        label: <FormattedMessage id={'screening_mammary_gland'}/>,
         link: '/breast'
     },
     {
         img: 'cervix',
-        label: 'Киэли хапчаҕайын чинчийии',
+        label: <FormattedMessage id={'screening_cervix'}/>,
         link: '/cervix'
     },
     {
         img: 'prostata',
-        label: 'Самах былчархайын чинчийии',
+        label: <FormattedMessage id={'screening_prostate'}/>,
         link: '/prostate'
     }
 ]

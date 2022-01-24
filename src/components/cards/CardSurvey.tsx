@@ -5,6 +5,7 @@ import { Box, Card, CardMedia, MenuItem } from '@mui/material'
 
 import { CaruselSurveyProps } from '../../interface';
 import { MyText, MyLink } from '..'
+import {FormattedMessage} from "react-intl";
 
 const CardRoot = styled(Card)(({ theme }) => ({
     width: '95%',
@@ -57,7 +58,9 @@ const CardSurvey: React.FC<CaruselSurveyProps> = ({ img, link, label }) => {
             </Box1>
             <Box2>
                 <MyText variant="h4" sm={25}>{label}</MyText>
-                <MyLink href={link} sx={{ mt: 2, color: '#6658EA' }}><MenuItem>перейти к тестированию</MenuItem></MyLink>
+                <MyLink href={link} sx={{ mt: 2, color: '#6658EA' }}><MenuItem>
+                    <FormattedMessage id={'go_to'}/>
+                </MenuItem></MyLink>
             </Box2>
         </CardRoot>
     )
