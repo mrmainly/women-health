@@ -56,7 +56,6 @@ const Surveys = () => {
     const [loading, setLoading] = useState(true)
     const [open, setOpen] = useState(false)
     useEffect(() => {
-        setOpen(true)
         Api.getSurveysTypes().then((res) => {
             const result = res.data.results.map((result: any) => {
                 return {
@@ -67,6 +66,7 @@ const Surveys = () => {
             })
             setData(result)
             setLoading(false)
+            setOpen(true)
         })
     }, [])
     return (

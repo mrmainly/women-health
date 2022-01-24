@@ -2,9 +2,9 @@ import React, { useReducer, useState } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import {Route, BrowserRouter, Routes} from "react-router-dom";
-import {DispatchContext, StateContext, LanguageContext, defaultStore} from './store'
-import {stateReducer} from './reducer'
+import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { DispatchContext, StateContext, LanguageContext, defaultStore } from './store'
+import { stateReducer } from './reducer'
 
 import HomePage from './pages/home';
 import AboutPage from './pages/about'
@@ -49,32 +49,39 @@ const App = () => {
 
     return (
         <IntlProvider messages={messages[currentLocale]} defaultLocale={currentLocale} locale={LOCALES.RUSSIAN}>
-            <LanguageContext.Provider value={{currentLocale, changeLocale}}>
+            <LanguageContext.Provider value={{ currentLocale, changeLocale }}>
                 <DispatchContext.Provider value={dispatch}>
                     <StateContext.Provider value={state}>
                         <BrowserRouter>
                             <Routes>
-                                <Route path="/" element={<Layout/>}>
-                                    <Route index element={<HomePage/>}/>
-                                    <Route path="about" element={<AboutPage/>}/>
-                                    <Route path="faq" element={<Faq/>}/>
-                                    <Route path="contacts" element={<Contacts/>}/>
+                                <Route path="/" element={<Layout />}>
+                                    <Route index element={<HomePage />} />
+                                    <Route path="about" element={<AboutPage />} />
+                                    <Route path="faq" element={<Faq />} />
+                                    <Route path="contacts" element={<Contacts />} />
 
-                                    <Route path="breast" element={<Breast/>}/>
-                                    <Route path="breath" element={<Breath/>}/>
-                                    <Route path="liver" element={<Liver/>}/>
-                                    <Route path="gut" element={<Gut/>}/>
-                                    <Route path="cervix" element={<Cervix/>}/>
-                                    <Route path="prostate" element={<Prostate/>}/>
+                                    <Route path="breast" element={<Breast />} />
+                                    <Route path="breath" element={<Breath />} />
+                                    <Route path="liver" element={<Liver />} />
+                                    <Route path="gut" element={<Gut />} />
+                                    <Route path="cervix" element={<Cervix />} />
+                                    <Route path="prostate" element={<Prostate />} />
 
-                                    <Route path="login" element={<Login/>}/>
-                                    <Route path="register" element={<Register/>}/>
-                                    <Route path="forgot" element={<ForgotPassword/>}/>
+                                    <Route path="surveys/breast-survey" element={<BreastForm />} />
+                                    <Route path="surveys/lung-survey" element={<BreathForm />} />
+                                    <Route path="surveys/liver-survey" element={<LiverForm />} />
+                                    <Route path="surveys/colon-survey" element={<GutForm />} />
+                                    <Route path="surveys/cervix-survey" element={<CervixForm />} />
+                                    <Route path="surveys/prostate-survey" element={<ProstateForm />} />
 
-                                    <Route path="form-profile" element={<FormProfile/>}/>
-                                    <Route path="schedule" element={<Schedule/>}/>
-                                    <Route path="results" element={<Results/>}/>
-                                    <Route path="surveys" element={<Surveys/>}/>
+                                    <Route path="login" element={<Login />} />
+                                    <Route path="register" element={<Register />} />
+                                    <Route path="forgot" element={<ForgotPassword />} />
+
+                                    <Route path="form-profile" element={<FormProfile />} />
+                                    <Route path="schedule" element={<Schedule />} />
+                                    <Route path="results" element={<Results />} />
+                                    <Route path="surveys" element={<Surveys />} />
                                 </Route>
                             </Routes>
                         </BrowserRouter>
