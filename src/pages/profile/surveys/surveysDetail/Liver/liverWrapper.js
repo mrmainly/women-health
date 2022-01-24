@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import LiverSurvey from './liverSurvey'
 
+import { useLocation } from 'react-router-dom'
+
 const LiverWrapper = () => {
-    const [id, setId] = useState(1)
-    const [date, setDate] = useState(1)
+    const location = useLocation()
 
     let arr = [
         "Хроническай вируснай гепатит Б эбэтэр С диагноһын туруора сылдьыбыттара дуо?",
@@ -16,15 +17,9 @@ const LiverWrapper = () => {
         "Төрөппүттэриҥ быар раагынан ыалдьа сылдьыбыттара дуо?",
         "Бүтэһик 10 хонук иһигэр температуураҥ 37,5 кыраадыстан үрдүктүк тахса сылдьыбыттаах дуо?"
     ]
-    // useEffect(() => {
-    //     const newId = query.id
-    //     const newDate = query.date
-    //     setId(newId)
-    //     setDate(new Date(newDate).getFullYear())
-    // }, [query])
     return (
         <>
-            <LiverSurvey arr={arr} />
+            <LiverSurvey arr={arr} id={location.state.surveyId} />
         </>
     )
 }

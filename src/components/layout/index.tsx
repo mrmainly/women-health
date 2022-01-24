@@ -6,7 +6,7 @@ import { Box } from '@mui/material'
 
 import Header from './Header'
 import Footer from './Footer'
-import { Notification } from '..'
+import { Notification, ModalSurveyStatus } from '..'
 
 const Main = styled(Box)(({ theme }) => ({
     minHeight: '100vh',
@@ -18,6 +18,7 @@ const Layout: React.FC = () => {
         <div>
             <Header />
             <Notification />
+            <ModalSurveyStatus />
             <Main>
                 <Outlet />
             </Main>

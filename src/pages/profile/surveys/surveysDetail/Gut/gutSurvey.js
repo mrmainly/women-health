@@ -12,8 +12,11 @@ import {
     Typography,
     Button
 } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { styled } from '@mui/system'
+
+import Api from '../../../../../utils/api'
+import { DispatchContext } from "../../../../../store";
 
 const Root = styled(Container)({
     display: 'flex',
@@ -54,6 +57,7 @@ export default function GutSurvey({ arr, id }) {
     const [district, setDistrict] = useState(1)
     const [checked, setChecked] = useState(false)
     const [isActiveButton, setActiveButton] = useState(false)
+    const dispatch = useContext(DispatchContext)
 
     const checkFormValid = () => {
         checked ? setActiveButton(true) : setActiveButton(false)
@@ -76,108 +80,86 @@ export default function GutSurvey({ arr, id }) {
         calculateOnkom()
     }, [textField])
 
-    // const handlerPost = async () => {
-    //     let scoreInc = (answer) => {
-    //         if (answer > 0) {
-    //             return "Да"
-    //         } else {
-    //             return "Нет"
-    //         }
-    //     }
-    //     let scoreColon = (answer) => {
-    //         switch (answer) {
-    //             case "1":
-    //                 return "Был полип";
-    //                 break;
-    //             case "0":
-    //                 return "Норма";
-    //                 break;
-    //             case "2":
-    //                 return "Была аденома";
-    //                 break;
-    //             case "3":
-    //                 return "Не проходил";
-    //         }
-    //     }
+    const handlerPost = async () => {
+        let scoreInc = (answer) => {
+            if (answer > 0) {
+                return "Да"
+            } else {
+                return "Нет"
+            }
+        }
+        let scoreColon = (answer) => {
+            switch (answer) {
+                case "1":
+                    return "Был полип";
+                    break;
+                case "0":
+                    return "Норма";
+                    break;
+                case "2":
+                    return "Была аденома";
+                    break;
+                case "3":
+                    return "Не проходил";
+            }
+        }
 
-
-    //     axios
-    //         .post("/api/front/surveys_api/surveys", {
-    //             survey_type: id,
-    //             fields: [
-    //                 {
-    //                     text: arr[0],
-    //                     answer: scoreInc(bowelСancer),
-    //                     score: bowelСancer
-    //                 },
-    //                 {
-    //                     text: arr[1],
-    //                     answer: scoreInc(diarrhea),
-    //                     score: diarrhea
-    //                 },
-    //                 {
-    //                     text: arr[2],
-    //                     answer: scoreInc(excreta),
-    //                     score: excreta
-    //                 },
-    //                 {
-    //                     text: arr[3],
-    //                     answer: scoreInc(slime),
-    //                     score: slime
-    //                 },
-    //                 {
-    //                     text: arr[4],
-    //                     answer: scoreInc(weight),
-    //                     score: weight
-    //                 },
-    //                 {
-    //                     text: arr[5],
-    //                     answer: scoreInc(discomfort),
-    //                     score: discomfort
-    //                 },
-    //                 {
-    //                     text: arr[6],
-    //                     answer: scoreInc(chronic),
-    //                     score: chronic
-    //                 },
-    //                 {
-    //                     text: arr[8],
-    //                     answer: scoreColon(colonoscopy),
-    //                     score: calculateOnkom()
-    //                 },
-    //                 {
-    //                     text: arr[7],
-    //                     answer: scoreInc(colon),
-    //                     score: colon
-    //                 },
-    //                 {
-    //                     text: arr[9],
-    //                     answer: scoreInc(temperature),
-    //                     score: 0
-    //                 },
-    //             ]
-    //         })
-    //         .then((res) => {
-    //             if (res.status == 200) {
-    //                 console.log("result", res);
-    //                 const danger = res.data.is_danger
-    //                 const clinic = res.data.to_clinic
-    //                 if (danger == true && clinic == false) {
-    //                     setShow(true)
-    //                 }
-    //                 if (danger == false && clinic == false) {
-    //                     setShowFalse(true)
-    //                 }
-    //                 if (clinic == true) {
-    //                     setShowMiddle(true)
-    //                 }
-    //             }
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //             alert("У вас ошибка в форме анкеты");
-    //         });
-    // };
+        Api.sendSurveys({
+            survey_type: id,
+            fields: [
+                {
+                    text: arr[0],
+                    answer: scoreInc(bowelСancer),
+                    score: bowelСancer
+                },
+                {
+                    text: arr[1],
+                    answer: scoreInc(diarrhea),
+                    score: diarrhea
+                },
+                {
+                    text: arr[2],
+                    answer: scoreInc(excreta),
+                    score: excreta
+                },
+                {
+                    text: arr[3],
+                    answer: scoreInc(slime),
+                    score: slime
+                },
+                {
+                    text: arr[4],
+                    answer: scoreInc(weight),
+                    score: weight
+                },
+                {
+                    text: arr[5],
+                    answer: scoreInc(discomfort),
+                    score: discomfort
+                },
+                {
+                    text: arr[6],
+                    answer: scoreInc(chronic),
+                    score: chronic
+                },
+                {
+                    text: arr[8],
+                    answer: scoreColon(colonoscopy),
+                    score: calculateOnkom()
+                },
+                {
+                    text: arr[7],
+                    answer: scoreInc(colon),
+                    score: colon
+                },
+                {
+                    text: arr[9],
+                    answer: scoreInc(temperature),
+                    score: 0
+                },
+            ]
+        }, dispatch)
+    };
 
     return (
         <Root component="main" maxWidth="md">
@@ -332,7 +314,7 @@ export default function GutSurvey({ arr, id }) {
                     fullWidth
                     variant="contained"
                     color="primary"
-                    // onClick={handlerPost}
+                    onClick={handlerPost}
                     disabled={!isActiveButton}
                 >
                     Сохранить

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Breast from './breathSurvey'
 
+import { useLocation } from 'react-router-dom'
+
 const BreathWrapper = () => {
-    const [id, setId] = useState(1)
-    const [date, setDate] = useState(1)
+    const location = useLocation()
 
     const arr = [
         "Төһө өр табахтыыгытый?",
@@ -21,7 +22,7 @@ const BreathWrapper = () => {
     // }, [query])
     return (
         <>
-            <Breast arr={arr} />
+            <Breast arr={arr} id={location.state.surveyId} />
         </>
     )
 }

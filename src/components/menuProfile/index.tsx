@@ -33,19 +33,19 @@ const MenuProfile = () => {
         },
         {
             label: 'Түмүктэр',
-            link: '/form-profile',
+            link: '/results',
         },
         {
             label: 'Араспысаанньа',
-            link: '/form-profile',
+            link: '/schedule',
         },
 
     ]
     return (
         <Root>
             {menuList.map((item, index) => (
-                <MyLink href={item.link} sx={{ color: 'rgba(0, 0, 0, 0.5)', fontStyle: 'normal' }}>
-                    <MenuItem key={index} sx={{ mt: 0.5 }}>
+                <MyLink key={index} href={item.link} sx={{ color: 'rgba(0, 0, 0, 0.5)', fontStyle: 'normal' }}>
+                    <MenuItem sx={{ mt: 0.5 }}>
                         {item.label}
                     </MenuItem>
                 </MyLink>

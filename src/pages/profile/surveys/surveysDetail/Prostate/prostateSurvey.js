@@ -12,8 +12,11 @@ import {
     Typography,
     Button
 } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { styled } from '@mui/system'
+
+import Api from '../../../../../utils/api'
+import { DispatchContext } from "../../../../../store";
 
 const Root = styled(Container)({
     display: 'flex',
@@ -52,6 +55,7 @@ export default function ProstateLandingForm({ arr, id }) {
     const [district, setDistrict] = useState(1)
     const [checked, setChecked] = useState(false)
     const [isActiveButton, setActiveButton] = useState(false)
+    const dispatch = useContext(DispatchContext)
 
     const checkFormValid = () => {
         checked ? setActiveButton(true) : setActiveButton(false)
@@ -77,100 +81,79 @@ export default function ProstateLandingForm({ arr, id }) {
         await setInputDay(event.target.value)
         await console.log(inputDay)
     }
-    // const handlerPost = async () => {
-    //     let scoreInc = (answer) => {
-    //         if (answer > 0) {
-    //             return "Да"
-    //         } else {
-    //             return "Нет"
-    //         }
-    //     }
-    //     let scoreToilet = (answer) => {
-    //         switch (answer) {
-    //             case "1":
-    //                 return "1 раз";
-    //                 break;
-    //             case "0":
-    //                 return "Не просыпаюсь";
-    //                 break;
-    //             case "2":
-    //                 return "2 и более раза";
-    //         }
-    //     }
-    //     let scoreOnkom = (answer) => {
-    //         switch (answer) {
-    //             case "1":
-    //                 return "немного повышенный";
-    //                 break;
-    //             case "2":
-    //                 return "не проходил";
-    //                 break;
-    //             case "0":
-    //                 return "в пределах нормы";
-    //         }
-    //     }
-    //     axios
-    //         .post("/api/front/surveys_api/surveys", {
-    //             survey_type: id,
-    //             fields: [
-    //                 {
-    //                     text: arr[0],
-    //                     answer: scoreToilet(toiletTimes),
-    //                     score: toiletTimes < 2 ? 0 : 2
-    //                 },
-    //                 {
-    //                     text: arr[1],
-    //                     answer: scoreInc(notFull),
-    //                     score: notFull
-    //                 },
-    //                 {
-    //                     text: arr[2],
-    //                     answer: scoreInc(bloodIn),
-    //                     score: bloodIn
-    //                 },
-    //                 {
-    //                     text: arr[3],
-    //                     answer: scoreInc(delay),
-    //                     score: delay
-    //                 },
-    //                 {
-    //                     text: arr[4],
-    //                     answer: scoreOnkom(oncomarkerResult),
-    //                     score: calculateOnkom()
-    //                 },
-    //                 {
-    //                     text: arr[5],
-    //                     answer: scoreInc(accessMalignant),
-    //                     score: accessMalignant
-    //                 },
-    //                 {
-    //                     text: arr[6],
-    //                     answer: scoreInc(temperature),
-    //                     score: 0
-    //                 },
-    //             ]
-    //         })
-    //         .then((res) => {
-    //             if (res.status == 200) {
-    //                 console.log("result", res);
-    //                 const danger = res.data.is_danger
-    //                 const clinic = res.data.to_clinic
-    //                 if (danger == true && clinic == false) {
-    //                     setShow(true)
-    //                 }
-    //                 if (danger == false && clinic == false) {
-    //                     setShowFalse(true)
-    //                 }
-    //                 if (clinic == true) {
-    //                     setShowMiddle(true)
-    //                 }
-    //             }
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //             alert("У вас ошибка в форме анкеты");
-    //         });
-    // };
+    const handlerPost = async () => {
+        let scoreInc = (answer) => {
+            if (answer > 0) {
+                return "Да"
+            } else {
+                return "Нет"
+            }
+        }
+        let scoreToilet = (answer) => {
+            switch (answer) {
+                case "1":
+                    return "1 раз";
+                    break;
+                case "0":
+                    return "Не просыпаюсь";
+                    break;
+                case "2":
+                    return "2 и более раза";
+            }
+        }
+        let scoreOnkom = (answer) => {
+            switch (answer) {
+                case "1":
+                    return "немного повышенный";
+                    break;
+                case "2":
+                    return "не проходил";
+                    break;
+                case "0":
+                    return "в пределах нормы";
+            }
+        }
+        Api.sendSurveys({
+            survey_type: id,
+            fields: [
+                {
+                    text: arr[0],
+                    answer: scoreToilet(toiletTimes),
+                    score: toiletTimes < 2 ? 0 : 2
+                },
+                {
+                    text: arr[1],
+                    answer: scoreInc(notFull),
+                    score: notFull
+                },
+                {
+                    text: arr[2],
+                    answer: scoreInc(bloodIn),
+                    score: bloodIn
+                },
+                {
+                    text: arr[3],
+                    answer: scoreInc(delay),
+                    score: delay
+                },
+                {
+                    text: arr[4],
+                    answer: scoreOnkom(oncomarkerResult),
+                    score: calculateOnkom()
+                },
+                {
+                    text: arr[5],
+                    answer: scoreInc(accessMalignant),
+                    score: accessMalignant
+                },
+                {
+                    text: arr[6],
+                    answer: scoreInc(temperature),
+                    score: 0
+                },
+            ]
+        }, dispatch)
+    };
 
     return (
         <Root component="main" maxWidth="md">
@@ -290,7 +273,7 @@ export default function ProstateLandingForm({ arr, id }) {
                     fullWidth
                     variant="contained"
                     color="primary"
-                    // onClick={handlerPost}
+                    onClick={handlerPost}
                     disabled={!isActiveButton}
                 >
                     ЫЫТАРГА

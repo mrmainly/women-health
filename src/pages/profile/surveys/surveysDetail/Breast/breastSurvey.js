@@ -12,9 +12,14 @@ import {
     Box,
     Button
 } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 // import { Copyright } from "../layout/components/Copyright";
 import { styled } from '@mui/system'
+import { ModalSurveyStatus } from '../../../../../components'
+import Api from '../../../../../utils/api'
+import cookie from 'js-cookie'
+import { DispatchContext } from "../../../../../store";
+
 // import ModalFalse from '../modals/surveyModals/ModalFalse'
 // import ModalTrue from '../modals/surveyModals/ModalTrue'
 // import ModalMiddle from '../modals/surveyModals/ModalMiddle'
@@ -49,7 +54,7 @@ const LinkStyle = styled('a')({
     }
 })
 
-const BreastSurvey = ({ arr }) => {
+const BreastSurvey = ({ arr, id }) => {
     const [accessFamily, setAccessFamily] = useState(null);
     const [touching, setTouching] = useState(null);
     const [lemon, setLemon] = useState(null);
@@ -67,6 +72,8 @@ const BreastSurvey = ({ arr }) => {
     const [district, setDistrict] = useState(1)
     const [checked, setChecked] = useState(false)
     const [isActiveButton, setActiveButton] = useState(false)
+    const dispatch = useContext(DispatchContext)
+    const date = cookie.get('date')
     const checkFormValid = () => {
         checked ? setActiveButton(true) : setActiveButton(false)
     }
@@ -74,123 +81,103 @@ const BreastSurvey = ({ arr }) => {
     const soldCheckbox = ({ target: { checked } }) => {
         setChecked(checked);
     };
-    // let calculateMammography = () => {
-    //     if (mammography == 0) {
-    //         return 0;
-    //     }
-    //     if (mammography == 1) {
-    //         setMammoResult(new Date().getFullYear().valueOf() - date)
-    //         return mammoResult > 49 ? 2 : 0
-    //     }
-    //     if (mammography == 3) {
-    //         return 3
-    //     }
-    // }
+    let calculateMammography = () => {
+        if (mammography == 0) {
+            return 0;
+        }
+        if (mammography == 1) {
+            setMammoResult(new Date().getFullYear().valueOf() - date)
+            return mammoResult > 49 ? 2 : 0
+        }
+        if (mammography == 3) {
+            return 3
+        }
+    }
 
-    // const handlerPost = async () => {
-    //     let scoreInc = (answer) => {
-    //         if (answer > 0) {
-    //             return "Да"
-    //         } else {
-    //             return "Нет"
-    //         }
-    //     }
-    //     let scoreMammograpgy = (answer) => {
-    //         switch (answer) {
-    //             case "1":
-    //                 return "Прошла в прошлом году";
-    //                 break;
-    //             case "3":
-    //                 return "Никогда не проходила";
-    //                 break;
-    //             case "0":
-    //                 return "Прошла в этом году";
-    //         }
-    //     }
-    //     axios.post("/api/front/surveys_api/surveys", {
-    //         survey_type: 1,
-    //         fields: [
-    //             {
-    //                 text: arr[0],
-    //                 answer: scoreInc(accessFamily),
-    //                 score: accessFamily
-    //             },
-    //             {
-    //                 text: arr[1],
-    //                 answer: scoreInc(touching),
-    //                 score: touching
-    //             },
-    //             {
-    //                 text: arr[2],
-    //                 answer: scoreInc(lemon),
-    //                 score: lemon
-    //             },
-    //             {
-    //                 text: arr[3],
-    //                 answer: scoreInc(excreta),
-    //                 score: excreta
-    //             },
-    //             {
-    //                 text: arr[4],
-    //                 answer: scoreInc(changes),
-    //                 score: changes
-    //             },
-    //             {
-    //                 text: arr[5],
-    //                 answer: scoreMammograpgy(mammography),
-    //                 score: calculateMammography()
-    //             },
-    //             {
-    //                 text: arr[6],
-    //                 answer: scoreInc(accessMalignant),
-    //                 score: accessMalignant
-    //             },
-    //             {
-    //                 text: arr[7],
-    //                 answer: menstruation,
-    //                 score: 0
-    //             },
-    //             {
-    //                 text: arr[8],
-    //                 answer: scoreInc(childBirth),
-    //                 score: 0
-    //             },
-    //             {
-    //                 text: arr[9],
-    //                 answer: scoreInc(temperature),
-    //                 score: 0
-    //             }
-    //         ]
-    //     })
-    //         .then((res) => {
-    //             if (res.status == 200) {
-    //                 console.log("result", res.data.is_danger);
-    //                 const danger = res.data.is_danger
-    //                 console.log('danger', danger)
-    //                 const clinic = res.data.to_clinic
-    //                 if (danger == true && clinic == false) {
-    //                     setShow(true)
-    //                 }
-    //                 if (danger == false && clinic == false) {
-    //                     setShowFalse(true)
-    //                 }
-    //                 if (clinic == true) {
-    //                     setShowMiddle(true)
-    //                 }
-
-    //             }
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //             alert("У вас ошибка в форме анкеты");
-    //         });
-    // };
-
+    const handlerPost = async () => {
+        let scoreInc = (answer) => {
+            if (answer > 0) {
+                return "Да"
+            } else {
+                return "Нет"
+            }
+        }
+        let scoreMammograpgy = (answer) => {
+            switch (answer) {
+                case "1":
+                    return "Прошла в прошлом году";
+                    break;
+                case "3":
+                    return "Никогда не проходила";
+                    break;
+                case "0":
+                    return "Прошла в этом году";
+            }
+        }
+        Api.sendSurveys({
+            survey_type: id,
+            fields: [
+                {
+                    text: 'Есть ли среди Ваших родственников (отец/ мать; бабушка/дедушка; сестра/ брат) случаи заболевания раком молочной железы, раком толстой кишки, раком матки и яичников',
+                    answer: scoreInc(accessFamily),
+                    score: accessFamily
+                },
+                {
+                    text: 'При пальпации молочной железы определяете ли Вы какое ни будь образование?',
+                    answer: scoreInc(touching),
+                    score: touching
+                },
+                {
+                    text: 'Имеются ли Вы на молочной железе участки кожи напоминающий «лимонную корку»?',
+                    answer: scoreInc(lemon),
+                    score: lemon
+                },
+                {
+                    text: 'Имеются ли Вы выделения из соска?',
+                    answer: scoreInc(excreta),
+                    score: excreta
+                },
+                {
+                    text: 'Не отмечали ли Вы изменение соска (втяжение)?',
+                    answer: scoreInc(changes),
+                    score: changes
+                },
+                {
+                    text: 'Когда Вы проходили последний раз маммографию?',
+                    answer: scoreMammograpgy(mammography),
+                    score: calculateMammography()
+                },
+                {
+                    text: 'Имеются ли у Вас подтверждённое злокачественное новообразование?',
+                    answer: scoreInc(accessMalignant),
+                    score: accessMalignant
+                },
+                {
+                    text: 'Укажите возраст начала менструации',
+                    answer: menstruation,
+                    score: 0
+                },
+                {
+                    text: 'Были ли у Вас роды ?',
+                    answer: scoreInc(childBirth),
+                    score: 0
+                },
+                {
+                    text: 'Последние 10 дней были ли у Вас эпизоды повышения температуры тела выше 37,5*С.',
+                    answer: scoreInc(temperature),
+                    score: 0
+                }
+            ]
+        }, dispatch)
+        // .then((res) => {
+        //     if (res.status == 200) {
+        //      
+        //     }
+        // }
+    }
     return (
         <Root component="main" maxWidth="md">
-            {/* {show && <ModalTrue />}
-            {showFalse && <ModalFalse />}
-            {showMiddle && <ModalMiddle />} */}
+            {/* <ModalSurveyStatus /> */}
             <Typography component="h1" variant="h5"
                 style={{ display: 'flex', justifyContent: "center", alignItems: "center", padding: 20 }}>
                 Эмиий ыарыыларын тургутуу
@@ -333,7 +320,7 @@ const BreastSurvey = ({ arr }) => {
                         fullWidth
                         variant="contained"
                         color="primary"
-                        // onClick={handlerPost}
+                        onClick={handlerPost}
                         disabled={!isActiveButton}
                     >
                         ЫЫТАРГА

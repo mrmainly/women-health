@@ -12,8 +12,10 @@ import {
     Typography,
     Button
 } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { styled } from '@mui/system'
+import Api from '../../../../../utils/api'
+import { DispatchContext } from "../../../../../store";
 // import ModalTrue from '../modals/surveyModals/ModalTrue'
 // import ModalFalse from '../modals/surveyModals/ModalFalse'
 // import ModalMiddle from '../modals/surveyModals/ModalMiddle'
@@ -56,6 +58,7 @@ export default function CervixLandingForm({ arr, id, }) {
     const [district, setDistrict] = useState(1)
     const [checked, setChecked] = useState(false)
     const [isActiveButton, setActiveButton] = useState(false)
+    const dispatch = useContext(DispatchContext)
 
     const checkFormValid = () => {
         checked ? setActiveButton(true) : setActiveButton(false)
@@ -65,127 +68,105 @@ export default function CervixLandingForm({ arr, id, }) {
         setChecked(checked);
     };
 
-    // const handlerPost = async () => {
-    //     let scoreInc = (answer) => {
-    //         if (answer > 0) {
-    //             return "Да"
-    //         } else {
-    //             return "Нет"
-    //         }
-    //     }
-    //     let scoreGynec = (answer) => {
-    //         switch (answer) {
-    //             case "1":
-    //                 return "Прошла в прошлом году";
-    //                 break;
-    //             case "2":
-    //                 return "Никогда не проходила";
-    //                 break;
-    //             case "0":
-    //                 return "Прошла в этом году";
-    //         }
-    //     }
-    //     let scoreCervix = (answer) => {
-    //         switch (answer) {
-    //             case "0":
-    //                 return "Нет";
-    //                 break;
-    //             case "1":
-    //                 return "эрозия шейки матки";
-    //                 break;
-    //             case "2":
-    //                 return "Дисплазия шейки матки";
-    //                 break;
-    //             case "3":
-    //                 return "лейкоплакия шейки матки";
-    //                 break;
-    //             case "4":
-    //                 return "эндоцервицит";
-    //         }
-    //     }
-    //     axios
-    //         .post("/api/front/surveys_api/surveys", {
-    //             survey_type: id,
-    //             fields: [
-    //                 {
-    //                     text: arr[0],
-    //                     answer: sexualActivity,
-    //                     score: sexualActivity >= 18 ? 0 : 1
-    //                 },
-    //                 {
-    //                     text: arr[1],
-    //                     answer: partners,
-    //                     score: partners >= 2 ? 1 : 0
-    //                 },
-    //                 {
-    //                     text: arr[2],
-    //                     answer: numbOfBirths,
-    //                     score: numbOfBirths < 4 ? 0 : 1
-    //                 },
-    //                 {
-    //                     text: arr[3],
-    //                     answer: scoreInc(trauma),
-    //                     score: trauma
-    //                 },
-    //                 {
-    //                     text: arr[4],
-    //                     answer: scoreInc(hvp),
-    //                     score: hvp
-    //                 },
-    //                 {
-    //                     text: arr[5],
-    //                     answer: scoreInc(discharge),
-    //                     score: discharge
-    //                 },
-    //                 {
-    //                     text: arr[6],
-    //                     answer: scoreInc(painful),
-    //                     score: painful
-    //                 },
-    //                 {
-    //                     text: arr[6],
-    //                     answer: scoreCervix(painf),
-    //                     score: painf > 0 ? 2 : 0
-    //                 },
-    //                 {
-    //                     text: arr[9],
-    //                     answer: scoreInc(diseases),
-    //                     score: diseases
-    //                 },
-    //                 {
-    //                     text: arr[8],
-    //                     answer: scoreGynec(gynecologist),
-    //                     score: gynecologist
-    //                 },
-    //                 {
-    //                     text: arr[10],
-    //                     answer: scoreInc(temperature),
-    //                     score: 0
-    //                 }
-    //             ]
-    //         })
-    //         .then((res) => {
-    //             if (res.status == 200) {
-    //                 console.log("result", res);
-    //                 ; console.log("danger", res.data.is_danger);
-    //                 const danger = res.data.is_danger
-    //                 const clinic = res.data.to_clinic
-    //                 if (danger == true && clinic == false) {
-    //                     setShow(true)
-    //                 }
-    //                 if (danger == false && clinic == false) {
-    //                     setShowFalse(true)
-    //                 }
-    //                 if (clinic == true) {
-    //                     setShowMiddle(true)
-    //                 }
-    //             }
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //             alert("У вас ошибка в форме анкеты");
-    //         });
-    // };
+    const handlerPost = async () => {
+        let scoreInc = (answer) => {
+            if (answer > 0) {
+                return "Да"
+            } else {
+                return "Нет"
+            }
+        }
+        let scoreGynec = (answer) => {
+            switch (answer) {
+                case "1":
+                    return "Прошла в прошлом году";
+                    break;
+                case "2":
+                    return "Никогда не проходила";
+                    break;
+                case "0":
+                    return "Прошла в этом году";
+            }
+        }
+        let scoreCervix = (answer) => {
+            switch (answer) {
+                case "0":
+                    return "Нет";
+                    break;
+                case "1":
+                    return "эрозия шейки матки";
+                    break;
+                case "2":
+                    return "Дисплазия шейки матки";
+                    break;
+                case "3":
+                    return "лейкоплакия шейки матки";
+                    break;
+                case "4":
+                    return "эндоцервицит";
+            }
+        }
+        Api.sendSurveys({
+            survey_type: id,
+            fields: [
+                {
+                    text: arr[0],
+                    answer: sexualActivity,
+                    score: sexualActivity >= 18 ? 0 : 1
+                },
+                {
+                    text: arr[1],
+                    answer: partners,
+                    score: partners >= 2 ? 1 : 0
+                },
+                {
+                    text: arr[2],
+                    answer: numbOfBirths,
+                    score: numbOfBirths < 4 ? 0 : 1
+                },
+                {
+                    text: arr[3],
+                    answer: scoreInc(trauma),
+                    score: trauma
+                },
+                {
+                    text: arr[4],
+                    answer: scoreInc(hvp),
+                    score: hvp
+                },
+                {
+                    text: arr[5],
+                    answer: scoreInc(discharge),
+                    score: discharge
+                },
+                {
+                    text: arr[6],
+                    answer: scoreInc(painful),
+                    score: painful
+                },
+                {
+                    text: arr[6],
+                    answer: scoreCervix(painf),
+                    score: painf > 0 ? 2 : 0
+                },
+                {
+                    text: arr[9],
+                    answer: scoreInc(diseases),
+                    score: diseases
+                },
+                {
+                    text: arr[8],
+                    answer: scoreGynec(gynecologist),
+                    score: gynecologist
+                },
+                {
+                    text: arr[10],
+                    answer: scoreInc(temperature),
+                    score: 0
+                }
+            ]
+        }, dispatch)
+    };
     return (
         <Root component="main" maxWidth="md">
             <Typography component="h1" variant="h5"
@@ -338,7 +319,7 @@ export default function CervixLandingForm({ arr, id, }) {
                     fullWidth
                     variant="contained"
                     color="primary"
-                    // onClick={handlerPost}
+                    onClick={handlerPost}
                     disabled={!isActiveButton}
                 >
                     ЫЫТАРГА

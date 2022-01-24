@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import ProstateSurvey from './prostateSurvey'
 
+import { useLocation } from 'react-router-dom'
+
 const ProstateWrapper = () => {
-    const [id, setId] = useState(1)
-    const [date, setDate] = useState(1)
+    const location = useLocation()
 
     let arr = [
         "Түүн хаста ииктиигиний?",
@@ -14,15 +15,9 @@ const ProstateWrapper = () => {
         "Бигэргэтиллибит раак ыарыылааххын дуо?",
         "Бүтэһик 10 хонук иһигэр температуураҥ 37,5 кыраадыстан үрдүктүк тахса сылдьыбыттаах дуо?",
     ]
-    // useEffect(() => {
-    //     const newId = query.id
-    //     const newDate = query.date
-    //     setId(newId)
-    //     setDate(new Date(newDate).getFullYear())
-    // }, [query])
     return (
         <>
-            <ProstateSurvey arr={arr} />
+            <ProstateSurvey arr={arr} id={location.state.surveyId} />
         </>
     )
 }

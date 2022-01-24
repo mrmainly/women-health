@@ -73,7 +73,8 @@ interface TitleScreenProps {
 interface CaruselSurveyProps {
     label: string,
     img: any,
-    link: any
+    link: any,
+    id?: number
 }
 
 interface TextInfoScreenProps {
@@ -132,6 +133,20 @@ interface BreastFormProps {
     date?: any
 }
 
+interface ModalSurveyStatusProps {
+    descriptions?: string
+}
+
+interface SurveyProps {
+    id: number,
+    research: any,
+    organisation: string,
+    name: string,
+    slug: string,
+    dangerScore: number,
+    criticalScore: number,
+}
+
 export type {
     ButtonProps,
     MyContainerProps,
@@ -149,5 +164,7 @@ export type {
     PageHeaderTextProps,
     ArrowNextProps,
     ArrowPrevProps,
-    BreastFormProps
+    BreastFormProps,
+    ModalSurveyStatusProps,
+    SurveyProps
 }

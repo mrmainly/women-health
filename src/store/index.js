@@ -6,6 +6,13 @@ export const defaultStore = {
         text: '',
         active: false
     },
+    date: {
+        root: ''
+    },
+    modalSurveys: {
+        description: '',
+        open: false
+    }
 };
 
 

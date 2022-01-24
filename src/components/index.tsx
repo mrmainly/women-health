@@ -26,6 +26,8 @@ import Input from './UI/input'
 import ArrowNext from './arrows/ArrowNext'
 import ArrowPrev from './arrows/ArrowPrev'
 
+import ModalSurveyStatus from "./modals/ModalSurveyStatus"
+
 export {
     Layout,
     MyButton,
@@ -53,5 +55,7 @@ export {
     Form,
 
     ArrowNext,
-    ArrowPrev
+    ArrowPrev,
+
+    ModalSurveyStatus
 }

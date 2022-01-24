@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
 import { styled } from '@mui/system'
 import {
@@ -16,6 +16,9 @@ import {
     TextField,
     Checkbox
 } from '@mui/material'
+
+import Api from '../../../../../utils/api'
+import { DispatchContext } from "../../../../../store";
 
 const Root = styled(Container)({
     display: 'flex',
@@ -53,6 +56,7 @@ export default function BreathSurvey({ arr, id }) {
     const [district, setDistrict] = useState(1)
     const [checked, setChecked] = useState(false)
     const [isActiveButton, setActiveButton] = useState(false)
+    const dispatch = useContext(DispatchContext)
 
     const checkFormValid = () => {
         checked ? setActiveButton(true) : setActiveButton(false)
@@ -76,71 +80,66 @@ export default function BreathSurvey({ arr, id }) {
         calculateSmoke()
     }, [smokeAge, smokeBundles])
 
-    // const handlerPost = async () => {
-    //     let scoreInc = (answer) => {
-    //         if (answer > 0) {
-    //             return "Да"
-    //         } else {
-    //             return "Нет"
-    //         }
-    //     }
-    //     axios
-    //         .post("/api/front/surveys_api/surveys", {
-    //             survey_type: id,
-    //             fields: [
-    //                 {
-    //                     text: arr[0],
-    //                     answer: smokeResult,
-    //                     score: calculateSmoke()
-    //                 },
-    //                 {
-    //                     text: arr[1],
-    //                     answer: scoreInc(tomography),
-    //                     score: tomography,
-    //                 },
-    //                 {
-    //                     text: arr[2],
-    //                     answer: scoreInc(blood),
-    //                     score: blood
-    //                 },
-    //                 {
-    //                     text: arr[3],
-    //                     answer: scoreInc(weigh),
-    //                     score: weigh
-    //                 },
-    //                 {
-    //                     text: arr[4],
-    //                     answer: scoreInc(access),
-    //                     score: access
-    //                 },
-    //                 {
-    //                     text: arr[5],
-    //                     answer: scoreInc(temperature),
-    //                     score: 0
-    //                 },
-    //             ]
-    //         })
-    //         .then((res) => {
-    //             if (res.status == 200) {
-    //                 console.log("result", res);
-    //                 const danger = res.data.is_danger
-    //                 const clinic = res.data.to_clinic
-    //                 if (danger == true && clinic == false) {
-    //                     setShow(true)
-    //                 }
-    //                 if (danger == false && clinic == false) {
-    //                     setShowFalse(true)
-    //                 }
-    //                 if (clinic == true) {
-    //                     setShowMiddle(true)
-    //                 }
-    //             }
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //             alert("У вас ошибка в форме анкеты");
-    //         });
-    // };
+    const handlerPost = async () => {
+        let scoreInc = (answer) => {
+            if (answer > 0) {
+                return "Да"
+            } else {
+                return "Нет"
+            }
+        }
+        Api.sendSurveys({
+            survey_type: id,
+            fields: [
+                {
+                    text: arr[0],
+                    answer: smokeResult,
+                    score: calculateSmoke()
+                },
+                {
+                    text: arr[1],
+                    answer: scoreInc(tomography),
+                    score: tomography,
+                },
+                {
+                    text: arr[2],
+                    answer: scoreInc(blood),
+                    score: blood
+                },
+                {
+                    text: arr[3],
+                    answer: scoreInc(weigh),
+                    score: weigh
+                },
+                {
+                    text: arr[4],
+                    answer: scoreInc(access),
+                    score: access
+                },
+                {
+                    text: arr[5],
+                    answer: scoreInc(temperature),
+                    score: 0
+                },
+            ]
+        }, dispatch)
+        // .then((res) => {
+        //     if (res.status == 200) {
+        //         console.log("result", res);
+        //         const danger = res.data.is_danger
+        //         const clinic = res.data.to_clinic
+        //         if (danger == true && clinic == false) {
+        //             setShow(true)
+        //         }
+        //         if (danger == false && clinic == false) {
+        //             setShowFalse(true)
+        //         }
+        //         if (clinic == true) {
+        //             setShowMiddle(true)
+        //         }
+        //     }
+        // })
+    };
     return (
         <Root component="main" maxWidth="md">
             <Typography component="h1" variant="h5"
@@ -255,7 +254,7 @@ export default function BreathSurvey({ arr, id }) {
                     fullWidth
                     variant="contained"
                     color="primary"
-                    // onClick={handlerPost}
+                    onClick={handlerPost}
                     disabled={!isActiveButton}
                 >
                     ЫЫТАРГА

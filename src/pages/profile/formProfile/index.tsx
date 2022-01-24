@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react'
 
-import { MenuProfile, MyContainer, Form, MyButton } from '../../../components'
+import { MenuProfile } from '../../../components'
 import API from '../../../utils/api'
 import { DispatchContext } from '../../../store'
 import { styled } from '@mui/system'
+import cookie from 'js-cookie'
 
-import { Button, TextField, Grid, Box, Container, Typography, FormControl, FormLabel, FormControlLabel, RadioGroup, Radio, Select, InputLabel } from '@mui/material'
+import { Button, TextField, Grid, Box, Container, Typography, FormControl, FormLabel, FormControlLabel, RadioGroup, Radio } from '@mui/material'
 
 const BoxWrapper = styled(Box)(({ theme }) => ({
     display: 'flex',
@@ -55,6 +56,7 @@ const FormProfile = () => {
             setSnils(data.snils)
             setOms(data.oms)
             setInstitution(data.organisation)
+            cookie.set('date', data.birth_date)
         })
         API.getOrg().then((res) => {
             setCity(res.data.results)

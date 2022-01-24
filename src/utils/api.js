@@ -57,14 +57,34 @@ class API {
         let result = await api(`api/locations/organisation/`).get(null)
         return result
     }
+    async getSurveysTypes() {
+        let result = await api(`api/surveys/survey-types/`).get(null)
+        return result
+    }
     async getAccountUser() {
         let result = await api(`api/accounts/user`).get(null)
         return result
     }
     putAccountUser(data, dispatch) {
         api('api/accounts/user').put(null, data).then(res => {
-            dispatch({ type: 'notification', payload: { status: 'success', active: true, text: 'аккаунт изменен' } })
-        }).catch(() => { dispatch({ type: 'notification', payload: { status: 'error', active: true, text: 'аккаунт не изменен' } }) })
+            dispatch({ type: 'notification', payload: { status: 'success', active: true, text: 'профиль изменен' } })
+        }).catch(() => { dispatch({ type: 'notification', payload: { status: 'error', active: true, text: 'профиль не изменен' } }) })
+    }
+    sendSurveys(data, dispatch) {
+        api('api/surveys/survey/').post(null, data).then(res => {
+            console.log('res', res)
+            const danger = res.data.is_danger
+            const clinic = res.data.to_clinic
+            if (danger == true && clinic == false) {
+                dispatch({ type: 'modalSurvey', payload: { open: true, description: 'Группа высокого риска, это может означать, что у Вас имеются ряд факторов риска, которые могут вызвать развитие рака. Поэтому необходимо пройти обследование.' } })
+            }
+            if (danger == false && clinic == false) {
+                dispatch({ type: 'modalSurvey', payload: { open: true, description: 'Тест не является на 100% точным Низкий риск означает, что вероятность развития рака мала, но не равна нулю. Необходимо ежегодно проходить медицинский осмотр.' } })
+            }
+            if (clinic == true) {
+                dispatch({ type: 'modalSurvey', payload: { open: true, description: ' На сегодня Вам не показано прохождение скрининга, необходимо обратиться к участковому терапевту по месту жительства.' } })
+            }
+        }).catch(() => { dispatch({ type: 'notification', payload: { status: 'error', active: true, text: 'У вас ошибка в форме анкеты' } }) })
     }
 }
 

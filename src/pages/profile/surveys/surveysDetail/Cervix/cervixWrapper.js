@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Cervix from './cervixSurvey'
 
+import { useLocation } from 'react-router-dom'
+
 const CervixWrapper = () => {
-    const [id, setId] = useState(1)
-    const [date, setDate] = useState(1)
+    const location = useLocation()
 
     let arr =
         [
@@ -27,7 +28,7 @@ const CervixWrapper = () => {
     // }, [query])
     return (
         <>
-            <Cervix arr={arr} />
+            <Cervix arr={arr} id={location.state.surveyId} />
         </>
     )
 }

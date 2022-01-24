@@ -12,8 +12,11 @@ import {
     Typography,
     Button
 } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { styled } from '@mui/system'
+
+import Api from '../../../../../utils/api'
+import { DispatchContext } from "../../../../../store";
 
 const Root = styled(Container)({
     display: 'flex',
@@ -52,6 +55,7 @@ export default function LiverSurvey({ arr, id }) {
     const [district, setDistrict] = useState(1)
     const [checked, setChecked] = useState(false)
     const [isActiveButton, setActiveButton] = useState(false)
+    const dispatch = useContext(DispatchContext)
 
     const checkFormValid = () => {
         checked ? setActiveButton(true) : setActiveButton(false)
@@ -61,86 +65,65 @@ export default function LiverSurvey({ arr, id }) {
         setChecked(checked);
     };
 
-    // const handlerPost = async () => {
-    //     let scoreInc = (answer) => {
-    //         if (answer > 0) {
-    //             return "Да"
-    //         } else {
-    //             return "Нет"
-    //         }
-    //     }
-    //     axios
-    //         .post("/api/front/surveys_api/surveys", {
-    //             survey_type: id,
-    //             fields: [
-    //                 {
-    //                     text: arr[0],
-    //                     answer: scoreInc(hepatits),
-    //                     score: hepatits,
-    //                 },
-    //                 {
-    //                     text: arr[1],
-    //                     answer: scoreInc(HBsAg),
-    //                     score: HBsAg
-    //                 },
-    //                 {
-    //                     text: arr[2],
-    //                     answer: scoreInc(cirrhosis),
-    //                     score: cirrhosis
-    //                 },
-    //                 {
-    //                     text: arr[3],
-    //                     answer: scoreInc(itchySkin),
-    //                     score: itchySkin
-    //                 },
-    //                 {
-    //                     text: arr[4],
-    //                     answer: scoreInc(hypochondrium),
-    //                     score: hypochondrium
-    //                 },
-    //                 {
-    //                     text: arr[5],
-    //                     answer: scoreInc(vomitingИlood),
-    //                     score: vomitingИlood
-    //                 },
-    //                 {
-    //                     text: arr[6],
-    //                     answer: scoreInc(weightLoss),
-    //                     score: weightLoss
-    //                 },
-    //                 {
-    //                     text: arr[7],
-    //                     answer: scoreInc(parentsCancer),
-    //                     score: parentsCancer
-    //                 },
-    //                 {
-    //                     text: arr[8],
-    //                     answer: scoreInc(temperature),
-    //                     score: 0
-    //                 },
-    //             ]
-    //         })
-    //         .then((res) => {
-    //             if (res.status == 200) {
-    //                 console.log("result", res);
-    //                 const danger = res.data.is_danger
-    //                 const clinic = res.data.to_clinic
-    //                 if (clinic == true) {
-    //                     setShowMiddle(true)
-    //                 }
-    //                 if (danger == true && clinic == false) {
-    //                     setShow(true)
-    //                 }
-    //                 if (danger == false && clinic == false) {
-    //                     setShowFalse(true)
-    //                 }
-    //             }
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //             alert("У вас ошибка в форме анкеты");
-    //         });
-    // };
+    const handlerPost = async () => {
+        let scoreInc = (answer) => {
+            if (answer > 0) {
+                return "Да"
+            } else {
+                return "Нет"
+            }
+        }
+        Api.sendSurveys({
+            survey_type: id,
+            fields: [
+                {
+                    text: arr[0],
+                    answer: scoreInc(hepatits),
+                    score: hepatits,
+                },
+                {
+                    text: arr[1],
+                    answer: scoreInc(HBsAg),
+                    score: HBsAg
+                },
+                {
+                    text: arr[2],
+                    answer: scoreInc(cirrhosis),
+                    score: cirrhosis
+                },
+                {
+                    text: arr[3],
+                    answer: scoreInc(itchySkin),
+                    score: itchySkin
+                },
+                {
+                    text: arr[4],
+                    answer: scoreInc(hypochondrium),
+                    score: hypochondrium
+                },
+                {
+                    text: arr[5],
+                    answer: scoreInc(vomitingИlood),
+                    score: vomitingИlood
+                },
+                {
+                    text: arr[6],
+                    answer: scoreInc(weightLoss),
+                    score: weightLoss
+                },
+                {
+                    text: arr[7],
+                    answer: scoreInc(parentsCancer),
+                    score: parentsCancer
+                },
+                {
+                    text: arr[8],
+                    answer: scoreInc(temperature),
+                    score: 0
+                },
+            ]
+        }, dispatch)
+    };
 
     return (
         <Root component="main" maxWidth="md">
@@ -269,7 +252,7 @@ export default function LiverSurvey({ arr, id }) {
                     fullWidth
                     variant="contained"
                     color="primary"
-                    // onClick={handlerPost}
+                    onClick={handlerPost}
                     disabled={!isActiveButton}
                 >
                     ЫЫТАРГА

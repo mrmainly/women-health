@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import GutSurvey from './gutSurvey'
 
+import { useLocation } from 'react-router-dom'
+
 const GutWrapper = () => {
-    const [id, setId] = useState(1)
-    const [date, setDate] = useState(1)
+    const location = useLocation()
 
     let arr = [
         "Аймахтаргар (ийэҕэр, аҕаҕар, эбэҕэр, эһэҕэр) оһоҕос раага баар этэ дуо?",
@@ -25,7 +26,7 @@ const GutWrapper = () => {
     // }, [query])
     return (
         <>
-            <GutSurvey arr={arr} />
+            <GutSurvey arr={arr} id={location.state.surveyId} />
         </>
     )
 }

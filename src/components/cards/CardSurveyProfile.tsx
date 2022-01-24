@@ -2,6 +2,7 @@ import React from 'react'
 
 import { styled } from '@mui/system'
 import { Box, Card, CardMedia, MenuItem } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 import { CaruselSurveyProps } from '../../interface'
 import { MyText, MyLink } from '..'
@@ -46,7 +47,9 @@ const Box2 = styled(Box)(({ theme }) => ({
     padding: 20
 }))
 
-const CardSurveysProfile: React.FC<CaruselSurveyProps> = ({ img, link, label }) => {
+const CardSurveysProfile: React.FC<CaruselSurveyProps> = ({ img, link, label, id }) => {
+    const navigate = useNavigate()
+
     return (
         <CardRoot style={{ marginTop: 20, marginBottom: 20 }}>
             <Box1>
@@ -54,7 +57,9 @@ const CardSurveysProfile: React.FC<CaruselSurveyProps> = ({ img, link, label }) 
             </Box1>
             <Box2>
                 <MyText variant="h6" sm={25}>{label}</MyText>
-                <MyLink href={link} sx={{ mt: 2, color: '#EB5757' }}><MenuItem>Перейти к исследованию</MenuItem></MyLink>
+                <MenuItem sx={{ mt: 2, color: '#EB5757' }} onClick={() => {
+                    navigate(link, { state: { surveyId: id } })
+                }}>Перейти к исследованию</MenuItem>
             </Box2>
         </CardRoot>
     )

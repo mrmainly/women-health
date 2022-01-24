@@ -63,12 +63,12 @@ const App = () => {
                                 <Route path="cervix" element={<Cervix />} />
                                 <Route path="prostate" element={<Prostate />} />
 
-                                <Route path="breast-form" element={<BreastForm />} />
-                                <Route path="breath-form" element={<BreathForm />} />
-                                <Route path="cervix-form" element={<CervixForm />} />
-                                <Route path="gut-form" element={<GutForm />} />
-                                <Route path="prostate-form" element={<ProstateForm />} />
-                                <Route path="liver-form" element={<LiverForm />} />
+                                <Route path="/surveys/breast-survey" element={<BreastForm />} />
+                                <Route path="/surveys/lung-survey" element={<BreathForm />} />
+                                <Route path="/surveys/cervix-survey" element={<CervixForm />} />
+                                <Route path="/surveys/colon-survey" element={<GutForm />} />
+                                <Route path="/surveys/prostate-survey" element={<ProstateForm />} />
+                                <Route path="/surveys/liver-survey" element={<LiverForm />} />
 
                                 <Route path="login" element={<Login />} />
                                 <Route path="register" element={<Register />} />

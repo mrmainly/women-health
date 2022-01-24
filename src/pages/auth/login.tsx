@@ -5,6 +5,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Avatar, FormControlLabel, Checkbox, Grid, Box, Typography, CssBaseline, Container } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useForm } from 'react-hook-form'
+import InputMask from 'react-input-mask'
 
 import { Input, Form, MyButton, MyLink } from '../../components'
 import { DispatchContext, StateContext } from '../../store'

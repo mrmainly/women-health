@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Breast from './breastSurvey'
 import axios from 'axios'
 
-const BreastLanding = () => {
-    const [id, setId] = useState(1)
-    const [date, setDate] = useState(1)
+import { useLocation } from 'react-router-dom'
+
+const BreastLanding = props => {
+    const location = useLocation()
 
     let arr =
         [
@@ -19,15 +20,9 @@ const BreastLanding = () => {
             "Төрөөбүтүҥ дуо?",
             "Бүтэһик 10 хонук иһигэр температуураҥ 37,5 кыраадыстан үрдүктүк тахса сылдьыбыттаах дуо?",
         ]
-    // useEffect(() => {
-    //     const newId = query.id
-    //     const newDate = query.date
-    //     setId(newId)
-    //     setDate(new Date(newDate).getFullYear())
-    // }, [query])
     return (
         <>
-            <Breast arr={arr} />
+            <Breast arr={arr} id={location.state.surveyId} />
         </>
     )
 }
