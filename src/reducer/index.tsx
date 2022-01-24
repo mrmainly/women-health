@@ -1,11 +1,11 @@
 export const stateReducer = (state: any, action: any) => {
     switch (action.type) {
-        case 'authModal':
-            return { ...state, authModal: action.payload }
         case 'notification':
             return { ...state, noti: action.payload }
-        case 'login':
-            return { ...state, login: action.payload }
+        case 'date':
+            return { ...state, date: action.payload }
+        case 'modalSurvey':
+            return { ...state, modalSurveys: action.payload }
         default:
             throw new Error();
     }

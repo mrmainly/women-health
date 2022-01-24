@@ -5,6 +5,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Avatar, FormControlLabel, Checkbox, Grid, Box, Typography, CssBaseline, Container } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useForm } from 'react-hook-form'
+import InputMask from 'react-input-mask'
 
 import { Input, Form, MyButton, MyLink } from '../../components'
 import { DispatchContext, StateContext } from '../../store'
@@ -52,8 +53,8 @@ export default function Login() {
                         Вход
                     </Typography>
                     <Form sx={{ mt: 1 }} onSubmit={handleSubmit(onSubmit)}>
-                        <Input variant="outlined" label="Номер телефона" {...register('username')} id="username" type="number" />
-                        <Input variant="outlined" label="Пароль" {...register('password')} id="password" />
+                        <Input variant="outlined" label="Номер телефона" {...register('username')} id="username" required type="number" />
+                        <Input variant="outlined" label="Пароль" {...register('password')} id="password" required />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
                             label="Запомнить устройство"

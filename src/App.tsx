@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from 'react';
+import React, { useReducer, useState } from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -18,6 +18,13 @@ import Gut from './pages/surveysInfo/gut'
 import Cervix from './pages/surveysInfo/cervix'
 import Prostate from './pages/surveysInfo/prostate'
 
+import BreastForm from './pages/profile/surveys/surveysDetail/Breast/breastWrapper'
+import BreathForm from './pages/profile/surveys/surveysDetail/Breath/breathWrapper'
+import CervixForm from './pages/profile/surveys/surveysDetail/Cervix/cervixWrapper'
+import GutForm from './pages/profile/surveys/surveysDetail/Gut/gutWrapper'
+import ProstateForm from './pages/profile/surveys/surveysDetail/Prostate/prostateWrapper'
+import LiverForm from './pages/profile/surveys/surveysDetail/Liver/liverWrapper'
+
 import Login from './pages/auth/login'
 import Register from './pages/auth/register'
 import ForgotPassword from './pages/auth/forgotPassword'
@@ -27,10 +34,10 @@ import Schedule from './pages/profile/schedule'
 import Results from './pages/profile/results'
 import Surveys from './pages/profile/surveys'
 
-import {LOCALES} from "./i18n/locales";
-import {messages} from "./i18n/messages";
-import {Layout} from './components';
-import {IntlProvider} from "react-intl";
+import { LOCALES } from "./i18n/locales";
+import { messages } from "./i18n/messages";
+import { Layout } from './components';
+import { IntlProvider } from "react-intl";
 
 const App = () => {
     const [state, dispatch] = useReducer(stateReducer, defaultStore)
