@@ -41,16 +41,14 @@ import { IntlProvider } from "react-intl";
 
 const App = () => {
     const [state, dispatch] = useReducer(stateReducer, defaultStore)
-    const locale = LOCALES.RUSSIAN
-    const [currentLocale, setCurrentLocale] = useState(locale)
+    const [currentLocale, setCurrentLocale] = useState(LOCALES.RUSSIAN)
 
     const changeLocale = (localeCode: string) => {
         setCurrentLocale(localeCode)
     }
 
-
     return (
-        <IntlProvider messages={messages[locale]} defaultLocale={locale} locale={LOCALES.RUSSIAN}>
+        <IntlProvider messages={messages[currentLocale]} defaultLocale={currentLocale} locale={LOCALES.RUSSIAN}>
             <LanguageContext.Provider value={{currentLocale, changeLocale}}>
                 <DispatchContext.Provider value={dispatch}>
                     <StateContext.Provider value={state}>
