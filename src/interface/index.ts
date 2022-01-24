@@ -147,6 +147,21 @@ interface SurveyProps {
     criticalScore: number,
 }
 
+interface TabPanelProps {
+    children?: React.ReactNode;
+    index?: any;
+    value?: any;
+}
+
+interface CardProps {
+    schedule: any
+};
+
+interface TimeButtonProps {
+    appointment: any
+    index: number
+}
+
 export type {
     ButtonProps,
     MyContainerProps,
@@ -166,5 +181,8 @@ export type {
     ArrowPrevProps,
     BreastFormProps,
     ModalSurveyStatusProps,
-    SurveyProps
+    SurveyProps,
+    TabPanelProps,
+    CardProps,
+    TimeButtonProps
 }

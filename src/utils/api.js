@@ -86,6 +86,16 @@ class API {
             }
         }).catch(() => { dispatch({ type: 'notification', payload: { status: 'error', active: true, text: 'У вас ошибка в форме анкеты' } }) })
     }
+    async schedule(date) {
+        let result = await api(`api/schedules/schedule?date=${date}`).get(null)
+        return result
+    }//api/schedules/schedule/
+    sendAppointment(data) {
+        api('api/v1/user/registration/').post(null, data).then(res => {
+            // dispatch({ type: 'authModal', payload: { register: false, login: true, forgot: false } })
+            console.log(res)
+        }).catch((error) => console.log(error))
+    }
 }
 
 export default new API()

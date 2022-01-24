@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import { MenuProfile, MyContainer, CardSurveysProfile, MyText } from '../../../components'
+import { MenuProfile, MyContainer, CardSurveysProfile, MyText, ModalSurvey } from '../../../components'
 
 import { Box, Grid, Typography, CircularProgress } from '@mui/material'
 import { styled } from '@mui/system'
@@ -54,7 +54,9 @@ const BoxWrapper = styled(Box)(({ theme }) => ({
 const Surveys = () => {
     const [data, setData] = useState<SurveyProps[]>([])
     const [loading, setLoading] = useState(true)
+    const [open, setOpen] = useState(false)
     useEffect(() => {
+        setOpen(true)
         Api.getSurveysTypes().then((res) => {
             const result = res.data.results.map((result: any) => {
                 return {
@@ -69,16 +71,19 @@ const Surveys = () => {
     }, [])
     return (
         <MyContainer wrapper={false}>
+            {open &&
+                <ModalSurvey />
+            }
             <BoxWrapper>
                 <MenuProfile />
-                {loading ?
-                    <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: 15 }}>
-                        <CircularProgress />
-                    </Box> :
-                    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', mt: 10, ml: 2, width: '100%' }}>
-                        <MyText variant="h5">Анкеталар</MyText>
+                <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', mt: 10, ml: 2, width: '100%' }}>
+                    <MyText variant="h5">Анкеталар</MyText>
+                    {loading ?
+                        <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: 3 }}>
+                            <CircularProgress />
+                        </Box> :
                         <Grid container>
-                            {data !== null ? data.map((item, index) => (
+                            {data.length ? data.map((item, index) => (
                                 <Grid item lg={4} xl={4} md={6} sm={6} xs={12} key={index}>
                                     <CardSurveysProfile
                                         label={item.research.name}
@@ -87,11 +92,11 @@ const Surveys = () => {
                                         id={item.id}
                                     />
                                 </Grid>
-                            )) : 'asddas'
-                            }
+                            )) : <MyText variant="h6" sx={{ margin: '0 auto', mt: 5 }}>В соответствии с Вашим полом и возрастом, доступных для Вас анкет -
+                                нет.</MyText>}
                         </Grid>
-                    </Box>
-                }
+                    }
+                </Box>
             </BoxWrapper>
         </MyContainer>
     )
