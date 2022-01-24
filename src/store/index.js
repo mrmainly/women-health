@@ -11,8 +11,9 @@ export const defaultStore = {
     },
     modalSurveys: {
         description: '',
-        open: false
-    }
+        open: false,
+        username: ''
+    },
 };
 
 

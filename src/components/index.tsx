@@ -12,6 +12,7 @@ import CardUsefulLinks from "./cards/CardUsefulLinks"
 import CardSurveyCarusel from "./cards/CardSurveyCarusel"
 import CardSurvey from "./cards/CardSurvey"
 import CardSurveysProfile from './cards/CardSurveyProfile'
+import { ResearchCard } from './cards/ResearchCard'
 
 import InfoScreen from './screens/InfoBlockScreen'
 import TextInfoScreen from './screens/TextInfoScreen'
@@ -27,6 +28,7 @@ import ArrowNext from './arrows/ArrowNext'
 import ArrowPrev from './arrows/ArrowPrev'
 
 import ModalSurveyStatus from "./modals/ModalSurveyStatus"
+import ModalSurvey from './modals/ModalSurvey'
 
 export {
     Layout,
@@ -43,6 +45,7 @@ export {
     CardSurveyCarusel,
     CardSurvey,
     CardSurveysProfile,
+    ResearchCard,
 
     InfoScreen,
     TextInfoScreen,
@@ -57,5 +60,7 @@ export {
     ArrowNext,
     ArrowPrev,
 
-    ModalSurveyStatus
+    ModalSurveyStatus,
+    ModalSurvey,
+
 }
