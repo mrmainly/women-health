@@ -12,3 +12,4 @@ export const defaultStore = {
 
 export const StateContext = React.createContext();
 export const DispatchContext = React.createContext();
+export const LanguageContext = React.createContext();

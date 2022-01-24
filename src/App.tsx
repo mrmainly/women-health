@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import {Route, BrowserRouter, Routes} from "react-router-dom";
-import {DispatchContext, StateContext, defaultStore} from './store'
+import {DispatchContext, StateContext, LanguageContext, defaultStore} from './store'
 import {stateReducer} from './reducer'
 
 import HomePage from './pages/home';
@@ -37,38 +37,45 @@ const App = () => {
     const locale = LOCALES.RUSSIAN
     const [currentLocale, setCurrentLocale] = useState(locale)
 
+    const changeLocale = (localeCode: string) => {
+        setCurrentLocale(localeCode)
+    }
+
+
     return (
         <IntlProvider messages={messages[locale]} defaultLocale={locale} locale={LOCALES.RUSSIAN}>
-            <DispatchContext.Provider value={dispatch}>
-                <StateContext.Provider value={state}>
-                    <BrowserRouter>
-                        <Routes>
-                            <Route path="/" element={<Layout/>}>
-                                <Route index element={<HomePage/>}/>
-                                <Route path="about" element={<AboutPage/>}/>
-                                <Route path="faq" element={<Faq/>}/>
-                                <Route path="contacts" element={<Contacts/>}/>
+            <LanguageContext.Provider value={{currentLocale, changeLocale}}>
+                <DispatchContext.Provider value={dispatch}>
+                    <StateContext.Provider value={state}>
+                        <BrowserRouter>
+                            <Routes>
+                                <Route path="/" element={<Layout/>}>
+                                    <Route index element={<HomePage/>}/>
+                                    <Route path="about" element={<AboutPage/>}/>
+                                    <Route path="faq" element={<Faq/>}/>
+                                    <Route path="contacts" element={<Contacts/>}/>
 
-                                <Route path="breast" element={<Breast/>}/>
-                                <Route path="breath" element={<Breath/>}/>
-                                <Route path="liver" element={<Liver/>}/>
-                                <Route path="gut" element={<Gut/>}/>
-                                <Route path="cervix" element={<Cervix/>}/>
-                                <Route path="prostate" element={<Prostate/>}/>
+                                    <Route path="breast" element={<Breast/>}/>
+                                    <Route path="breath" element={<Breath/>}/>
+                                    <Route path="liver" element={<Liver/>}/>
+                                    <Route path="gut" element={<Gut/>}/>
+                                    <Route path="cervix" element={<Cervix/>}/>
+                                    <Route path="prostate" element={<Prostate/>}/>
 
-                                <Route path="login" element={<Login/>}/>
-                                <Route path="register" element={<Register/>}/>
-                                <Route path="forgot" element={<ForgotPassword/>}/>
+                                    <Route path="login" element={<Login/>}/>
+                                    <Route path="register" element={<Register/>}/>
+                                    <Route path="forgot" element={<ForgotPassword/>}/>
 
-                                <Route path="form-profile" element={<FormProfile/>}/>
-                                <Route path="schedule" element={<Schedule/>}/>
-                                <Route path="results" element={<Results/>}/>
-                                <Route path="surveys" element={<Surveys/>}/>
-                            </Route>
-                        </Routes>
-                    </BrowserRouter>
-                </StateContext.Provider>
-            </DispatchContext.Provider>
+                                    <Route path="form-profile" element={<FormProfile/>}/>
+                                    <Route path="schedule" element={<Schedule/>}/>
+                                    <Route path="results" element={<Results/>}/>
+                                    <Route path="surveys" element={<Surveys/>}/>
+                                </Route>
+                            </Routes>
+                        </BrowserRouter>
+                    </StateContext.Provider>
+                </DispatchContext.Provider>
+            </LanguageContext.Provider>
         </IntlProvider>
     );
 }

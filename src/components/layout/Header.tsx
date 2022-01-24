@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 
 import {AppBar, Toolbar, MenuItem, Typography, Box, Drawer, IconButton, Container} from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 import {styled} from '@mui/system'
 import cookie from 'js-cookie'
 import {LOCALES} from "../../i18n/locales";
+import {LanguageContext} from "../../store";
 
 
 const Root = styled('div')(() => ({
@@ -97,6 +98,7 @@ const Header: React.FC = () => {
         {name: 'Русский', code: LOCALES.RUSSIAN},
         {name: 'Якутский', code: LOCALES.SAKHA},
     ]
+    const {currentLocale, changeLocale} = useContext(LanguageContext)
 
     useEffect(() => {
         const setResponsiveness = () => {
@@ -126,9 +128,11 @@ const Header: React.FC = () => {
             <BoxLogo>
                 <img style={{width: 100}} src={'/img/Element/logo2.png'}/>
                 <div className='switcher'>
-                    Выбор языка <select>
+                    Выбор языка <select onChange={(e) => {
+                    changeLocale(e.target.value)
+                }}>
                     {languages.map(({name, code}) => (
-                        <option key={code} value={code}>
+                        <option key={name} value={code}>
                             {name}
                         </option>
                     ))}
