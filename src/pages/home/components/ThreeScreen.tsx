@@ -3,6 +3,7 @@ import React from 'react'
 import { Grid, Box } from '@mui/material'
 import { styled } from '@mui/system'
 import { MyContainer, MyText } from '../../../components'
+import {FormattedMessage} from "react-intl";
 
 const Companys = styled(Grid)(({ }) => ({
     display: 'flex',
@@ -27,7 +28,9 @@ const ThreeScreen: React.FC = () => {
             }}
         >
             <Companys container>
-                <MyText variant="h5">БЫРЫЙЫАК КЫТТЫЫЛААХТАРА</MyText>
+                <MyText variant="h5">
+                    <FormattedMessage id={'partners_project'}/>
+                </MyText>
                 <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: 3 }}>
                     {CompanyList.map((itemCompany) => (
                         <CompanyItem item key={itemCompany}>

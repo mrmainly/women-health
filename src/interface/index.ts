@@ -42,10 +42,10 @@ interface MyLinkProps {
 
 interface CardPersonProps {
     img: any,
-    name: string
+    name: any
     infoImg: any,
-    tag: string,
-    description: string
+    tag: any,
+    description: any
 }
 
 interface CardAboutProps {
@@ -71,7 +71,7 @@ interface TitleScreenProps {
 }
 
 interface CaruselSurveyProps {
-    label: string,
+    label: any,
     img: any,
     link: any,
     id?: number
@@ -97,7 +97,7 @@ interface FormProps {
 
 interface InputProps {
     ref: any,
-    label?: string,
+    label?: any,
     sx?: any,
     variant: any,
     rows?: number,
@@ -109,9 +109,9 @@ interface InputProps {
 
 interface PageHeaderTextProps {
     title: any,
-    description?: string,
+    description?: any,
     titleSize: any,
-    tag: string,
+    tag: any,
     showLine?: boolean,
 }
 
