@@ -7,6 +7,7 @@ import {styled} from '@mui/system'
 import cookie from 'js-cookie'
 import {LOCALES} from "../../i18n/locales";
 import {LanguageContext} from "../../store";
+import {FormattedMessage} from "react-intl";
 
 
 const Root = styled('div')(() => ({
@@ -66,23 +67,23 @@ const CustomMenuItem = styled(MenuItem)(({theme}) => ({
 
 const headerData: any = [
     {
-        text: 'Ыйытыы/хоруй',
+        text: <FormattedMessage id='question_answers_menu' />,
         link: '/faq'
     },
     {
-        text: 'Бырайыак туһунан',
+        text: <FormattedMessage id='about_menu' />,
         link: '/about'
     },
     {
-        text: 'Сүрүн',
+        text: <FormattedMessage id='index_menu' />,
         link: '/'
     },
     {
-        text: 'Аадырыс',
+        text: <FormattedMessage id='contacts_menu' />,
         link: '/contacts'
     },
     {
-        text: 'Тус хос',
+        text: <FormattedMessage id='profile_menu' />,
         link: cookie.get('jwttoken') ? 'form-profile' : 'login'
     },
 ]
