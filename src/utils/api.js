@@ -89,12 +89,16 @@ class API {
     async schedule(date) {
         let result = await api(`api/schedules/schedule?date=${date}`).get(null)
         return result
-    }//api/schedules/schedule/
+    }//api/report/report
     sendAppointment(data) {
         api('api/v1/user/registration/').post(null, data).then(res => {
             // dispatch({ type: 'authModal', payload: { register: false, login: true, forgot: false } })
             console.log(res)
         }).catch((error) => console.log(error))
+    }
+    async getResults() {
+        let result = await api(`api/report/report`).get(null)
+        return result
     }
 }
 

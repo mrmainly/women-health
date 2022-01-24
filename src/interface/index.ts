@@ -162,6 +162,12 @@ interface TimeButtonProps {
     index: number
 }
 
+interface ResultsProps {
+    id: number,
+    name: string,
+    research_type: any
+}
+
 export type {
     ButtonProps,
     MyContainerProps,
@@ -184,5 +190,6 @@ export type {
     SurveyProps,
     TabPanelProps,
     CardProps,
-    TimeButtonProps
+    TimeButtonProps,
+    ResultsProps
 }
