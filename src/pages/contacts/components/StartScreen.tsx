@@ -2,9 +2,11 @@ import React from 'react'
 
 import { MyContainer, MyText } from '../../../components'
 import themeMain from '../../../theme'
+import { FormattedMessage } from "react-intl";
 
 import { Box, Grid } from '@mui/material'
 import { styled } from '@mui/system'
+
 
 const Root = styled(Grid)(({ theme }) => ({
     width: '100%',
@@ -49,8 +51,8 @@ const StartScreen = () => {
                     <Img src={'/img/Element/Group420.png'} />
                 </Grid>
                 <GridItemText item lg={6} xl={6} md={6} sm={12} xs={12}>
-                    <MyText variant="h4" sx={{ color: 'black' }}>Ыйытар төлөпүөннэрбит </MyText>
-                    <MyText variant="h6" sx={{ mt: 5, mb: 5, color: '#313131', fontWeight: 500 }}>Балыыһалар, дьаһалта төлөпүөннэрэ, туһалаах информация</MyText>
+                    <MyText variant="h4" sx={{ color: 'black' }}><FormattedMessage id="contacts_reference_phones" /></MyText>
+                    <MyText variant="h6" sx={{ mt: 5, mb: 5, color: '#313131', fontWeight: 500 }}><FormattedMessage id="contacts_reference_phones_description" /></MyText>
                     <MyText variant="h2" sx={{ color: '#1B1642', fontWeight: 500 }}>8 962 731-18-00</MyText>
                 </GridItemText>
             </Root>

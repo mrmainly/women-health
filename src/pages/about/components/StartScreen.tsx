@@ -1,9 +1,10 @@
 import React from 'react'
 import { Grid, Box, Container } from '@mui/material'
+import { styled } from '@mui/system'
 
 import { MyText, MyContainer } from '../../../components'
 import { PageHeaderText } from '../../../constructor'
-import { styled } from '@mui/system'
+import { FormattedMessage } from "react-intl";
 
 const Img = styled('img')(({ theme }) => ({
     [theme.breakpoints.down('md')]: {
@@ -46,26 +47,26 @@ const StartScreen = () => {
     const data = [
         {
             number: '964 330',
-            description: 'СӨ олохтоохторун ахсаана'
+            description: <FormattedMessage id="population_about_page" />
         },
         {
             number: '12 881',
-            description: 'киһи СӨ онкологияҕа учуокка турар'
+            description: <FormattedMessage id="registered_about_page" />
         },
         {
             number: '1 250',
-            description: 'СӨ сылга ортотунан рактан сылтаан өлөр'
+            description: <FormattedMessage id="mortality_about_page" />
         },
         {
             number: '24%',
-            description: 'Өрөспүүбүлүкэ олохтоохторун 50 саастарыттан аҕа дьон'
+            description: <FormattedMessage id="population_50_about_page" />
         }
     ]
 
     return (
         <MyContainer wrapper={false}>
             <TextBox>
-                <PageHeaderText title="Саха сиригэр элбэх киһини чинчийэн рагы эрдэ булуу" titleSize="h2" tag="Биһиги сүрүн сорукпут" />
+                <PageHeaderText title={<FormattedMessage id="our_mission_about_page" />} titleSize="h2" tag={<FormattedMessage id="our_mission_about_tag_page" />} />
                 <Grid container style={{ marginTop: 80 }}>
                     {data.map(item => (
                         <Grid item lg={3} xl={3} md={3} sm={3} xs={6} key={item.number}>

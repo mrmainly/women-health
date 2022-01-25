@@ -7,6 +7,7 @@ import { DispatchContext } from '../../../store'
 import { CircularProgress } from '@mui/material'
 import { styled } from '@mui/system'
 import cookie from 'js-cookie'
+import { FormattedMessage } from "react-intl";
 
 import { Button, TextField, Grid, Box, Container, Typography, FormControl, FormLabel, FormControlLabel, RadioGroup, Radio } from '@mui/material'
 
@@ -82,7 +83,7 @@ const FormProfile = () => {
                     <Box>
                         <Box mt={3}>
                             <Typography component="h1" variant="h5" align={'center'}>
-                                Тус хос
+                                <FormattedMessage id="profile_menu" />
                             </Typography>
                         </Box>
                         {loading ?

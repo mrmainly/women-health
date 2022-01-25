@@ -5,6 +5,7 @@ import { Box, Grid } from '@mui/material'
 import { styled } from '@mui/system'
 
 import themeMain from '../../../theme'
+import { FormattedMessage } from "react-intl";
 
 const GridImg = styled(Grid)({
     background: themeMain.palette.secondary.main,
@@ -38,32 +39,36 @@ const Span = styled('span')({
 const TwoScreen = () => {
     const data = [
         {
-            label: 'Сүрүн быраас:',
-            span: 'Афанасьева Лена Николаевна'
+            label: <FormattedMessage id="contacts_chief_physician_label" />,
+            span: <FormattedMessage id="contacts_chief_physician" />
         },
         {
-            label: 'Аадырыс:',
-            span: 'г. Якутск, ул. Стадухина 81 корп. 1'
+            label: <FormattedMessage id="contacts_address_label" />,
+            span: <FormattedMessage id="contacts_address" />
         },
         {
-            label: 'e-mail:',
-            span: 'yarod@gov14.ru'
+            label: <FormattedMessage id="contacts_email_label" />,
+            span: <FormattedMessage id="contacts_email" />
         },
         {
-            label: 'Приемнай:',
-            span: '(4112) 43-21-63'
+            label: <FormattedMessage id="contacts_reception_label" />,
+            span: <FormattedMessage id="contacts_reception" />
         },
         {
-            label: 'Сaайт:',
-            span: 'onkosakha.ru'
+            label: <FormattedMessage id="contacts_site_label" />,
+            span: <FormattedMessage id="contacts_site" />
         },
         {
-            label: 'Куруук үлэлиир лииньийэ:',
-            span: '89142705379'
+            label: <FormattedMessage id="contacts_fax_label" />,
+            span: <FormattedMessage id="contacts_fax" />
         },
         {
-            label: 'Бүтүн Арассыыйатааҕы онкологияннан ыалдьааччыларга көмөлөһөр төлөпүөн:',
-            span: '+7 (800) 100 01 91'
+            label: <FormattedMessage id="contacts_hot_line_label" />,
+            span: <FormattedMessage id="contacts_hot_line" />
+        },
+        {
+            label: <FormattedMessage id="contacts_russian_line_label" />,
+            span: <FormattedMessage id="contacts_russian_line" />
         }
     ]
     return (
@@ -73,7 +78,7 @@ const TwoScreen = () => {
                     <img src={'/img/Element/men.png'} style={{ width: '150%' }} />
                 </GridImg>
                 <GridText item lg={7} xl={7} md={7} sm={12} xs={12}>
-                    <MyText variant="h6" sm={18}>Саха сиринээҕи Онкология диспансера, Дьокуускай куорат</MyText>
+                    <MyText variant="h6" sm={18}><FormattedMessage id="contacts_yarod_name" /></MyText>
                     {data.map((item, index) => (
                         <MyText variant="h6" sm={16} sx={{ fontWeight: 'normal', mt: 1 }} key={index}>{item.label}<Span>{item.span}</Span></MyText>
                     ))}

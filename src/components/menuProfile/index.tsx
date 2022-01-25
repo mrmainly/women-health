@@ -3,6 +3,7 @@ import React from 'react'
 import { Box, MenuItem } from '@mui/material'
 import { styled } from '@mui/system'
 import cookie from 'js-cookie'
+import { FormattedMessage } from "react-intl";
 
 import { MyLink } from '..'
 
@@ -24,11 +25,11 @@ const Root = styled(Box)(({ theme }) => ({
 const MenuProfile = () => {
     const menuList = [
         {
-            label: 'Тус хос',
+            label: <FormattedMessage id="profile_menu" />,
             link: '/form-profile',
         },
         {
-            label: 'Анкеталар',
+            label: <FormattedMessage id="surveys_main_page" />,
             link: '/surveys',
         },
         {

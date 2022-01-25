@@ -1,13 +1,13 @@
-import React, {useState, useEffect, useContext} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 
-import {AppBar, Toolbar, MenuItem, Typography, Box, Drawer, IconButton, Container} from '@mui/material'
+import { AppBar, Toolbar, MenuItem, Typography, Box, Drawer, IconButton, Container } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
-import {Link} from 'react-router-dom'
-import {styled} from '@mui/system'
+import { Link } from 'react-router-dom'
+import { styled } from '@mui/system'
 import cookie from 'js-cookie'
-import {LOCALES} from "../../i18n/locales";
-import {LanguageContext} from "../../store";
-import {FormattedMessage} from "react-intl";
+import { LOCALES } from "../../i18n/locales";
+import { LanguageContext } from "../../store";
+import { FormattedMessage } from "react-intl";
 
 
 const Root = styled('div')(() => ({
@@ -17,7 +17,7 @@ const Root = styled('div')(() => ({
     width: '100%',
     minHeight: 110,
 }))
-const BoxLinks = styled(Box)(({theme}) => ({
+const BoxLinks = styled(Box)(({ theme }) => ({
     display: 'flex',
     [theme.breakpoints.down('lg')]: {
         flexDirection: 'column',
@@ -25,7 +25,7 @@ const BoxLinks = styled(Box)(({theme}) => ({
     },
 
 }))
-const BoxLogo = styled(Box)(({theme}) => ({
+const BoxLogo = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -35,7 +35,7 @@ const BoxLogo = styled(Box)(({theme}) => ({
     },
 }))
 
-const Cuslink = styled(Link)(({theme}) => ({
+const Cuslink = styled(Link)(({ theme }) => ({
     color: 'white',
     textDecoration: 'none',
     marginLeft: 5,
@@ -48,7 +48,7 @@ const Cuslink = styled(Link)(({theme}) => ({
     },
 
 }))
-const BoxLogin = styled(Box)(({theme}) => ({
+const BoxLogin = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'row',
     [theme.breakpoints.down('lg')]: {
@@ -57,7 +57,7 @@ const BoxLogin = styled(Box)(({theme}) => ({
     },
 }))
 
-const CustomMenuItem = styled(MenuItem)(({theme}) => ({
+const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
     fontSize: 20,
     minWidth: 160,
     display: 'flex',
@@ -93,19 +93,19 @@ const Header: React.FC = () => {
         mobileView: false,
         drawerOpen: false,
     });
-    const {mobileView, drawerOpen} = state;
+    const { mobileView, drawerOpen } = state;
 
     const languages = [
-        {name: 'Русский', code: LOCALES.RUSSIAN},
-        {name: 'Якутский', code: LOCALES.SAKHA},
+        { name: 'Русский', code: LOCALES.RUSSIAN },
+        { name: 'Якутский', code: LOCALES.SAKHA },
     ]
-    const {currentLocale, changeLocale} = useContext(LanguageContext)
+    const { currentLocale, changeLocale } = useContext(LanguageContext)
 
     useEffect(() => {
         const setResponsiveness = () => {
             return window.innerWidth < 1200
-                ? setState((prevState) => ({...prevState, mobileView: true}))
-                : setState((prevState) => ({...prevState, mobileView: false}));
+                ? setState((prevState) => ({ ...prevState, mobileView: true }))
+                : setState((prevState) => ({ ...prevState, mobileView: false }));
         };
         setResponsiveness();
         window.addEventListener("resize", () => setResponsiveness());
@@ -127,37 +127,36 @@ const Header: React.FC = () => {
     const Logo = () => {
         return (
             <BoxLogo>
-                <img style={{width: 100}} src={'/img/Element/logo2.png'}/>
+                <img style={{ width: 100 }} src={'/img/Element/logo2.png'} />
                 <div className='switcher'>
                     Выбор языка <select onChange={(e) => {
-                    changeLocale(e.target.value)
-                }}>
-                    {languages.map(({name, code}) => (
-                        <option key={name} value={code}>
-                            {name}
-                        </option>
-                    ))}
-                </select>
+                        changeLocale(e.target.value)
+                    }}>
+                        {languages.map(({ name, code }) => (
+                            <option key={name} value={code}>
+                                {name}
+                            </option>
+                        ))}
+                    </select>
                 </div>
-
             </BoxLogo>
         )
     }
     const Desktop = () => {
         return (
             <Root>
-                <Logo/>
-                <Links/>
+                <Logo />
+                <Links />
             </Root>
         )
     }
     const Mobile = () => {
         const handleDrawerOpen = () =>
-            setState((prevState) => ({...prevState, drawerOpen: true}));
+            setState((prevState) => ({ ...prevState, drawerOpen: true }));
         const handleDrawerClose = () =>
-            setState((prevState) => ({...prevState, drawerOpen: false}));
+            setState((prevState) => ({ ...prevState, drawerOpen: false }));
         return (
-            <Box sx={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
                 <IconButton
                     {...{
                         edge: "start",
@@ -165,11 +164,11 @@ const Header: React.FC = () => {
                         "aria-haspopup": "true",
                         onClick: handleDrawerOpen,
                     }}
-                    style={{color: '#1B1642'}}
+                    style={{ color: '#1B1642' }}
                 >
-                    <MenuIcon/>
+                    <MenuIcon />
                 </IconButton>
-                <Logo/>
+                <Logo />
                 <Drawer
                     {...{
                         anchor: "left",
@@ -181,14 +180,14 @@ const Header: React.FC = () => {
                         width: 250, padding: 15, display: 'flex', flexDirection: 'column',
                         height: '100%'
                     }}>
-                        <Links/>
+                        <Links />
                     </Box>
                 </Drawer>
             </Box>
         )
     }
     return (
-        <AppBar position="static" sx={{bgcolor: '#49DDC5'}}>
+        <AppBar position="static" sx={{ bgcolor: '#49DDC5' }}>
             <Container>
                 <Toolbar>
                     {mobileView ? Mobile() : Desktop()}

@@ -4,7 +4,7 @@ import { Box, Typography, Grid } from '@mui/material'
 import { styled } from '@mui/system'
 
 import { MyButton, MyContainer } from '../../../components'
-import {FormattedMessage} from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 const Title = styled(Typography)(({ theme }) => ({
     color: 'white',
@@ -66,7 +66,7 @@ const StartScreen: React.FC = () => {
                 }}
             >
                 <Title variant="h4">
-                    <FormattedMessage id={'index_page_title'}/>
+                    <FormattedMessage id={'index_page_title'} />
                 </Title>
                 <Grid container sx={{ mt: 5 }}>
                     <GridItemShow item lg={3} xl={3} md={3} sm={3} xs={12}>

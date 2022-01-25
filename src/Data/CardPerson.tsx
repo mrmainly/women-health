@@ -1,21 +1,21 @@
 import React from "react";
 
-import {FormattedMessage} from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 const CardPerson = [
     {
         img: 'img/Element/Rectangle451.png',
-        name: 'Айсен Сергеевич Николаев',
-        tag: <FormattedMessage id={'aisen_position_slider'}/>,
+        name: <FormattedMessage id={'aisen_name_slider'} />,
+        tag: <FormattedMessage id={'aisen_position_slider'} />,
         infoImg: '',
-        description: <FormattedMessage id={'aisen_description_slider'}/>,
+        description: <FormattedMessage id={'aisen_description_slider'} />,
     },
     {
         img: '/img/Element/image76.png',
-        name: 'Николаева Татьяна Ивановна',
+        name: <FormattedMessage id={'lena_name_slider'} />,
         infoImg: '',
-        tag: '«Саха өрөспүүбүлүкэтин онкология диспансера» Судаарыстыбаннай бүддьүөт тэрилтэтин сүрүн бырааһа',
-        description: '«Бырайыак онкология ыарыыларын кыайарбытыгар көмөлөһүө уонна Саха сирин олохтоохторугар туһалаах буолуо диэн эрэллээхпин»',
+        tag: <FormattedMessage id={'lena_position_slider'} />,
+        description: <FormattedMessage id={'lena_description_slider'} />,
     },
 ]
 

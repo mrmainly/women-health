@@ -4,6 +4,7 @@ import { MenuProfile, MyContainer, CardSurveysProfile, MyText, ModalSurvey } fro
 
 import { Box, Grid, Typography, CircularProgress } from '@mui/material'
 import { styled } from '@mui/system'
+import { FormattedMessage } from "react-intl";
 
 import Api from '../../../utils/api'
 import { SurveyProps } from '../../../interface'
@@ -77,7 +78,7 @@ const Surveys = () => {
             <BoxWrapper>
                 <MenuProfile />
                 <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', mt: 10, ml: 2, width: '100%' }}>
-                    <MyText variant="h5">Анкеталар</MyText>
+                    <MyText variant="h5"><FormattedMessage id="surveys_main_page" /></MyText>
                     {loading ?
                         <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop: 3 }}>
                             <CircularProgress />

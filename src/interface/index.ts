@@ -49,8 +49,8 @@ interface CardPersonProps {
 }
 
 interface CardAboutProps {
-    title: string,
-    body: string,
+    title: any,
+    body?: string,
     id: string | number,
     bgcolor: string
 }
