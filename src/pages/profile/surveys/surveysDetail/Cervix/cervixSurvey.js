@@ -16,16 +16,13 @@ import React, { useState, useEffect, useContext } from "react";
 import { styled } from '@mui/system'
 import Api from '../../../../../utils/api'
 import { DispatchContext } from "../../../../../store";
-// import ModalTrue from '../modals/surveyModals/ModalTrue'
-// import ModalFalse from '../modals/surveyModals/ModalFalse'
-// import ModalMiddle from '../modals/surveyModals/ModalMiddle'
+import { Copyright, ModalSurveyStatus } from '../../../../../components'
 
 const Root = styled(Container)({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 100
 })
 
 const FormStyle = styled(Grid)({
@@ -169,6 +166,7 @@ export default function CervixLandingForm({ arr, id, }) {
     };
     return (
         <Root component="main" maxWidth="md">
+            <ModalSurveyStatus />
             <Typography component="h1" variant="h5"
                 style={{ display: 'flex', justifyContent: "center", alignItems: "center", padding: 20 }}>
                 Киэли хапчаҕайын (шейка матки) ыарыыларын тургутуу
@@ -312,7 +310,7 @@ export default function CervixLandingForm({ arr, id, }) {
                         label={''}
                     />
 
-                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}>СТэрили өйдөөн хааларга</LinkStyle>
+                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}>Тэрили өйдөөн хааларга</LinkStyle>
                 </FormStyle>
                 <Button style={{ marginTop: 20 }}
                     type="submit"
@@ -325,9 +323,9 @@ export default function CervixLandingForm({ arr, id, }) {
                     ЫЫТАРГА
                 </Button>
             </Grid>
-            {/* <Box mt={5}>
+            <Box mt={5}>
                 <Copyright />
-            </Box> */}
+            </Box>
         </Root>
     );
 };

@@ -44,10 +44,11 @@ class API {
             dispatch({ type: 'notification', payload: { status: 'success', active: true, text: 'регистрация прошла успешно' } })
         }).catch((error) => dispatch({ type: 'notification', payload: { status: 'error', active: true, text: 'такой пользователь уже существует' } }))
     }
-    forgotPassword(data, dispatch) {
-        api('api/v1/user/registration/').post(null, data).then(res => {
-            dispatch({ type: 'authModal', payload: { register: false, login: true, forgot: false } })
-        }).catch((error) => console.log(error))
+    forgotPassword(data, dispatch, navigate) {
+        api('api/accounts/renew-password').post(null, data).then(res => {
+            dispatch({ type: 'notification', payload: { status: 'success', active: true, text: 'В ближайшее время на ваш телефон придет смс сообщение с новым паролем.' } })
+            navigate('/login')
+        }).catch(dispatch({ type: 'notification', payload: { status: 'error', active: true, text: ' Пароль не был восстановлен. Указанный номер телефона не зарегистрирован. Пожалуйста проверьте верно ли указан номер.' } }))
     }
     async getCity() {
         let result = await api(`api/locations/city/`).get(null)
@@ -89,7 +90,7 @@ class API {
     async schedule(date) {
         let result = await api(`api/schedules/schedule?date=${date}`).get(null)
         return result
-    }//api/report/report
+    }
     sendAppointment(data) {
         api('api/v1/user/registration/').post(null, data).then(res => {
             // dispatch({ type: 'authModal', payload: { register: false, login: true, forgot: false } })

@@ -17,13 +17,13 @@ import { styled } from '@mui/system'
 
 import Api from '../../../../../utils/api'
 import { DispatchContext } from "../../../../../store";
+import { Copyright, ModalSurveyStatus } from '../../../../../components'
 
 const Root = styled(Container)({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 100
 })
 
 const FormStyle = styled(Grid)({
@@ -127,13 +127,11 @@ export default function LiverSurvey({ arr, id }) {
 
     return (
         <Root component="main" maxWidth="md">
+            <ModalSurveyStatus />
             <Typography component="h1" variant="h5"
                 style={{ display: 'flex', justifyContent: "center", alignItems: "center", padding: 20 }}>
                 Быар ыарыыларын тургутуу (быар сыстыганнаах ыарыылара)
             </Typography>
-            {/* {show && <ModalTrue />}
-            {showFalse && <ModalFalse />}
-            {showMiddle && <ModalMiddle />} */}
             <Grid container spacing={6}>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
@@ -258,9 +256,9 @@ export default function LiverSurvey({ arr, id }) {
                     ЫЫТАРГА
                 </Button>
             </Grid>
-            {/* <Box mt={5}>
+            <Box mt={5}>
                 <Copyright />
-            </Box> */}
+            </Box>
         </Root>
     );
 };

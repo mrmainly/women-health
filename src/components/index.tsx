@@ -5,6 +5,7 @@ import MyText from './text'
 import MyLink from './link'
 import Notification from "./notification"
 import MenuProfile from './menuProfile'
+import { Copyright } from './copyright'
 
 import CardPerson from "./cards/CardPerson"
 import CardAbout from './cards/CardAbout'
@@ -38,6 +39,7 @@ export {
     MyLink,
     Notification,
     MenuProfile,
+    Copyright,
 
     CardPerson,
     CardAbout,

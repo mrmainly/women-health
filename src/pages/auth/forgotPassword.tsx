@@ -1,16 +1,21 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { useForm } from 'react-hook-form'
 
 import { Avatar, FormControlLabel, Checkbox, Grid, Box, Typography, CssBaseline, Container } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { Input, Form, MyButton, MyLink } from '../../components'
+import { DispatchContext } from '../../store';
 import themeMain from '../../theme'
+import API from '../../utils/api'
 
 const theme = createTheme();
 
 export default function ForgotPassword() {
+    const dispatch = useContext(DispatchContext)
+    const navigate = useNavigate()
     function Copyright(props: any) {
         return (
             <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -18,6 +23,12 @@ export default function ForgotPassword() {
                 {new Date().getFullYear()}.
             </Typography>
         );
+    }
+    const { register, handleSubmit } = useForm({
+        mode: "onBlur"
+    })
+    const onSubmit = (data: any) => {
+        API.forgotPassword({ ...data }, dispatch, navigate)
     }
     return (
         <ThemeProvider theme={theme}>
@@ -37,13 +48,16 @@ export default function ForgotPassword() {
                     <Typography component="h1" variant="h5">
                         Аһарыгы (пароль) сөргүтүү
                     </Typography>
-                    <Form sx={{ mt: 1 }}>
+                    <Form sx={{ mt: 1 }} onSubmit={handleSubmit(onSubmit)}>
                         <Typography component="h1" variant="body2" style={{ marginBottom: '-10px', fontWeight: 600 }}>
                             Бэлиэтэнэргэр ыйбыт төлөпүөнүҥ нүөмэрин киллэр.
                         </Typography>
                         <Input
                             variant="outlined"
                             label="Төлөпүөнүҥ нүөмэрэ *"
+                            {...register('phone')}
+                            id="phone"
+                            required
                         />
                         <MyButton
                             variant="contained"

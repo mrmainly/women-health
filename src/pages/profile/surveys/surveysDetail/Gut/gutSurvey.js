@@ -17,13 +17,13 @@ import { styled } from '@mui/system'
 
 import Api from '../../../../../utils/api'
 import { DispatchContext } from "../../../../../store";
+import { Copyright, ModalSurveyStatus } from '../../../../../components'
 
 const Root = styled(Container)({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 100
 })
 
 const FormStyle = styled(Grid)({
@@ -163,6 +163,7 @@ export default function GutSurvey({ arr, id }) {
 
     return (
         <Root component="main" maxWidth="md">
+            <ModalSurveyStatus />
             <Typography component="h1" variant="h5"
                 style={{ display: 'flex', justifyContent: "center", alignItems: "center", padding: 20 }}>
                 Суон уонна көнө оһоҕос ыарыыларын тургутуу
@@ -306,8 +307,7 @@ export default function GutSurvey({ arr, id }) {
                             onChange={soldCheckbox} />}
                         label={''}
                     />
-                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}>Согласие на
-                        обработку перснальных данных</LinkStyle>
+                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}>Тэрили өйдөөн хааларга</LinkStyle>
                 </FormStyle>
                 <Button style={{ marginTop: 20 }}
                     type="submit"
@@ -320,9 +320,9 @@ export default function GutSurvey({ arr, id }) {
                     Сохранить
                 </Button>
             </Grid>
-            {/* <Box mt={5}>
+            <Box mt={5}>
                 <Copyright />
-            </Box> */}
+            </Box>
         </Root>
 
     );

@@ -17,13 +17,13 @@ import { styled } from '@mui/system'
 
 import Api from '../../../../../utils/api'
 import { DispatchContext } from "../../../../../store";
+import { Copyright, ModalSurveyStatus } from '../../../../../components'
 
 const Root = styled(Container)({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 100
 })
 
 const FormStyle = styled(Grid)({
@@ -157,9 +157,7 @@ export default function ProstateLandingForm({ arr, id }) {
 
     return (
         <Root component="main" maxWidth="md">
-            {/* {show && <ModalTrue />}
-            {showFalse && <ModalFalse />}
-            {showMiddle && <ModalMiddle />} */}
+            <ModalSurveyStatus />
             <Typography component="h1" variant="h5"
                 style={{ display: 'flex', justifyContent: "center", alignItems: "center", padding: 20 }}>
                 Самах былчархайын (простата) ыарыыларын тургутуу
@@ -279,9 +277,9 @@ export default function ProstateLandingForm({ arr, id }) {
                     ЫЫТАРГА
                 </Button>
             </Grid>
-            {/* <Box mt={5}>
+            <Box mt={5}>
                 <Copyright />
-            </Box> */}
+            </Box>
         </Root>
     );
 };

@@ -13,16 +13,11 @@ import {
     Button
 } from "@mui/material";
 import React, { useState, useEffect, useContext } from "react";
-// import { Copyright } from "../layout/components/Copyright";
 import { styled } from '@mui/system'
-import { ModalSurveyStatus } from '../../../../../components'
+import { Copyright, ModalSurveyStatus } from '../../../../../components'
 import Api from '../../../../../utils/api'
 import cookie from 'js-cookie'
 import { DispatchContext } from "../../../../../store";
-
-// import ModalFalse from '../modals/surveyModals/ModalFalse'
-// import ModalTrue from '../modals/surveyModals/ModalTrue'
-// import ModalMiddle from '../modals/surveyModals/ModalMiddle'
 
 const Root = styled(Container)({
     display: 'flex',
@@ -177,7 +172,7 @@ const BreastSurvey = ({ arr, id }) => {
     }
     return (
         <Root component="main" maxWidth="md">
-            {/* <ModalSurveyStatus /> */}
+            <ModalSurveyStatus />
             <Typography component="h1" variant="h5"
                 style={{ display: 'flex', justifyContent: "center", alignItems: "center", padding: 20 }}>
                 Эмиий ыарыыларын тургутуу
@@ -328,7 +323,7 @@ const BreastSurvey = ({ arr, id }) => {
                 </Grid>
             </Box>
             <Box mt={5}>
-                {/* <Copyright /> */}
+                <Copyright />
             </Box>
         </Root>
     );

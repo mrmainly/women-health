@@ -19,6 +19,7 @@ import {
 
 import Api from '../../../../../utils/api'
 import { DispatchContext } from "../../../../../store";
+import { Copyright, ModalSurveyStatus } from '../../../../../components'
 
 const Root = styled(Container)({
     display: 'flex',
@@ -142,13 +143,11 @@ export default function BreathSurvey({ arr, id }) {
     };
     return (
         <Root component="main" maxWidth="md">
+            <ModalSurveyStatus />
             <Typography component="h1" variant="h5"
                 style={{ display: 'flex', justifyContent: "center", alignItems: "center", padding: 20 }}>
                 Тыҥа ыарыыларын тургутуу
             </Typography>
-            {/* {show && <ModalTrue />}
-            {showFalse && <ModalFalse />}
-            {showMiddle && <ModalMiddle />} */}
             <Grid container spacing={6}>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
@@ -246,8 +245,7 @@ export default function BreathSurvey({ arr, id }) {
                             onChange={soldCheckbox} />}
                         label={''}
                     />
-                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}>Согласие на
-                        обработку перснальных данных</LinkStyle>
+                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}>СТэрили өйдөөн хааларга</LinkStyle>
                 </FormStyle>
                 <Button style={{ marginTop: 20 }}
                     type="submit"
@@ -260,9 +258,9 @@ export default function BreathSurvey({ arr, id }) {
                     ЫЫТАРГА
                 </Button>
             </Grid>
-            {/* <Box mt={5}>
+            <Box mt={5}>
                 <Copyright />
-            </Box> */}
+            </Box>
         </Root>
     );
 };
