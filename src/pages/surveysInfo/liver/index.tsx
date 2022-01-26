@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { InfoScreen, TextInfoScreen, ThreeScreen, FourScreen, LinkToSurveysScreen, MyContainer, MyButton } from '../../../components'
 
 import { CaruselSurvey, TitleScreen } from '../../../constructor'
+import { FormattedMessage } from "react-intl";
 
 const Liver = () => {
     const [state, setState] = useState(false)
@@ -10,37 +11,36 @@ const Liver = () => {
         {
             type: 'text',
             elem: [
-                'Быарга рак үөскээһинин сүрүн фактора — быар хроническай ыарыыта буолар. Онтон сылтаан быарга бастаан фиброз үөскүүр, салгыы цирроз буолар. Үксүн ол төрүөтүнэн B, C, D вируснай гепатиттар уонна быарга сыа элбээн гепатоз үөскээбитэ буолаллар. Ону таһынан кутталы улаатыннарар фактордар: сааһырыы, табахтааһын, арыгылааһын, уойуу, килиэккэлэр инсулины “истибэт” буолуулара.',
-                '2019 сыллаахха Саха Өрөспүүбүлүкэтигэр 176 быар рага диагнозтаммыта.',
-                'Ыарыы I-II стадиятыгар ыарыһахтартан 25,5 бырыһыаннарыгар диагноз турбут, III стадиятыгар - 47,7%, IV стадиятыгар - 28,1%. Диагноз турбутун кэннэ биир сыл иһинэн ыарыһах 57,9 бырыһыана өлбүт.'
+                <FormattedMessage id="devlopment_liver_cancer" />,
+                <FormattedMessage id="reveald_liver_cancer" />,
             ],
         },
         {
-            title: 'Симптомнара',
+            title: <FormattedMessage id="symptoms_liver_cancer" />,
             type: 'text',
             elem: [
-                'Ыарыы түргэнник бэргиир, үксүн хойукку стадияларыгар көстөр. Быар рага быар атын ыарыыларыгар майгынныыр симптомнардаах буолар (холобур сибикилэрэ хроническай гепатит бэргииригэр, үөс тааһыгар иҥин майгынныыр). Быар рага саҕаланарыгар маннык симптомнардаах буолар:'
+                <FormattedMessage id="signs_hepatitis_liver_cancer" />
             ],
         },
         {
             title: '',
             type: 'column',
             elem: [
-                'ис үллүүттэ, адаарыйыыта;',
-                'саһарыы (үөс эргиирэ кэһиллиитин түмүгэр тирии, харах, айах иһэ, күөмэй саһархай дьүһүннэниитэ);',
-                'иик хараҥа өҥнөнүүтэ, хойуу (саах) төттөрүтүн өҥө суох буолуута;',
-                'куруук сылайбыт курдук сананыы, сэниэ суох буолуута;',
-                'уҥа агда анныгар туох эрэ ыарахан баттыы сылдьыыта;',
-                'тириигэ онон-манан көҕөрүүлэр көстөллөр, кыратык да бааһыртахха хаан тохтоон биэрбэтэ;',
-                'аһыыр баҕа (аппетит) суоҕа эбэтэр кыратык да аһаатахха ис туолан хаалыыта;',
-                'биллибэт төрүөтүнэн дьүдэйии.',
+                <FormattedMessage id="bloating_liver_cancer" />,
+                <FormattedMessage id="jaundice_liver_cancer" />,
+                <FormattedMessage id="colorless_feces_liver_cancer" />,
+                <FormattedMessage id="constant_fatigue_liver_cancer" />,
+                <FormattedMessage id="heaviness_liver_cancer" />,
+                <FormattedMessage id="easy_bruising_liver_cancer" />,
+                <FormattedMessage id="loss_appetite_liver_cancer" />,
+                <FormattedMessage id="weight_loss_liver_cancer" />,
             ],
         },
         {
             title: '',
             type: 'text',
             elem: [
-                'Быар рагын улахан стадиятыгар симптомнара атын ыарыылартан уратыланан киирэн бараллар.'
+                <FormattedMessage id="specific_symptom_liver_canser" />
             ],
         },
     ]
@@ -49,7 +49,7 @@ const Liver = () => {
         {
             align: 'start',
             text: [
-                'аннык баҕарар онкология ыарыытын курдук быар рагар эмтээһин кыра стадияларга ордук хотуулаах буолар. Онон эрдэ диагноз туруоруу эмтээһинтэн кырата суох суолталаах.',
+                <FormattedMessage id="early_diagnosis_liver_cancer" />,
                 'На сегодняшний день стандартной процедурой скрининга у групп высокого риска является: 1)ультразвуковое исследование (УЗИ) печени, 2)	определение онкомаркера (АФП). '
             ],
         },
@@ -57,13 +57,13 @@ const Liver = () => {
 
     const data3 = [
         {
-            title: 'СКРИНИНГ ОҤОРУУГА ТӨРҮӨТТЭР:',
+            title: <FormattedMessage id="indications_screening_liver_cancer" />,
             type: 'column',
             text: [
-                'саҥа сүтэн хаалыыта, эбэтэр өр кэмҥэ саҥа кэһиэҕириитэ; ',
-                'өр кэмҥэ тохтообот, сатаан тахсан биэрбэт хойуу силлээх сөтөл (сороҕор хааннаах уонна ириҥнэлээх);',
-                'түөс ыалдьыыта;',
-                'хомурҕан үрдүнэн кытаанах былчархай көбүүтэ.',
+                <FormattedMessage id="loss_voice_liver_cancer" />,
+                <FormattedMessage id="debilitating_cough_liver_cancer" />,
+                <FormattedMessage id="chest_pain_liver_cancer" />,
+                <FormattedMessage id="lymph_nodes_liver_cancer" />,
             ],
         },
     ]
@@ -71,8 +71,8 @@ const Liver = () => {
     return (
         <div>
             <InfoScreen
-                title="БЫАР РАГА (бастаан быартан саҕаламмыт рак)"
-                description='БЫАР РАГА (бастаан быартан саҕаламмыт рак) — рак саамай элбэх уонна уодаһыннаах көрүҥнэриттэн биирдэстэрэ. Түргэнник улаатар, метастазтыыр уонна быар үлэтин харгыстыырын түмүгэр киһини түргэнник мөлтөтөр.'
+                title={<FormattedMessage id="liver_cancer" />}
+                description={<FormattedMessage id="description_liver_cancer" />}
                 img="Group1"
                 infoImg="Frame27"
             />
@@ -90,7 +90,7 @@ const Liver = () => {
                         setState(!state)
                     }}
                 >
-                    Посмотреть доступные анкеты
+                    <FormattedMessage id="view_surveys_liver_cancer" />
                 </MyButton>
             </div>
             {state &&

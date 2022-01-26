@@ -83,8 +83,8 @@ interface TextInfoScreenProps {
 }
 
 interface InfoBlockScreenProps {
-    title: string,
-    description: string,
+    title: any,
+    description: any,
     img: any,
     infoImg: any
 }

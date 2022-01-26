@@ -4,6 +4,7 @@ import { styled } from '@mui/system'
 import { Box, Grid } from '@mui/material'
 
 import { MyContainer, MyText, MyButton } from '..'
+import { FormattedMessage } from "react-intl";
 
 const TitleBox = styled(Box)(({ theme }) => ({
     display: 'flex',
@@ -30,7 +31,7 @@ const ThreeScreen: React.FC<ThreeScreenProps> = ({ data, showInfoText }) => {
                     <img src={'/img/Element/element.png'} style={{ width: '100%' }} />
                 </Grid>
                 <Grid item lg={6} xl={6} sm={12} md={6} xs={12} sx={{ pl: 2, display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-                    {data[0].align == 'center' ? '' : <MyText variant="h5">ДИАГНОСТИКА КӨРҮҤНЭРЭ</MyText>}
+                    {data[0].align == 'center' ? '' : <MyText variant="h5"><FormattedMessage id="diagnostic_methods" /></MyText>}
                     {data.map((item: any, index: number) => (
                         <Box key={index} sx={{ textAlign: `${item.align}` }}>
                             {item.text.map((itemText: any, index: any) => (

@@ -95,20 +95,20 @@ const FormProfile = () => {
                                     display: 'flex',
                                     justifyContent: 'center'
                                 }}>
-                                    <TextField id={"outlined-basic"} fullWidth label={"Аатыҥ*"} variant={"outlined"} required value={name}
+                                    <TextField id={"outlined-basic"} fullWidth label={<FormattedMessage id="registration_name" />} variant={"outlined"} required value={name}
                                         onChange={(e) => {
                                             setName(e.target.value)
                                         }} />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
-                                    <TextField id={"outlined-basic"} fullWidth label={"Араспаанньаҥ*"} variant={"outlined"} required
+                                    <TextField id={"outlined-basic"} fullWidth label={<FormattedMessage id="registration_last_name" />} variant={"outlined"} required
                                         value={surname}
                                         onChange={(e) => {
                                             setSurname(e.target.value)
                                         }} />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
-                                    <TextField id={"outlined-basic"} fullWidth label={"Аҕаҥ аата*"} variant={"outlined"} required
+                                    <TextField id={"outlined-basic"} fullWidth label={<FormattedMessage id="registration_patronymic" />} variant={"outlined"} required
                                         value={fatherName}
                                         onChange={(e) => {
                                             setFatherName(e.target.value)
@@ -116,7 +116,7 @@ const FormProfile = () => {
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
                                     <FormControl component="fieldset">
-                                        <FormLabel component="legend">Пол</FormLabel>
+                                        <FormLabel component="legend"><FormattedMessage id="registration_patronymic" /></FormLabel>
                                         <RadioGroup aria-label="gender" name="gender1" value={gender} onChange={handleChange}>
                                             <FormControlLabel value="Ж" control={<Radio />} label="Женщина" />
                                             <FormControlLabel value="М" control={<Radio />} label="Мужчина" />

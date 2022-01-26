@@ -65,34 +65,12 @@ const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
     justifyContent: 'center'
 }))
 
-const headerData: any = [
-    {
-        text: <FormattedMessage id='question_answers_menu' />,
-        link: '/faq'
-    },
-    {
-        text: <FormattedMessage id='about_menu' />,
-        link: '/about'
-    },
-    {
-        text: <FormattedMessage id='index_menu' />,
-        link: '/'
-    },
-    {
-        text: <FormattedMessage id='contacts_menu' />,
-        link: '/contacts'
-    },
-    {
-        text: <FormattedMessage id='profile_menu' />,
-        link: cookie.get('jwttoken') ? 'form-profile' : 'login'
-    },
-]
-
 const Header: React.FC = () => {
     const [state, setState] = useState({
         mobileView: false,
         drawerOpen: false,
     });
+    const cookieVar = cookie.get('jwttoken')
     const { mobileView, drawerOpen } = state;
 
     const languages = [
@@ -110,6 +88,29 @@ const Header: React.FC = () => {
         setResponsiveness();
         window.addEventListener("resize", () => setResponsiveness());
     }, []);
+
+    const headerData: any = [
+        {
+            text: <FormattedMessage id='question_answers_menu' />,
+            link: '/faq'
+        },
+        {
+            text: <FormattedMessage id='about_menu' />,
+            link: '/about'
+        },
+        {
+            text: <FormattedMessage id='index_menu' />,
+            link: '/'
+        },
+        {
+            text: <FormattedMessage id='contacts_menu' />,
+            link: '/contacts'
+        },
+        {
+            text: <FormattedMessage id='profile_menu' />,
+            link: cookieVar ? 'form-profile' : 'login',
+        },
+    ]
 
     const Links = () => {
         return (

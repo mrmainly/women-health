@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { InfoScreen, TextInfoScreen, ThreeScreen, FourScreen, LinkToSurveysScreen, MyContainer, MyButton } from '../../../components'
 
 import { CaruselSurvey, TitleScreen } from '../../../constructor'
+import { FormattedMessage } from "react-intl";
 
 const Breath = () => {
     const [state, setState] = useState(false)
@@ -10,46 +11,46 @@ const Breath = () => {
         {
             type: 'text',
             elem: [
-                'Тыҥа рагын улаатыыта элбэх түгэннэртэн тутулуктаах. ВОЗ этэринэн рак сүрүн төрүөтүнэн тыҥа атын ыарыылара буоллаллар (куруук бэргиир хроническай бронхит, ХОБЛ, бронхоэктазтаах ыарыы уо.д.а.).',
-                'Табахтааһын, саарбаҕа суох, рак ыарыы үөскүүрүгэр саамай тарҕаммыт фактор буолар. Рагы үөрэтэр аан дойдутааҕы агенство дааннайынан, рак 70-90 бырыһыана табаҕы кытта ситимнээх, табахтааһын рак үөскүүр кутталын 10 төгүл улаатынаннар.',
-                'Өрөспүүбүлүкэҕэ 2019 сыллаахха 401 киһи тыҥа рагынан ыалдьыбыта биллибитэ. Ыарыы I-II стадиятыгар ыарыһахтартан 24,4 бырыһыаннарыгар диагноз турбут, III стадиятыгар - 35,8%, IV стадиятыгар - 39,4%. Диагноз турбутун кэннэ биир сыл иһинэн ыарыһах 55,9 бырыһыана өлбүт.'
+                <FormattedMessage id="development_lung_cancer" />,
+                <FormattedMessage id="role_smoking_lung_cancer" />,
+                <FormattedMessage id="reveald_lung_cancer" />
             ],
         },
         {
-            title: 'Симптомнара',
+            title: <FormattedMessage id="symptoms_lung_cancer" />,
             type: 'text',
             elem: [
-                'Үксүгэр тыҥа рага туох да сибикитэ суох саҕаланар, онон рак эрдэтээҥи стадияларара сылын ахсын ыытыллар медицинскэй чинчийиилэр кэмнэригэр эбэтэр атын ыарыыны эмтиир кэмҥэ биллэр.',
-                'Ол да буоллар, ыарыы сороҕор симптомнаах саҕаланар, ол эрээри, симптомнара атын ыарыылар симптомнарыгар майгынныыр буолаллар.',
-                'Сүрүн симптомнара:'
+                <FormattedMessage id="asymptomatic_development_lung_cancer" />,
+                <FormattedMessage id="manifestation_symptoms_lung_cancer" />,
+                <FormattedMessage id="main_symptoms_lung_cancer" />
             ],
         },
         {
             title: '',
             type: 'column',
             elem: [
-                'аҕылатар, салгыны эҕирийии ыараабыт курдук буолар;',
-                'Хронический постоянный сухой кашель;',
-                'арҕаҕырбыт силэ суох сөтөл;',
-                'киһи саҥата кэһиэҕирэр;',
-                'киһи куруук сэниэтэ суох буолар;'
+                <FormattedMessage id="dyspnea_lung_cancer" />,
+                <FormattedMessage id="dry_cough_lung_cancer" />,
+                <FormattedMessage id="hoarseness_lung_cancer" />,
+                <FormattedMessage id="constant_weakness_lung_cancer" />,
+                <FormattedMessage id="weight_reduction_lung_cancer" />
             ],
         },
         {
             title: '',
             type: 'text',
             elem: [
-                'Рак улахан стадияларыгар симптомнара атын ыарыттан уратылаах буолаллар:',
+                <FormattedMessage id="specific_symptom_lung_canser" />,
             ],
         },
         {
             title: '',
             type: 'column',
             elem: [
-                'киһи саҥарбат буолан хаалар, эбэтэр саҥата уһун кэмҥэ кэһиэҕирэр;',
-                'киһи сэниэтин эһэр сөтөл, силэ хойуу, тахсан биэрбэт (сороҕор хааннаах уонна ириҥэлээх буолар);',
-                'түөс ыалдьар буолар;',
-                'хомурҕан үрдүнээҕи былчархайдар көбөллөр уонна кытааталлар.',
+                <FormattedMessage id="loss_voice_lung_cancer" />,
+                <FormattedMessage id="debilitating_cough_lung_cancer" />,
+                <FormattedMessage id="chest_pain_lung_cancer" />,
+                <FormattedMessage id="lymph_nodes_lung_cancer" />,
             ],
         },
     ]
@@ -58,29 +59,29 @@ const Breath = () => {
         {
             align: 'start',
             text: [
-                'Тыҥа рагын эрдэ билэргэ түөс уорганнарын көннөрү флюорографияҕа түһэриллэр. Ону таһынан билигин намыһах дьайыылаах көмпүүтэр томограбынан (кылгатан нууччалыы НДКТ) чинчийиэххэ сөп. НДКТ — тыҥаҕа уонна түөс атын уорганнарыгар кыра да уларыйыы баар буоллаҕына чопчу көрдөрөр ньыма. НДКТ көмөтүнэн скрининг оҥоруу тыҥа рагыттан өлүүнү 44 бырыһыанынан кыччатара дакаастанан турар.',
+                <FormattedMessage id="lung_ldct_lung_cancer" />,
             ],
         },
     ]
     const data3 = [
         {
-            title: 'НДКТ ОҤОРОРГО ТӨРҮӨТТЭР:',
+            title: <FormattedMessage id="indications_ldct_lung_cancer" />,
             type: 'text',
             text: [
-                'Бу процедураны ханнык эрэ чопчу киһиэхэ оҥоруу кэтэһиллэр туһата киниэхэ оҥоһуллуон сөп омсотун куоһарыахтаах.',
-                'Тыҥа ыарыытын симптомнара суох эбэтэр кыра симптомнаах 40 саастарыттан аҕа дьон, ону таһынан 20 сылтан ордук табахтаабыт дьон (күҥҥэ 1 пачканы 20 сыл устата тардыбыт эбэтэр күҥҥэ 2 пачканы 10 сыл иһигэр тардыбыт дьон).'
+                <FormattedMessage id="procedures_lung_cancer" />,
+                <FormattedMessage id="smokers_lung_cancer" />
             ],
         },
         {
-            title: 'НДКТ МАННЫК ТҮГЭННЭРГЭ ОҤОҺУЛЛУБАТ:',
+            title: <FormattedMessage id="contraindications_ldct_lung_cancer" />,
             type: 'column',
             text: [
-                '40 сааһын туола илик дьоҥҥо;',
-                'Соторутааҕыта ыалдьа сылдьыбыт буоллаҕына (биир ый иһинэн пневмония, ОРВИ, КОВИД-19);',
-                ' Атын рагынан ыалдьар эбэтэр ыалдьа сылдьыбыт буоллаҕына;',
-                'КТ-ны биир сыл иһигэр ааһа сылдьыбыт буоллаҕына;',
-                '37,5 кыраадыстан үрдүк температуралаах буоллаҕына;',
-                'Наһаа кырдьаҕас (мөлтөөбүт) дьон.'
+                <FormattedMessage id="age_lung_cancer" />,
+                <FormattedMessage id="covid_lung_cancer" />,
+                <FormattedMessage id="malignant_neoplasms_lung_cancer" />,
+                <FormattedMessage id="year_ct_lung_cancer" />,
+                <FormattedMessage id="fever_lung_cancer" />,
+                <FormattedMessage id="elderly_lung_cancer" />
             ],
         },
     ]
@@ -88,8 +89,8 @@ const Breath = () => {
     return (
         <div>
             <InfoScreen
-                title="ТЫҤА РААГА"
-                description='ТЫҤА РААГА - рак саамай тарҕаммыт уонна уодаһыннаах көрүҥнэриттэн биирдэстэрэ. 65 бырыһыана хойукку стадияларга (III, IV) ол аата атын уорганнарга тарҕаммытын, метастазтар баар буолбуттарын кэннэ биирдэ биллэр. Ону кытта бу ыарыыга өлүү таһыма үрдүк.'
+                title={<FormattedMessage id="lung_cancer" />}
+                description={<FormattedMessage id="description_lung_cancer" />}
                 img="Group"
                 infoImg="Frame7"
             />
@@ -107,7 +108,7 @@ const Breath = () => {
                         setState(!state)
                     }}
                 >
-                    Анкеталары көрүү
+                    <FormattedMessage id="view_surveys_liver_cancer" />
                 </MyButton>
             </div>
             {state &&

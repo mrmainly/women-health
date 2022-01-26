@@ -2,6 +2,7 @@ import React from 'react'
 
 import { styled } from '@mui/system'
 import { Box, Grid } from '@mui/material'
+import { FormattedMessage } from "react-intl";
 
 import { MyContainer, MyText, MyButton } from '..'
 
@@ -54,7 +55,7 @@ const FourScreen: React.FC<FourScreenProps> = ({ data }) => {
                         textAlign: 'center'
                     }}
                 >
-                    <MyText variant="h6" sx={{ color: 'black', width: '80%' }} sm={12}>Доруобуйа харыстабыла” национальнай бырайыак толоруутун иһинэн киһиэхэ барытыгар сөп түбэһэр анкета көмөтүнэн чинчийии (скрининг) оҥоһуллубута. Бу анкета регион уратыларын учуоттуур.</MyText>
+                    <MyText variant="h6" sx={{ color: 'black', width: '80%' }} sm={12}><FormattedMessage id='universal_screening_lung_cancer' /></MyText>
                 </Grid>
                 <GridItem item lg={12} xl={12} sm={12} md={12} xs={12}>
                     {data ? data.map((item: any, index: number) => (
