@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import React, { useState, useEffect, useContext } from "react";
 import { styled } from '@mui/system'
+import { FormattedMessage } from "react-intl";
 
 import Api from '../../../../../utils/api'
 import { DispatchContext } from "../../../../../store";
@@ -117,37 +118,37 @@ export default function ProstateLandingForm({ arr, id }) {
             survey_type: id,
             fields: [
                 {
-                    text: arr[0],
+                    text: 'Как часто Вы просыпаетесь ночью, чтоб опорожнить мочевой пузырь?',
                     answer: scoreToilet(toiletTimes),
                     score: toiletTimes < 2 ? 0 : 2
                 },
                 {
-                    text: arr[1],
+                    text: 'Отмечаете ли Вы чувство неполного опорожнения мочевого пузыря?',
                     answer: scoreInc(notFull),
                     score: notFull
                 },
                 {
-                    text: arr[2],
+                    text: 'Бывали ли у Вас эпизоды мочеиспускания с кровью?',
                     answer: scoreInc(bloodIn),
                     score: bloodIn
                 },
                 {
-                    text: arr[3],
+                    text: 'Бывали ли у Вас, когда ни будь задержки мочеиспускания?',
                     answer: scoreInc(delay),
                     score: delay
                 },
                 {
-                    text: arr[4],
+                    text: 'Когда последний раз сдавали онкомаркер на ПСА',
                     answer: scoreOnkom(oncomarkerResult),
                     score: calculateOnkom()
                 },
                 {
-                    text: arr[5],
+                    text: 'Имеются ли у Вас подтверждённые злокачественные новообразования предстательной железы?',
                     answer: scoreInc(accessMalignant),
                     score: accessMalignant
                 },
                 {
-                    text: arr[6],
+                    text: 'Последние 10 дней были ли у Вас эпизоды повышения температуры тела выше 37,5*С',
                     answer: scoreInc(temperature),
                     score: 0
                 },
@@ -160,7 +161,7 @@ export default function ProstateLandingForm({ arr, id }) {
             <ModalSurveyStatus />
             <Typography component="h1" variant="h5"
                 style={{ display: 'flex', justifyContent: "center", alignItems: "center", padding: 20 }}>
-                Самах былчархайын (простата) ыарыыларын тургутуу
+                <FormattedMessage id="name_prostate_survey" />
             </Typography>
             <Grid container spacing={6}>
                 <Grid item xs={12} sm={12}>
@@ -170,9 +171,9 @@ export default function ProstateLandingForm({ arr, id }) {
                             console.log(e.target.value)
                             setToiletTimes(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={toiletTimes == 0} value={0} control={<Radio />} label="Түүн турбаппын" />
-                            <FormControlLabel checked={toiletTimes == 1} value={1} control={<Radio />} label="Биирдэ турабын" />
-                            <FormControlLabel checked={toiletTimes == 2} value={2} control={<Radio />} label="Иккитэ эбэтэр элбэхтэ турабын" />
+                            <FormControlLabel checked={toiletTimes == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer1_no_prostate_survey" />} />
+                            <FormControlLabel checked={toiletTimes == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer1_1_prostate_survey" />} />
+                            <FormControlLabel checked={toiletTimes == 2} value={2} control={<Radio />} label={<FormattedMessage id="answer1_2_more_prostate_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -183,8 +184,8 @@ export default function ProstateLandingForm({ arr, id }) {
                             setNotFull(e.target.value)
                             console.log(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={notFull == 1} value={1} control={<Radio />} label="Буолар" />
-                            <FormControlLabel checked={notFull == 0} value={0} control={<Radio />} label="Суох " />
+                            <FormControlLabel checked={notFull == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer2_yes_prostate_survey" />} />
+                            <FormControlLabel checked={notFull == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer2_no_prostate_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -194,8 +195,8 @@ export default function ProstateLandingForm({ arr, id }) {
                         <RadioGroup aria-label="gender" name="gender1" value={bloodIn} onChange={(e) => {
                             setBloodIn(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={bloodIn == 2} value={2} control={<Radio />} label="Оннук буолбуттаах" />
-                            <FormControlLabel checked={bloodIn == 0} value={0} control={<Radio />} label="Суох " />
+                            <FormControlLabel checked={bloodIn == 2} value={2} control={<Radio />} label={<FormattedMessage id="answer3_yes_prostate_survey" />} />
+                            <FormControlLabel checked={bloodIn == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer3_no_prostate_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -206,15 +207,15 @@ export default function ProstateLandingForm({ arr, id }) {
                         <RadioGroup aria-label="gender" name="gender1" value={delay} onChange={(e) => {
                             setDelay(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={delay == 1} value={1} control={<Radio />} label="Оннук буола сылдьыбыттаах" />
-                            <FormControlLabel checked={delay == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={delay == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer4_yes_prostate_survey" />} />
+                            <FormControlLabel checked={delay == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer4_no_prostate_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
                         <FormLabel component="legend">5. {arr[4]} </FormLabel>
-                        <TextField id={"outlined-basic"} label={"Введите год сдачи"} type={"number"}
+                        <TextField id={"outlined-basic"} label={<FormattedMessage id="answer5_enter_year_prostate_survey" />} type={"number"}
                             required
                             fullWidth
                             placeholder={'2021'}
@@ -229,9 +230,9 @@ export default function ProstateLandingForm({ arr, id }) {
                         <RadioGroup aria-label="gender" name="gender1" value={oncomarkerResult} onChange={(e) => {
                             setOnkomarkerResult(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={oncomarkerResult == 0} value={0} control={<Radio />} label="Норма иһинэн" />
-                            <FormControlLabel checked={oncomarkerResult == 1} value={1} control={<Radio />} label="Кыратык улааппыт этэ" />
-                            <FormControlLabel checked={oncomarkerResult == 2} value={2} control={<Radio />} label="Ааспатаҕым" />
+                            <FormControlLabel checked={oncomarkerResult == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer5_normal_prostate_survey" />} />
+                            <FormControlLabel checked={oncomarkerResult == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer5_high_prostate_survey" />} />
+                            <FormControlLabel checked={oncomarkerResult == 2} value={2} control={<Radio />} label={<FormattedMessage id="answer5_no_prostate_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -241,8 +242,8 @@ export default function ProstateLandingForm({ arr, id }) {
                         <RadioGroup aria-label="gender" name="gender1" value={accessMalignant} onChange={(e) => {
                             setAccessMalignant(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={accessMalignant == 1} value={1} control={<Radio />} label="Баар" />
-                            <FormControlLabel checked={accessMalignant == 0} value={0} control={<Radio />} label="Суох  " />
+                            <FormControlLabel checked={accessMalignant == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer6_yes_prostate_survey" />} />
+                            <FormControlLabel checked={accessMalignant == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer6_no_prostate_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -253,8 +254,8 @@ export default function ProstateLandingForm({ arr, id }) {
                             setTemperature(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
                             {/*# TODO нет вариантов*/}
-                            <FormControlLabel checked={temperature == 1} value={1} control={<Radio />} label="Тахсан" />
-                            <FormControlLabel checked={temperature == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={temperature == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer7_yes_prostate_survey" />} />
+                            <FormControlLabel checked={temperature == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer7_no_prostate_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -264,7 +265,7 @@ export default function ProstateLandingForm({ arr, id }) {
                             onChange={soldCheckbox} />}
                         label={''}
                     />
-                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}>Тэрили өйдөөн хааларга</LinkStyle>
+                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}><FormattedMessage id="consent_prostate_survey" /></LinkStyle>
                 </FormStyle>
                 <Button style={{ marginTop: 20 }}
                     type="submit"
@@ -274,7 +275,7 @@ export default function ProstateLandingForm({ arr, id }) {
                     onClick={handlerPost}
                     disabled={!isActiveButton}
                 >
-                    ЫЫТАРГА
+                    <FormattedMessage id="save_prostate_survey" />
                 </Button>
             </Grid>
             <Box mt={5}>

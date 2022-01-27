@@ -116,7 +116,7 @@ const FormProfile = () => {
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
                                     <FormControl component="fieldset">
-                                        <FormLabel component="legend"><FormattedMessage id="registration_patronymic" /></FormLabel>
+                                        <FormLabel component="legend">Пол</FormLabel>
                                         <RadioGroup aria-label="gender" name="gender1" value={gender} onChange={handleChange}>
                                             <FormControlLabel value="Ж" control={<Radio />} label="Женщина" />
                                             <FormControlLabel value="М" control={<Radio />} label="Мужчина" />

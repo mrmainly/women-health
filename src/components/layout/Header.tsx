@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 
-import { AppBar, Toolbar, MenuItem, Typography, Box, Drawer, IconButton, Container } from '@mui/material'
+import { AppBar, Toolbar, MenuItem, Typography, Box, Drawer, IconButton, Container, FormControl, InputLabel, Select } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom'
 import { styled } from '@mui/system'
@@ -129,17 +129,26 @@ const Header: React.FC = () => {
         return (
             <BoxLogo>
                 <img style={{ width: 100 }} src={'/img/Element/logo2.png'} />
-                <div className='switcher'>
-                    Выбор языка <select onChange={(e) => {
-                        changeLocale(e.target.value)
-                    }}>
+                <FormControl fullWidth>
+                    {/* <InputLabel id="demo-simple-select-label">Выбор языка</InputLabel> */}
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={currentLocale}
+                        onChange={(e) => {
+                            changeLocale(e.target.value)
+                        }}
+                        size="small"
+                        variant="standard"
+                        style={{ color: 'white' }}
+                    >
                         {languages.map(({ name, code }) => (
-                            <option key={name} value={code}>
+                            <MenuItem key={name} value={code}>
                                 {name}
-                            </option>
+                            </MenuItem>
                         ))}
-                    </select>
-                </div>
+                    </Select>
+                </FormControl>
             </BoxLogo>
         )
     }

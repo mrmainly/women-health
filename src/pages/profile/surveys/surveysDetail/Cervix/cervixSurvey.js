@@ -17,6 +17,7 @@ import { styled } from '@mui/system'
 import Api from '../../../../../utils/api'
 import { DispatchContext } from "../../../../../store";
 import { Copyright, ModalSurveyStatus } from '../../../../../components'
+import { FormattedMessage } from "react-intl";
 
 const Root = styled(Container)({
     display: 'flex',
@@ -107,57 +108,57 @@ export default function CervixLandingForm({ arr, id, }) {
             survey_type: id,
             fields: [
                 {
-                    text: arr[0],
+                    text: 'Укажите пожалуйста начало половой жизни​',
                     answer: sexualActivity,
                     score: sexualActivity >= 18 ? 0 : 1
                 },
                 {
-                    text: arr[1],
+                    text: 'Укажите пожалуйста количество половых партнёров',
                     answer: partners,
                     score: partners >= 2 ? 1 : 0
                 },
                 {
-                    text: arr[2],
+                    text: 'Укажите пожалуйста количество родов',
                     answer: numbOfBirths,
                     score: numbOfBirths < 4 ? 0 : 1
                 },
                 {
-                    text: arr[3],
+                    text: 'При родах были ли травмы шейки матки (разрывы)',
                     answer: scoreInc(trauma),
                     score: trauma
                 },
                 {
-                    text: arr[4],
+                    text: 'Получали ли вакцину от вируса папилломы человека (ВПЧ)?',
                     answer: scoreInc(hvp),
                     score: hvp
                 },
                 {
-                    text: arr[5],
+                    text: 'Имеются ли у Вас выделения из половых путей после полового акта',
                     answer: scoreInc(discharge),
                     score: discharge
                 },
                 {
-                    text: arr[6],
+                    text: 'Бывают ли болевые ощущения при половом акте?',
                     answer: scoreInc(painful),
                     score: painful
                 },
                 {
-                    text: arr[6],
+                    text: 'Проходили ли Вы лечения по поводу заболеваний шейки матки?',
                     answer: scoreCervix(painf),
                     score: painf > 0 ? 2 : 0
                 },
                 {
-                    text: arr[9],
+                    text: ' Было ли выявлено носительство ВПЧ инфекции?',
                     answer: scoreInc(diseases),
                     score: diseases
                 },
                 {
-                    text: arr[8],
+                    text: 'Когда были в последний раз у врача гинеколога?',
                     answer: scoreGynec(gynecologist),
                     score: gynecologist
                 },
                 {
-                    text: arr[10],
+                    text: 'Последние 10 дней были ли у Вас эпизоды повышения температуры тела выше 37,5*С',
                     answer: scoreInc(temperature),
                     score: 0
                 }
@@ -169,7 +170,7 @@ export default function CervixLandingForm({ arr, id, }) {
             <ModalSurveyStatus />
             <Typography component="h1" variant="h5"
                 style={{ display: 'flex', justifyContent: "center", alignItems: "center", padding: 20 }}>
-                Киэли хапчаҕайын (шейка матки) ыарыыларын тургутуу
+                <FormattedMessage id="name_cervix_survey" />
             </Typography>
             {/* {show && <ModalTrue />}
             {showFalse && <ModalFalse />}
@@ -177,7 +178,7 @@ export default function CervixLandingForm({ arr, id, }) {
             <Grid container spacing={6}>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
-                        <FormLabel component="legend">1. {arr[0]}</FormLabel>
+                        <FormLabel component="legend">1. <FormattedMessage id="beginning_sexual_activity" /></FormLabel>
                         <Grid item xs={12} sm={6}>
                             <TextField id={"outlined-basic"} type="number" variant={"outlined"} required value={sexualActivity}
                                 onChange={(e) => {
@@ -188,7 +189,7 @@ export default function CervixLandingForm({ arr, id, }) {
                 </Grid>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
-                        <FormLabel component="legend">2. {arr[1]}</FormLabel>
+                        <FormLabel component="legend">2. <FormattedMessage id="how_partners" /></FormLabel>
                         <Grid item xs={12} sm={6}>
                             <TextField id={"outlined-basic"} type="number" variant={"outlined"} required value={partners}
                                 onChange={(e) => {
@@ -199,7 +200,7 @@ export default function CervixLandingForm({ arr, id, }) {
                 </Grid>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
-                        <FormLabel component="legend">3. {arr[2]}</FormLabel>
+                        <FormLabel component="legend">3. <FormattedMessage id="how_births" /></FormLabel>
                         <Grid item xs={12} sm={6}>
                             <TextField id={"outlined-basic"} type="number" variant={"outlined"} required value={numbOfBirths}
                                 onChange={(e) => {
@@ -210,96 +211,96 @@ export default function CervixLandingForm({ arr, id, }) {
                 </Grid>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
-                        <FormLabel component="legend">4. {arr[3]}</FormLabel>
+                        <FormLabel component="legend">4. <FormattedMessage id="had_cervix_injuries" /></FormLabel>
                         <RadioGroup aria-label="gender" name="gender1" value={trauma} onChange={(e) => {
                             setTrauma(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={trauma == 1} value={1} control={<Radio />} label="Хайдан" />
-                            <FormControlLabel checked={trauma == 0} value={0} control={<Radio />} label="Суох " />
+                            <FormControlLabel checked={trauma == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer4_yes_cervix_survey" />} />
+                            <FormControlLabel checked={trauma == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer4_no_cervix_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
-                        <FormLabel component="legend">5. {arr[4]}</FormLabel>
+                        <FormLabel component="legend">5. <FormattedMessage id="have_papillomavirus_vaccine" /></FormLabel>
                         <RadioGroup aria-label="gender" name="gender1" value={hvp} onChange={(e) => {
                             setHps(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={hvp == 1} value={1} control={<Radio />} label="Ылан" />
-                            <FormControlLabel checked={hvp == 0} value={0} control={<Radio />} label="Суох " />
+                            <FormControlLabel checked={hvp == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer5_yes_cervix_survey" />} />
+                            <FormControlLabel checked={hvp == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer5_no_cervix_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
-                        <FormLabel component="legend">6. {arr[5]}</FormLabel>
+                        <FormLabel component="legend">6. <FormattedMessage id="have_discharge_genital" /></FormLabel>
                         <RadioGroup aria-label="gender" name="gender1" value={discharge} onChange={(e) => {
                             setDischarge(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={discharge == 1} value={1} control={<Radio />} label="Кэлэр" />
-                            <FormControlLabel checked={discharge == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={discharge == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer6_yes_cervix_survey" />} />
+                            <FormControlLabel checked={discharge == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer6_no_cervix_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
-                        <FormLabel component="legend">7. {arr[6]}</FormLabel>
+                        <FormLabel component="legend">7. <FormattedMessage id="have_intercourse_pain" /></FormLabel>
                         <RadioGroup aria-label="gender" name="gender1" value={painful} onChange={(e) => {
                             setPainful(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={painful == 2} value={2} control={<Radio />} label="Ыалдьар" />
-                            <FormControlLabel checked={painful == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={painful == 2} value={2} control={<Radio />} label={<FormattedMessage id="answer7_yes_cervix_survey" />} />
+                            <FormControlLabel checked={painful == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer7_no_cervix_survey" />} />
 
                         </RadioGroup>
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
-                        <FormLabel component="legend">8. {arr[7]}</FormLabel>
+                        <FormLabel component="legend">8. <FormattedMessage id="treated_diseases" /></FormLabel>
                         <RadioGroup aria-label="gender" name="gender1" value={painful} onChange={(e) => {
                             setPainf(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={painf == 1} value={1} control={<Radio />} label="- эрозия шейки матки" />
-                            <FormControlLabel checked={painf == 2} value={2} control={<Radio />} label="- Дисплазия шейки матки" />
-                            <FormControlLabel checked={painf == 3} value={3} control={<Radio />} label="- лейкоплакия шейки матки" />
-                            <FormControlLabel checked={painf == 4} value={4} control={<Radio />} label="- эндоцервицит" />
-                            <FormControlLabel checked={painf == 0} value={0} control={<Radio />} label="Суох " />
+                            <FormControlLabel checked={painf == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer8_erosion" />} />
+                            <FormControlLabel checked={painf == 2} value={2} control={<Radio />} label={<FormattedMessage id="answer8_dysplasia" />} />
+                            <FormControlLabel checked={painf == 3} value={3} control={<Radio />} label={<FormattedMessage id="answer8_leukoplakia" />} />
+                            <FormControlLabel checked={painf == 4} value={4} control={<Radio />} label={<FormattedMessage id="answer8_endocervicitis" />} />
+                            <FormControlLabel checked={painf == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer8_no" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
-                        <FormLabel component="legend">9.  {arr[9]}</FormLabel>
+                        <FormLabel component="legend">9.  <FormattedMessage id="detected_hpv" /></FormLabel>
                         <RadioGroup aria-label="gender" name="gender1" value={diseases} onChange={(e) => {
                             setDiseases(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={diseases == 1} value={1} control={<Radio />} label="Баар" />
-                            <FormControlLabel checked={diseases == 0} value={0} control={<Radio />} label="Суох " />
+                            <FormControlLabel checked={diseases == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer9_yes_cervix_survey" />} />
+                            <FormControlLabel checked={diseases == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer9_no_cervix_survey" />} />
 
                         </RadioGroup>
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
-                        <FormLabel component="legend">10.  {arr[8]}</FormLabel>
+                        <FormLabel component="legend">10.  <FormattedMessage id="when_gynecologist" /></FormLabel>
                         <RadioGroup aria-label="gender" name="gender1" value={gynecologist} onChange={(e) => {
                             setGynecologist(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={gynecologist == 0} value={0} control={<Radio />} label="Быйыл" />
-                            <FormControlLabel checked={gynecologist == 1} value={1} control={<Radio />} label="Былырыын" />
-                            <FormControlLabel checked={gynecologist == 2} value={2} control={<Radio />} label="Сылдьыбатаҕым ыраатта" />
+                            <FormControlLabel checked={gynecologist == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer10_this_year" />} />
+                            <FormControlLabel checked={gynecologist == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer10_last_year" />} />
+                            <FormControlLabel checked={gynecologist == 2} value={2} control={<Radio />} label={<FormattedMessage id="answer10_no" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={12}>
 
                     <FormControl component="fieldset">
-                        <FormLabel component="legend">11.{arr[10]}</FormLabel>
+                        <FormLabel component="legend">11. <FormattedMessage id="had_temperature" /></FormLabel>
                         <RadioGroup value={temperature} onChange={(e) => {
                             setTemperature(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={temperature == 1} value={1} control={<Radio />} label="Тахсан" />
-                            <FormControlLabel checked={temperature == 0} value={0} control={<Radio />} label="Суох " />
+                            <FormControlLabel checked={temperature == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer11_yes_cervix_survey" />} />
+                            <FormControlLabel checked={temperature == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer11_no_cervix_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -309,8 +310,7 @@ export default function CervixLandingForm({ arr, id, }) {
                             onChange={soldCheckbox} />}
                         label={''}
                     />
-
-                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}>Тэрили өйдөөн хааларга</LinkStyle>
+                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}><FormattedMessage id="consent_cervix_survey" /></LinkStyle>
                 </FormStyle>
                 <Button style={{ marginTop: 20 }}
                     type="submit"
@@ -320,7 +320,7 @@ export default function CervixLandingForm({ arr, id, }) {
                     onClick={handlerPost}
                     disabled={!isActiveButton}
                 >
-                    ЫЫТАРГА
+                    <FormattedMessage id="save_cervix_survey" />
                 </Button>
             </Grid>
             <Box mt={5}>

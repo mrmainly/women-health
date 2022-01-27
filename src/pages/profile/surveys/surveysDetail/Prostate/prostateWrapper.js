@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import ProstateSurvey from './prostateSurvey'
 
 import { useLocation } from 'react-router-dom'
+import { FormattedMessage } from "react-intl";
 
 const ProstateWrapper = () => {
     const location = useLocation()
 
     let arr = [
-        "Түүн хаста ииктиигиний?",
-        "Ииктээн бүппүтүҥ кэннэ хабаҕыҥ билигин да кураанахсыйа илик курдук буолар дуо?",
-        "Биирдэ эмит иигиҥ хааннаах этэ дуо?",
-        "Хаһан эмит иигиҥ кыайан кэлбэт буолбут түгэнэ баара дуо?",
-        "ПСА онкомаркерга анаалыс бүтэһигин хаһан туттарбыккыный?",
-        "Бигэргэтиллибит раак ыарыылааххын дуо?",
-        "Бүтэһик 10 хонук иһигэр температуураҥ 37,5 кыраадыстан үрдүктүк тахса сылдьыбыттаах дуо?",
+        <FormattedMessage id="how_bladder_prostate_survey" />,
+        <FormattedMessage id="incomplete_emptying_prostate_survey" />,
+        <FormattedMessage id="have_blood_urination_prostate_survey" />,
+        <FormattedMessage id="have_urinary_retention_prostate_survey" />,
+        <FormattedMessage id="when_psa_prostate_survey" />,
+        <FormattedMessage id="have_neoplasms_prostate_survey" />,
+        <FormattedMessage id="had_temperature_prostate_survey" />,
     ]
     return (
         <>

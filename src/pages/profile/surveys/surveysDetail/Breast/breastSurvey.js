@@ -18,6 +18,7 @@ import { Copyright, ModalSurveyStatus } from '../../../../../components'
 import Api from '../../../../../utils/api'
 import cookie from 'js-cookie'
 import { DispatchContext } from "../../../../../store";
+import { FormattedMessage } from "react-intl";
 
 const Root = styled(Container)({
     display: 'flex',
@@ -175,97 +176,97 @@ const BreastSurvey = ({ arr, id }) => {
             <ModalSurveyStatus />
             <Typography component="h1" variant="h5"
                 style={{ display: 'flex', justifyContent: "center", alignItems: "center", padding: 20 }}>
-                Эмиий ыарыыларын тургутуу
+                <FormattedMessage id="name_breast_survey" />
             </Typography>
             <Box style={{ width: '100%' }}>
                 <Grid container spacing={6}>
                     <Grid item xs={12} sm={12}>
                         <FormControl component="fieldset">
-                            <FormLabel component="legend">1. {arr[0]}</FormLabel>
+                            <FormLabel component="legend">1. <FormattedMessage id="cases_cancer_breast_survey" /></FormLabel>
                             <RadioGroup value={accessFamily} onChange={(e) => {
                                 setAccessFamily(e.target.value)
                             }} style={{ display: 'flex', flexDirection: 'row' }}>
-                                <FormControlLabel checked={accessFamily == 3} value={3} control={<Radio />} label="Ыалдьан" />
-                                <FormControlLabel checked={accessFamily == 0} value={0} control={<Radio />} label="Суох " />
+                                <FormControlLabel checked={accessFamily == 3} value={3} control={<Radio />} label={<FormattedMessage id="answer1_yes_breast_survey" />} />
+                                <FormControlLabel checked={accessFamily == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer1_no_breast_survey" />} />
                             </RadioGroup>
                         </FormControl>
                     </Grid>
                     <Grid item xs={12} sm={12}>
                         <FormControl component="fieldset">
-                            <FormLabel component="legend">2. {arr[1]}</FormLabel>
+                            <FormLabel component="legend">2. <FormattedMessage id="determine_formation_breast_survey" /></FormLabel>
                             <RadioGroup value={touching} onChange={(e) => {
                                 setTouching(e.target.value)
                             }} style={{ display: 'flex', flexDirection: 'row' }}>
-                                <FormControlLabel checked={touching == 1} value={1} control={<Radio />} label="Баар" />
-                                <FormControlLabel checked={touching == 0} value={0} control={<Radio />} label="Суох " />
+                                <FormControlLabel checked={touching == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer2_yes_breast_survey" />} />
+                                <FormControlLabel checked={touching == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer2_no_breast_survey" />} />
                             </RadioGroup>
                         </FormControl>
                     </Grid>
                     <Grid item xs={12} sm={12}>
                         <FormControl component="fieldset">
-                            <FormLabel component="legend">3. {arr[2]}</FormLabel>
+                            <FormLabel component="legend">3. <FormattedMessage id="have_lemon_peel_breast_survey" /></FormLabel>
                             <RadioGroup aria-label="gender" name="gender1" value={lemon} onChange={(e) => {
                                 setLemon(e.target.value)
                             }} style={{ display: 'flex', flexDirection: 'row' }}>
-                                <FormControlLabel checked={lemon == 2} value={2} control={<Radio />} label="Баар" />
-                                <FormControlLabel checked={lemon == 0} value={0} control={<Radio />} label="Суох " />
+                                <FormControlLabel checked={lemon == 2} value={2} control={<Radio />} label={<FormattedMessage id="answer3_yes_breast_survey" />} />
+                                <FormControlLabel checked={lemon == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer3_no_breast_survey" />} />
                             </RadioGroup>
                         </FormControl>
                     </Grid>
                     <Grid item xs={12} sm={12}>
                         <FormControl component="fieldset">
-                            <FormLabel component="legend">4. {arr[3]}</FormLabel>
+                            <FormLabel component="legend">4. <FormattedMessage id="have_nipple_discharge_breast_survey" /></FormLabel>
                             <RadioGroup aria-label="gender" name="gender1" value={excreta} onChange={(e) => {
                                 setExcreta(e.target.value)
                             }} style={{ display: 'flex', flexDirection: 'row' }}>
-                                <FormControlLabel checked={excreta == 1} value={1} control={<Radio />} label="Тахсар" />
-                                <FormControlLabel checked={excreta == 0} value={0} control={<Radio />} label="Суох " />
+                                <FormControlLabel checked={excreta == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer4_yes_breast_survey" />} />
+                                <FormControlLabel checked={excreta == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer4_no_breast_survey" />} />
                             </RadioGroup>
                         </FormControl>
                     </Grid>
                     <Grid item xs={12} sm={12}>
                         <FormControl component="fieldset">
-                            <FormLabel component="legend">5. {arr[4]}</FormLabel>
+                            <FormLabel component="legend">5. <FormattedMessage id="have_change_nipple_breast_survey" /></FormLabel>
                             <RadioGroup aria-label="gender" name="gender1" value={changes} onChange={(e) => {
                                 setChanges(e.target.value)
                             }} style={{ display: 'flex', flexDirection: 'row' }}>
-                                <FormControlLabel checked={changes == 1} value={1} control={<Radio />} label="Уларыйда" />
-                                <FormControlLabel checked={changes == 0} value={0} control={<Radio />} label="суох " />
+                                <FormControlLabel checked={changes == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer5_yes_breast_survey" />} />
+                                <FormControlLabel checked={changes == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer5_no_breast_survey" />} />
                             </RadioGroup>
                         </FormControl>
                     </Grid>
                     <Grid item xs={12} sm={12}>
                         <FormControl component="fieldset">
-                            <FormLabel component="legend">6. {arr[5]}</FormLabel>
+                            <FormLabel component="legend">6. <FormattedMessage id="when_mammogram_breast_survey" /></FormLabel>
                             <RadioGroup aria-label="gender" name="gender1" value={mammography} onChange={(e) => {
                                 setMammography(e.target.value)
                             }} style={{ display: 'flex', flexDirection: 'row' }}>
 
                                 <FormControlLabel checked={mammography == 0} value={0} control={<Radio />}
-                                    label="Быйыл" />
+                                    label={<FormattedMessage id="answer6_this_year_breast_survey" />} />
                                 <FormControlLabel checked={mammography == 1} value={1} control={<Radio />}
-                                    label="Былырыын" />
+                                    label={<FormattedMessage id="answer6_last_year_breast_survey" />} />
                                 <FormControlLabel checked={mammography == 3} value={3} control={<Radio />}
-                                    label="Хаһан да барбатаҕым" />
+                                    label={<FormattedMessage id="answer6_no_breast_survey" />} />
                             </RadioGroup>
                         </FormControl>
                     </Grid>
                     <Grid item xs={12} sm={12}>
                         <FormControl component="fieldset">
-                            <FormLabel component="legend">7. {arr[6]}</FormLabel>
+                            <FormLabel component="legend">7. <FormattedMessage id="have_confirmed_malignancy_breast_survey" /></FormLabel>
                             <RadioGroup aria-label="gender" name="gender1" value={accessMalignant} onChange={(e) => {
                                 setAccessMalignant(e.target.value)
                             }} style={{ display: 'flex', flexDirection: 'row' }}>
                                 <FormControlLabel checked={accessMalignant == 1} value={1} control={<Radio />}
-                                    label="Баар" />
+                                    label={<FormattedMessage id="answer7_yes_breast_survey" />} />
                                 <FormControlLabel checked={accessMalignant == 0} value={0} control={<Radio />}
-                                    label="Суох " />
+                                    label={<FormattedMessage id="answer7_no_breast_survey" />} />
                             </RadioGroup>
                         </FormControl>
                     </Grid>
                     <Grid item xs={12} sm={12}>
                         <FormControl component="fieldset">
-                            <FormLabel component="legend">8. {arr[7]}</FormLabel>
+                            <FormLabel component="legend">8. <FormattedMessage id="menstruation_age_breast_survey" /></FormLabel>
                             <Grid item xs={12} sm={6}>
                                 <TextField id={"outlined-basic"}
                                     type="number"
@@ -280,25 +281,25 @@ const BreastSurvey = ({ arr, id }) => {
                     </Grid>
                     <Grid item xs={12} sm={12}>
                         <FormControl component="fieldset">
-                            <FormLabel component="legend">9. {arr[8]}</FormLabel>
+                            <FormLabel component="legend">9. <FormattedMessage id="had_childbirth_breast_survey" /></FormLabel>
                             <RadioGroup aria-label="gender" name="gender1" value={childBirth} onChange={(e) => {
                                 setChildBirth(e.target.value)
                             }} style={{ display: 'flex', flexDirection: 'row' }}>
                                 <FormControlLabel checked={childBirth == 1} value={1} control={<Radio />}
-                                    label="Баар" />
+                                    label={<FormattedMessage id="answer9_yes_breast_survey" />} />
                                 <FormControlLabel checked={childBirth == 0} value={0} control={<Radio />}
-                                    label="Суох" />
+                                    label={<FormattedMessage id="answer9_no_breast_survey" />} />
                             </RadioGroup>
                         </FormControl>
                     </Grid>
                     <Grid item xs={12} sm={12}>
                         <FormControl component="fieldset">
-                            <FormLabel component="legend">10. {arr[9]}</FormLabel>
+                            <FormLabel component="legend">10. <FormattedMessage id="had_temperature_breast_survey" /></FormLabel>
                             <RadioGroup aria-label="gender" name="gender1" value={temperature} onChange={(e) => {
                                 setTemperature(e.target.value)
                             }} style={{ display: 'flex', flexDirection: 'row' }}>
-                                <FormControlLabel checked={temperature == 1} value={1} control={<Radio />} label="Тахсан" />
-                                <FormControlLabel checked={temperature == 0} value={0} control={<Radio />} label="Суох " />
+                                <FormControlLabel checked={temperature == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer10_yes_breast_survey" />} />
+                                <FormControlLabel checked={temperature == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer10_no_breast_survey" />} />
                             </RadioGroup>
                         </FormControl>
                         <FormStyle item xs={12}>
@@ -307,7 +308,7 @@ const BreastSurvey = ({ arr, id }) => {
                                     onChange={soldCheckbox} />}
                                 label={''}
                             />
-                            <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}>Тэрили өйдөөн хааларга</LinkStyle>
+                            <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}><FormattedMessage id="consent_breast_survey" /></LinkStyle>
                         </FormStyle>
                     </Grid>
                     <Button style={{ marginTop: 20 }}
@@ -318,7 +319,7 @@ const BreastSurvey = ({ arr, id }) => {
                         onClick={handlerPost}
                         disabled={!isActiveButton}
                     >
-                        ЫЫТАРГА
+                        <FormattedMessage id="save_breast_survey" />
                     </Button>
                 </Grid>
             </Box>
