@@ -14,6 +14,7 @@ import {
 } from "@mui/material";
 import React, { useState, useEffect, useContext } from "react";
 import { styled } from '@mui/system'
+import { FormattedMessage } from "react-intl";
 
 import Api from '../../../../../utils/api'
 import { DispatchContext } from "../../../../../store";
@@ -77,47 +78,47 @@ export default function LiverSurvey({ arr, id }) {
             survey_type: id,
             fields: [
                 {
-                    text: arr[0],
+                    text: 'Вам, когда ни будь устанавливали диагноз хронический вирусный гепатит В и С ?',
                     answer: scoreInc(hepatits),
                     score: hepatits,
                 },
                 {
-                    text: arr[1],
+                    text: 'Являетесь ли Вы носителем HBsAg?',
                     answer: scoreInc(HBsAg),
                     score: HBsAg
                 },
                 {
-                    text: arr[2],
+                    text: 'Вам, когда ни будь устанавливали диагноз цирроз печени?',
                     answer: scoreInc(cirrhosis),
                     score: cirrhosis
                 },
                 {
-                    text: arr[3],
+                    text: 'Отмечаете ли Вы безпричинный зуд кожи, особенно в ночное время?',
                     answer: scoreInc(itchySkin),
                     score: itchySkin
                 },
                 {
-                    text: arr[4],
+                    text: 'Отмечаете ли Вы боли в правом подреберье?',
                     answer: scoreInc(hypochondrium),
                     score: hypochondrium
                 },
                 {
-                    text: arr[5],
+                    text: 'У Вас бывает рвота с примесью крови?',
                     answer: scoreInc(vomitingИlood),
                     score: vomitingИlood
                 },
                 {
-                    text: arr[6],
+                    text: 'Имеется ли у Вас необъясняемое снижение массы тела?',
                     answer: scoreInc(weightLoss),
                     score: weightLoss
                 },
                 {
-                    text: arr[7],
+                    text: 'Когда-либо у родителей был ли установлен диагноз рак печени?',
                     answer: scoreInc(parentsCancer),
                     score: parentsCancer
                 },
                 {
-                    text: arr[8],
+                    text: 'Последние 10 дней были ли у Вас эпизоды повышения температуры тела выше 37,5*С',
                     answer: scoreInc(temperature),
                     score: 0
                 },
@@ -130,18 +131,17 @@ export default function LiverSurvey({ arr, id }) {
             <ModalSurveyStatus />
             <Typography component="h1" variant="h5"
                 style={{ display: 'flex', justifyContent: "center", alignItems: "center", padding: 20 }}>
-                Быар ыарыыларын тургутуу (быар сыстыганнаах ыарыылара)
+                <FormattedMessage id="name_liver_survey" />
             </Typography>
             <Grid container spacing={6}>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
                         <FormLabel component="legend">1.{arr[0]}</FormLabel>
                         <RadioGroup value={hepatits} onChange={(e) => {
-                            console.log(e.target.value)
                             setHepatits(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={hepatits == 2} value={2} control={<Radio />} label="Туруоран" />
-                            <FormControlLabel checked={hepatits == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={hepatits == 2} value={2} control={<Radio />} label={<FormattedMessage id="answer1_yes_liver_survey" />} />
+                            <FormControlLabel checked={hepatits == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer1_no_liver_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -151,8 +151,8 @@ export default function LiverSurvey({ arr, id }) {
                         <RadioGroup value={HBsAg} onChange={(e) => {
                             setHBsAg(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={HBsAg == 1} value={1} control={<Radio />} label="Баар" />
-                            <FormControlLabel checked={HBsAg == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={HBsAg == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer2_yes_liver_survey" />} />
+                            <FormControlLabel checked={HBsAg == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer2_no_liver_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -162,8 +162,8 @@ export default function LiverSurvey({ arr, id }) {
                         <RadioGroup aria-label="gender" name="gender1" value={cirrhosis} onChange={(e) => {
                             setCirrhosis(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={cirrhosis == 3} value={3} control={<Radio />} label="Инньэ диэччилэр" />
-                            <FormControlLabel checked={cirrhosis == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={cirrhosis == 3} value={3} control={<Radio />} label={<FormattedMessage id="answer3_yes_liver_survey" />} />
+                            <FormControlLabel checked={cirrhosis == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer3_no_liver_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -174,8 +174,8 @@ export default function LiverSurvey({ arr, id }) {
                         <RadioGroup aria-label="gender" name="gender1" value={itchySkin} onChange={(e) => {
                             setItchySkin(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={itchySkin == 1} value={1} control={<Radio />} label="Кыһыйар" />
-                            <FormControlLabel checked={itchySkin == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={itchySkin == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer4_yes_liver_survey" />} />
+                            <FormControlLabel checked={itchySkin == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer4_no_liver_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -185,8 +185,8 @@ export default function LiverSurvey({ arr, id }) {
                         <RadioGroup aria-label="gender" name="gender1" value={hypochondrium} onChange={(e) => {
                             setHypochondrium(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={hypochondrium == 1} value={1} control={<Radio />} label="Ыалдьааччы" />
-                            <FormControlLabel checked={hypochondrium == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={hypochondrium == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer5_yes_liver_survey" />} />
+                            <FormControlLabel checked={hypochondrium == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer5_no_liver_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -196,8 +196,8 @@ export default function LiverSurvey({ arr, id }) {
                         <RadioGroup aria-label="gender" name="gender1" value={vomitingИlood} onChange={(e) => {
                             setVomitingИlood(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={vomitingИlood == 10} value={10} control={<Radio />} label="Хотуолаан" />
-                            <FormControlLabel checked={vomitingИlood == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={vomitingИlood == 10} value={10} control={<Radio />} label={<FormattedMessage id="answer6_yes_liver_survey" />} />
+                            <FormControlLabel checked={vomitingИlood == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer6_no_liver_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -207,9 +207,8 @@ export default function LiverSurvey({ arr, id }) {
                         <RadioGroup aria-label="gender" name="gender1" value={weightLoss} onChange={(e) => {
                             setWeightLoss(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={weightLoss == 10} value={10} control={<Radio />} label="Түһэн" />
-                            <FormControlLabel checked={weightLoss == 0} value={0} control={<Radio />} label="Суох" />
-
+                            <FormControlLabel checked={weightLoss == 10} value={10} control={<Radio />} label={<FormattedMessage id="answer7_yes_liver_survey" />} />
+                            <FormControlLabel checked={weightLoss == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer7_no_liver_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -219,8 +218,8 @@ export default function LiverSurvey({ arr, id }) {
                         <RadioGroup aria-label="gender" name="gender1" value={parentsCancer} onChange={(e) => {
                             setParentsСancer(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={parentsCancer == 3} value={3} control={<Radio />} label="Ыалдьан" />
-                            <FormControlLabel checked={parentsCancer == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={parentsCancer == 3} value={3} control={<Radio />} label={<FormattedMessage id="answer8_yes_liver_survey" />} />
+                            <FormControlLabel checked={parentsCancer == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer8_no_liver_survey" />} />
 
                         </RadioGroup>
                     </FormControl>
@@ -231,8 +230,8 @@ export default function LiverSurvey({ arr, id }) {
                         <RadioGroup aria-label="gender" name="gender1" value={temperature} onChange={(e) => {
                             setTemperature(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={temperature == 1} value={1} control={<Radio />} label="Тахсан" />
-                            <FormControlLabel checked={temperature == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={temperature == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer9_yes_liver_survey" />} />
+                            <FormControlLabel checked={temperature == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer9_no_liver_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -242,7 +241,7 @@ export default function LiverSurvey({ arr, id }) {
                             onChange={soldCheckbox} />}
                         label={''}
                     />
-                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}>Тэрили өйдөөн хааларга</LinkStyle>
+                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}><FormattedMessage id="consent_liver_survey" /></LinkStyle>
                 </FormStyle>
 
                 <Button style={{ marginTop: 20 }}
@@ -253,7 +252,7 @@ export default function LiverSurvey({ arr, id }) {
                     onClick={handlerPost}
                     disabled={!isActiveButton}
                 >
-                    ЫЫТАРГА
+                    <FormattedMessage id="save_liver_survey" />
                 </Button>
             </Grid>
             <Box mt={5}>

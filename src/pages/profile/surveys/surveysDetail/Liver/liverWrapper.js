@@ -2,20 +2,21 @@ import React, { useEffect, useState } from 'react'
 import LiverSurvey from './liverSurvey'
 
 import { useLocation } from 'react-router-dom'
+import { FormattedMessage } from "react-intl";
 
 const LiverWrapper = () => {
     const location = useLocation()
 
     let arr = [
-        "Хроническай вируснай гепатит Б эбэтэр С диагноһын туруора сылдьыбыттара дуо?",
-        " Анаалыстаан баран HBsAg (аш-би-эс антиген) хааҥҥар баар (положительнай) дииллэр этэ дуо?",
-        "Быарыҥ циррозтаах дииллэр этэ дуо?",
-        "Тирииҥ туох да биллэр төрүөтэ суох кыһыйар дуо, кыһыйара түүнүн күүһүрэр дуо?",
-        "Уҥа агдаҥ аннынан аалан ыалдьааччы дуо?",
-        "Хаан булкадаһыктааҕынан хотуолааччыгын дуо?",
-        "Ыйааһыныҥ эмискэ түстэ дуо?",
-        "Төрөппүттэриҥ быар раагынан ыалдьа сылдьыбыттара дуо?",
-        "Бүтэһик 10 хонук иһигэр температуураҥ 37,5 кыраадыстан үрдүктүк тахса сылдьыбыттаах дуо?"
+        <FormattedMessage id="had_hepatitis_liver_survey" />,
+        <FormattedMessage id="carrier_hbsag_liver_survey" />,
+        <FormattedMessage id="have_cirrhosis_liver_survey" />,
+        <FormattedMessage id="skin_itching_liver_survey" />,
+        <FormattedMessage id="pain_right_hypochondrium_liver_survey" />,
+        <FormattedMessage id="blood_vomit_liver_survey" />,
+        <FormattedMessage id="have_weight_loss_liver_survey" />,
+        <FormattedMessage id="parents_cancer_liver_survey" />,
+        <FormattedMessage id="had_temperature_liver_survey" />
     ]
     return (
         <>
