@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { InfoScreen, TextInfoScreen, ThreeScreen, FourScreen, LinkToSurveysScreen, MyContainer, MyButton } from '../../../components'
 
 import { CaruselSurvey, TitleScreen } from '../../../constructor'
+import { FormattedMessage } from "react-intl";
 
 const Cervix = () => {
     const [state, setState] = useState(false)
@@ -10,31 +11,33 @@ const Cervix = () => {
         {
             type: 'text',
             elem: [
-                'Киэли хапчаҕайын рагын сүрүн төрүөтүнэн папиллома вируһа (нууччалыы кылгатан ВПЧ) буолара дакаастанан турар.',
-                'ВПЧ - хас да вирус түмүллүбүт бөлөҕө, бу вирустар аан дойдуга сүрдээх киэҥник тарҕаммыттар. Сүүстэн тахса ВПЧ вируһун көрүҥэ баара биллэр, олортон 14-дэ онкология ыарыытын төрдө-төрүөтэ буолаллар. Вирус сүрүннээн сылдьыһыы кэмигэр тарҕанар (половой путь), онон дьон үксэ сылдьыһар саастарыгар тиийэн баран сутуллаллар. Рак 70 бырыһыаныгар ВПЧ икки көрүҥэ булуллар (16-с уонна 18-с).',
-                'Куттал үрдүүр фактордара:'
+                <FormattedMessage id="cervix_data1_text1" />,
+                <FormattedMessage id="cervix_data1_text2" />,
+                <FormattedMessage id="cervix_data1_title_column1" />
             ],
         },
         {
             type: 'column',
             elem: [
-                'сылдьыһыы эрдэ саҕаланыыта;',
-                'половой партнердары элбэхтэ уларытыы;',
-                'презервативы туһаммакка сылдьыһыы;',
-                'табахтааһын;',
-                'иммунитеты баттыыр эмтэри иһии;',
-                'оҕолонорго киэли хапчаҕайын травмалара;',
-                'киэли хроническай ыарыылара: эрозия, лейкоплакия уо.д.а.;',
-                'сылдьыһыы сыстыганнаах ыарыылара.',
+                <FormattedMessage id="cervix_data1_text1_column1" />,
+                <FormattedMessage id="cervix_data1_text2_column1" />,
+                <FormattedMessage id="cervix_data1_text3_column1" />,
+                <FormattedMessage id="cervix_data1_text4_column1" />,
+                <FormattedMessage id="cervix_data1_text5_column1" />,
+                <FormattedMessage id="cervix_data1_text6_column1" />,
+                <FormattedMessage id="cervix_data1_text7_column1" />,
+                <FormattedMessage id="cervix_data1_text8_column1" />,
             ],
         },
         {
-            title: 'Симптомнара',
+            title: <FormattedMessage id="cervix_symptoms" />,
             type: 'text',
             elem: [
-                'Киэли хапчаҕайын рагын саамай элбэхтик көстөр симптомнарынан элбэх уутуҥу убаҕас тахсыыта уонна сылдьыһыы кэнниттэн хааннаах убаҕас тахсыыта буолар.',
-                'Төрүүр саастаах дьахталларга ыйдааҕыларын таһынан хаан кэлиитэ буолуон сөп, оттон менопауза буолбут буоллаҕына - ыарыы симптомунан кэмиттэн кэмигэр эбэтэр куруук кэлэр хаан буолуон сөп. ',
-                'Искэн улааттаҕына ыалдьар буолар, иик тахсыыта хааччахтанар уонна хойуулуурга мэһэйдиир буолар.',
+                <FormattedMessage id="cervix_data1_text3" />,
+                <FormattedMessage id="cervix_data1_text4" />,
+                <FormattedMessage id="cervix_data1_text5" />,
+                <FormattedMessage id="cervix_data1_text6" />,
+                <FormattedMessage id="cervix_data1_text7" />,
             ],
         },
     ]
@@ -43,10 +46,10 @@ const Cervix = () => {
         {
             align: 'start',
             text: [
-                'ВОЗ скрининг үс көрүҥүн сүбэлиир:',
-                '• ВПЧ баарын-суоҕун билэр тест;',
-                '• Кольпоскопия;',
-                '• ПАП-тест уонна убаҕас цитология ньымата (ЖЦ)'
+                <FormattedMessage id="cervix_data1_title_column2" />,
+                <FormattedMessage id="cervix_data1_text1_column2" />,
+                <FormattedMessage id="cervix_data1_text2_column2" />,
+                <FormattedMessage id="cervix_data1_text3_column2" />
             ],
         },
     ]
@@ -54,8 +57,8 @@ const Cervix = () => {
     const data3 = [
         {
             text: [
-                'Киэли хапчаҕайын рагын (рак шейки матки) эрдэттэн билээри элбэх киһини чинчийии (скрининг) үс ньымалаах: киэли хапчаҕыйаттан ылыллыбыт цитология мазоктарын чинчийии (ПАП-тест), ВПЧ баарын-суоҕун билэр анаалыс уонна убаҕас цитология (ЖЦ). Искэн баара уорбалар түгэнигэр кольпоскопия оҥоһуллар, уонна бу чинчийии кэмигэр биопсия оҥоһуллар. Бу мэтиэдикэ киэли хапчаҕайын рагын эрдэ булар эрэ  буолбатах, ыарыы саҕаланарын тохтотор кыахтаах.',
-                'Кэмиттэн кэмигэр көрдөрүнэр буоллахха киэли хапчаҕайын рагынан ыалдьыы 80% кыччыыр, оттон бу ыарыыттан өлүү 72% кыччыыр.',
+                <FormattedMessage id="cervix_data3_text1" />,
+                <FormattedMessage id="cervix_data3_text2" />,
             ],
         },
     ]
@@ -63,8 +66,8 @@ const Cervix = () => {
     return (
         <div>
             <InfoScreen
-                title="КИЭЛИ ХАПЧАҔАЙЫН РАГА (РАК ШЕЙКИ МАТКИ)"
-                description='КИЭЛИ ХАПЧАҔАЙЫН РАГА (РАК ШЕЙКИ МАТКИ) - киэли хапчаҕайын ис бүрүөһүнүн килиэккэлэриттэн үөскүүр ыарыы. Бу рак дьахтар ууһуур уорганнарын саамай элбэхтик көстөр рага буолар, дьахталлар онкологияннан ыалдьалларыгар бигэ 5-с миэстэни ылар.'
+                title={<FormattedMessage id="cervix_cancer" />}
+                description={<FormattedMessage id="cervix_cancer_description" />}
                 img="Group66"
                 infoImg="Frame6"
             />
