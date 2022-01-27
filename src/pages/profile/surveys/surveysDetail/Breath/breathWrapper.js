@@ -2,17 +2,18 @@ import React, { useEffect, useState } from 'react'
 import Breast from './breathSurvey'
 
 import { useLocation } from 'react-router-dom'
+import { FormattedMessage } from "react-intl";
 
 const BreathWrapper = () => {
     const location = useLocation()
 
     const arr = [
-        "Төһө өр табахтыыгытый?",
-        "Сыл иһигэр компьютернай томографияны ааспытыҥ дуо?",
-        "Хаанынан силлээччигин дуо?",
-        "Эмискэ ыйааһыныҥ түспүтэ буолаарай?",
-        "Раак искэнэ Эйиэхэ баар дуо?",
-        "Бүтэһик 10 хонук иһигэр температуураҥ 37,5 кыраадыстан үрдүктүк тахса сылдьыбыттаах дуо?"
+        <FormattedMessage id={'how_smoke_lung_survey'} />,
+        <FormattedMessage id={'had_CT_lung_survey'} />,
+        <FormattedMessage id={'have_hemoptysis_lung_survey'} />,
+        <FormattedMessage id={'had_weight_loss_lung_survey'} />,
+        <FormattedMessage id={'have_malignancy_lung_survey'} />,
+        <FormattedMessage id={'had_temperature_lung_survey'} />
     ]
     // useEffect(() => {
     //     const newId = query.id

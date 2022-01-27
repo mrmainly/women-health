@@ -16,6 +16,7 @@ import {
     TextField,
     Checkbox
 } from '@mui/material'
+import { FormattedMessage } from "react-intl";
 
 import Api from '../../../../../utils/api'
 import { DispatchContext } from "../../../../../store";
@@ -89,36 +90,43 @@ export default function BreathSurvey({ arr, id }) {
                 return "Нет"
             }
         }
+        let scoreInc2 = (answer) => {
+            if (answer <= 1) {
+                return "нет"
+            } else {
+                return "да"
+            }
+        }
         Api.sendSurveys({
             survey_type: id,
             fields: [
                 {
-                    text: arr[0],
+                    text: '1. Сколько вы курите?',
                     answer: smokeResult,
                     score: calculateSmoke()
                 },
                 {
-                    text: arr[1],
+                    text: '2. Проходили ли вы в последний год компьютерную томографию',
                     answer: scoreInc(tomography),
                     score: tomography,
                 },
                 {
-                    text: arr[2],
+                    text: '3. У Вас бывает кровохарканье?',
                     answer: scoreInc(blood),
                     score: blood
                 },
                 {
-                    text: arr[3],
-                    answer: scoreInc(weigh),
+                    text: '4. Имеется ли у Вас необъясняемое снижение массы тела?',
+                    answer: scoreInc2(weigh),
                     score: weigh
                 },
                 {
-                    text: arr[4],
-                    answer: scoreInc(access),
+                    text: '5. Имеются ли у Вас подтверждённые злокачественные новообразования',
+                    answer: scoreInc2(access),
                     score: access
                 },
                 {
-                    text: arr[5],
+                    text: '6. Последние 10 дней были ли у Вас эпизоды повышения температуры тела выше 37,5*С',
                     answer: scoreInc(temperature),
                     score: 0
                 },
@@ -146,33 +154,33 @@ export default function BreathSurvey({ arr, id }) {
             <ModalSurveyStatus />
             <Typography component="h1" variant="h5"
                 style={{ display: 'flex', justifyContent: "center", alignItems: "center", padding: 20 }}>
-                Тыҥа ыарыыларын тургутуу
+                <FormattedMessage id="name_lung_survey" />
             </Typography>
             <Grid container spacing={6}>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
                         <FormLabel component="legend">1. {arr[0]}</FormLabel>
                         <Grid item xs={12} sm={12}>
-                            <TextField id={"outlined-basic"} type="number" placeholder="Табах күҥҥэ "
+                            <TextField id={"outlined-basic"} margin="normal" type="number" label={<FormattedMessage id="answer1_how_cigarettes_lung_survey" />}
                                 variant={"outlined"} value={smokeBundles}
                                 onChange={(e) => {
                                     setSmokeBundles(e.target.value)
                                     console.log(e.target.value, 'count')
                                 }} style={{ marginLeft: 10, }} />
-                            <TextField id={"outlined-basic"} type="number" placeholder="Сааһын"
+                            <TextField id={"outlined-basic"} margin="normal" type="number" label={<FormattedMessage id="answer1_how_years_lung_survey" />}
                                 variant={"outlined"} value={smokeAge}
                                 onChange={(e) => {
                                     setSmokeAge(e.target.value)
                                     console.log(e.target.value, 'ages')
                                 }} style={{ marginLeft: 10, }} />
-                            <TextField id={"outlined-basic"} type="number" variant={"outlined"} aria-readonly={true}
+                            <TextField id={"outlined-basic"} margin="normal" type="number" variant={"outlined"} aria-readonly={true}
                                 value={smokeResult}
                                 style={{ marginLeft: 10 }} />
                             <RadioGroup onChange={() => {
                                 setSmokeResult(0)
                             }}>
                                 <FormControlLabel checked={smokeResult == 0} value={0} control={<Radio />}
-                                    label="Табахтаабаппын"
+                                    label={<FormattedMessage id="answer1_no_lung_survey" />}
                                     style={{ marginLeft: 10, marginTop: 5 }} />
                             </RadioGroup>
                         </Grid>
@@ -185,8 +193,8 @@ export default function BreathSurvey({ arr, id }) {
                             setTomography(e.target.value)
                             console.log(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={tomography == 1} value={1} control={<Radio />} label="Ааһан" />
-                            <FormControlLabel checked={tomography == 0} value={0} control={<Radio />} label="Суох " />
+                            <FormControlLabel checked={tomography == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer2_yes_lung_survey" />} />
+                            <FormControlLabel checked={tomography == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer2_no_lung_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -197,8 +205,8 @@ export default function BreathSurvey({ arr, id }) {
                             setBlood(e.target.value)
                             console.log(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={blood == 1} value={1} control={<Radio />} label="Силлээн" />
-                            <FormControlLabel checked={blood == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={blood == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer3_yes_lung_survey" />} />
+                            <FormControlLabel checked={blood == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer3_no_lung_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -210,8 +218,8 @@ export default function BreathSurvey({ arr, id }) {
                             setWeigh(e.target.value)
                             console.log(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={weigh == 1} value={1} control={<Radio />} label="Оннук баар этэ" />
-                            <FormControlLabel checked={weigh == 10} value={10} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={weigh == 10} value={10} control={<Radio />} label={<FormattedMessage id="answer4_yes_lung_survey" />} />
+                            <FormControlLabel checked={weigh == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer4_no_lung_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -220,10 +228,9 @@ export default function BreathSurvey({ arr, id }) {
                         <FormLabel component="legend">5. {arr[4]}</FormLabel>
                         <RadioGroup aria-label="gender" name="gender1" value={access} onChange={(e) => {
                             setAccess(e.target.value)
-                            console.log(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={access == 10} value={10} control={<Radio />} label="Баар" />
-                            <FormControlLabel checked={access == 1} value={1} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={access == 10} value={10} control={<Radio />} label={<FormattedMessage id="answer5_yes_lung_survey" />} />
+                            <FormControlLabel checked={access == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer5_no_lung_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -234,8 +241,8 @@ export default function BreathSurvey({ arr, id }) {
                             setTemperature(e.target.value)
                             console.log(e.target.value)
                         }} style={{ display: 'flex', flexDirection: 'row' }}>
-                            <FormControlLabel checked={temperature == 1} value={1} control={<Radio />} label="Тахсан" />
-                            <FormControlLabel checked={temperature == 0} value={0} control={<Radio />} label="Суох" />
+                            <FormControlLabel checked={temperature == 1} value={1} control={<Radio />} label={<FormattedMessage id="answer6_yes_lung_survey" />} />
+                            <FormControlLabel checked={temperature == 0} value={0} control={<Radio />} label={<FormattedMessage id="answer6_no_lung_survey" />} />
                         </RadioGroup>
                     </FormControl>
                 </Grid>
@@ -245,7 +252,7 @@ export default function BreathSurvey({ arr, id }) {
                             onChange={soldCheckbox} />}
                         label={''}
                     />
-                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}>СТэрили өйдөөн хааларга</LinkStyle>
+                    <LinkStyle color='primary' href={'/IDS.doc'} target={'_blank'}><FormattedMessage id="consent_lung_survey" /></LinkStyle>
                 </FormStyle>
                 <Button style={{ marginTop: 20 }}
                     type="submit"
@@ -255,7 +262,7 @@ export default function BreathSurvey({ arr, id }) {
                     onClick={handlerPost}
                     disabled={!isActiveButton}
                 >
-                    ЫЫТАРГА
+                    <FormattedMessage id="save_lung_survey" />
                 </Button>
             </Grid>
             <Box mt={5}>
