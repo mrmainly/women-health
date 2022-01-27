@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { InfoScreen, TextInfoScreen, ThreeScreen, FourScreen, LinkToSurveysScreen, MyContainer, MyButton } from '../../../components'
 
 import { CaruselSurvey, TitleScreen } from '../../../constructor'
+import { FormattedMessage } from "react-intl";
 
 const Prostate = () => {
     const [state, setState] = useState(false)
@@ -10,23 +11,24 @@ const Prostate = () => {
         {
             type: 'text',
             elem: [
-                'Ыарыы бастакы стадиятыгар искэн өр кэмҥэ туох да сибикитэ суох улаатыан сөп. Ол иһин 45 саастарын туолбут эр дьон кэмиттэн кэмигэр бырааска көрдөрүөхтээхтэр уонна анаалыс туттарыахтаахтар. Төһөннөн эрдэ ыарыы диагностанар да, оччонон эмтээһин туһалаах, үчүгэй түмүктээх буолар. Самах былчархайын раага 55 саастарыттан аҕа саастаах эр дьоҥҥо үксүн көстөр. Сылын ахсын аан дойдуга 6,5 тыһыынча киһи ыалдьара биллэр.',
-                'Арассыыйаҕа самах былчархайын рага 7-8 миэстэни ылар.',
-                'Саха Өрөспүүбүлүкэтигэр 2019 сыллаахха 114 киһи самах былчархайын раагынан ыалдьыбыта. Ыарыы I-II стадиятыгар ыарыһахтартан 54 бырыһыаннарыгар диагноз турбут, III стадиятыгар - 8,8%, IV стадиятыгар - 37,2%. Диагноз турбутун кэннэ биир сыл иһинэн ыарыһах 6,7 бырыһыана өлбүт.'
+                <FormattedMessage id="prostate_data1_text1" />,
+                <FormattedMessage id="prostate_data1_text2" />,
+                <FormattedMessage id="prostate_data1_text3" />
             ],
         },
         {
-            title: 'Симптомнара',
+            title: <FormattedMessage id="prostate_symptoms" />,
             type: 'text',
             elem: [
-                'Чопчу самах былчархайын рагын сибикитэ буолар симптом диэн суох. Маннык симптомнар баар буолуохтарын сөп:'
+                <FormattedMessage id="prostate_data1_title_column1" />
             ],
         },
         {
             type: 'column',
             elem: [
-                'субу-субу ииктэтэр буолуута, ииктээбит кэннэ хабах  кураанахтамматах курдук буолуута, самахха туох эрэ хам тутар курдук буолуута эбэтэр ыалдьар  буолуута;',
-                'Ыарыыны баалаппыт буоллахха - ииктииргэ хааччах үөскээһинэ, иик быста-быста кэлиитэ эбэтэр синньигэс баҕайытык кэлиитэ, иик кэлбэт буолуута, уһуннук ииктээһин, ииктииргэ ис былчыҥнарын көмөлөһүннэрии.'
+                <FormattedMessage id="prostate_data1_text1_column1" />,
+                <FormattedMessage id="prostate_data1_text2_column1" />,
+                <FormattedMessage id="prostate_data1_text3_column1" />
             ],
         },
     ]
@@ -35,10 +37,10 @@ const Prostate = () => {
         {
             align: 'start',
             text: [
-                'Самах былчархайын рагын диагностыырга маннык сүрүн ньымалары туһаналлар:',
-                'Хаан анаалыһа - простат-специфическэй антиген (ПСА) хааҥҥа таһымын чинчийии. Скрининг 50 саастарын туолбут эр дьоҥҥо оҥоһуллар, ол эрээри сороҕор кутталлаах бөлөххө киирэр сорох дьонтон (холобур,  дьиэ кэргэннэригэр оннук ыарыы кимиэхэ эрэ диагностана сылдьыбыт түгэнигэр) эмиэ ылаллар:',
-                'Самах былчархайын тарбаҕынан чинчийэн көрүү;',
-                'Самах былчархайын УЗИ-лааһын.'
+                <FormattedMessage id="prostate_data1_title_column2" />,
+                <FormattedMessage id="prostate_data1_text1_column2" />,
+                <FormattedMessage id="prostate_data1_text2_column2" />,
+                <FormattedMessage id="prostate_data1_text3_column2" />
             ],
         },
     ]
@@ -46,8 +48,8 @@ const Prostate = () => {
     return (
         <div>
             <InfoScreen
-                title="САМАХ БЫЛЧАРХАЙЫН РАГА"
-                description='САМАХ БЫЛЧАРХАЙЫН РАГА - эр киһи ууһуур уорганнарыгар киирэр самах былчархайыгар үөскүүр.'
+                title={<FormattedMessage id="prostate_cancer" />}
+                description={<FormattedMessage id="prostate_description" />}
                 img="prostata"
                 infoImg="Frame27"
             />

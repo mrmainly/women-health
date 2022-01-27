@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { InfoScreen, TextInfoScreen, ThreeScreen, FourScreen, LinkToSurveysScreen, MyContainer, MyButton } from '../../../components'
 
 import { CaruselSurvey, TitleScreen } from '../../../constructor'
+import { FormattedMessage } from "react-intl";
 
 const Gut = () => {
     const [state, setState] = useState(false)
@@ -10,55 +11,55 @@ const Gut = () => {
         {
             type: 'text',
             elem: [
-                'Эмиий рага Арассыыйа дьахталларын сүрүн онкология ыарытынан буолар, туох баар дьахтар онкологиятыттан 21,1% ылар. Арассыыйаҕа ыарыһахтар орто саастара 2017 сыллаахха 61,4 сыл этэ. Хас 8-с дьахтар ыалдьар кутталлаах. Эр дьоҥҥо эмиэ эмиий рага баар буолар, рак бу көрүҥэ эр дьоҥҥо бары онкологияттан 0,3% ылар.',
-                'Өрөспүүбүлүкэҕэ 2019 сыллаахха 275 эмиий рага көстүбүтэ. Ыарыы I-II стадиятыгар ыарыһахтартан 67,3 бырыһыаннарыгар диагноз турбут, III стадиятыгар - 22,8%, IV стадиятыгар - 9,92%. Диагноз турбутун кэннэ биир сыл иһинэн ыарыһах 4,5 бырыһыана өлбүт.',
-                'Куттал фактордара:'
+                <FormattedMessage id="breast_data1_text1" />,
+                <FormattedMessage id="breast_data1_text2" />,
+                <FormattedMessage id="breast_data1_title_column1" />
             ],
         },
         {
             title: '',
             type: 'column',
             elem: [
-                'ыйданыы эрдэ саҕаланыыта;',
-                'менопауза хойут саҕаланыыта;',
-                'төрөөбөтөх дьахтар;',
-                'аборт оҥотторбут дьахтар;',
-                'табахтааһын;',
-                'арыгылааһын;',
-                'сахарнай диабетынан ыалдьыы;',
-                'уойуу;',
-                'хамсаммат буолуу;',
+                <FormattedMessage id="breast_data1_text1_column1" />,
+                <FormattedMessage id="breast_data1_text2_column1" />,
+                <FormattedMessage id="breast_data1_text3_column1" />,
+                <FormattedMessage id="breast_data1_text4_column1" />,
+                <FormattedMessage id="breast_data1_text5_column1" />,
+                <FormattedMessage id="breast_data1_text6_column1" />,
+                <FormattedMessage id="breast_data1_text7_column1" />,
+                <FormattedMessage id="breast_data1_text8_column1" />,
+                <FormattedMessage id="breast_data1_text9_column1" />,
             ],
         },
         {
-            title: 'Сибикилэрэ',
+            title: <FormattedMessage id="breast_symptoms" />,
             type: 'text',
             elem: [
-                'Эмиий рагын эрдэтээҥи сибикилэрэ манныктар:',
+                <FormattedMessage id="breast_data1_title_column2" />,
             ],
         },
         {
             type: 'column',
             elem: [
-                'эмиийгэ искэн баар буолуута;',
-                'искэн кытаанах буолуута (мас эбэтэр оннооҕор таас курдук кытаанах буолуон сөп);',
-                'искэн туттахха халбарыйан биэрбэт, биир сиргэ сылдьар, үксүгэр ыалдьыбат, түөс тириитэ иһирдьэ киирбит (тимирбит курдук) буолар;',
-                'искэн баар өттүнэн хоннох аннынааҕы былчархай көппүт буолар, эмиийтэн хааннаах убаҕас тахсыан сөп.'
+                <FormattedMessage id="breast_data1_text1_column2" />,
+                <FormattedMessage id="breast_data1_text2_column2" />,
+                <FormattedMessage id="breast_data1_text3_column2" />,
+                <FormattedMessage id="breast_data1_text4_column2" />
             ],
         },
         {
             type: 'text',
             elem: [
-                'Тэнийбит искэн сибикилэрэ маннык:',
+                <FormattedMessage id="breast_data1_title_column3" />,
             ],
         },
         {
             type: 'column',
             elem: [
-                'эмиий тас көстүүтэ искэн үрдүнэн уларыйар (илиини үөһэ ууннахха ордук биллэр);',
-                'эмиий тириитигэр искэн үүнэн киириитэ уонна/эбэтэр бааһыран тахсыыта;',
-                'искэн кыратык эрэ халбаҥныыр, эбэтэр хамсаабат, түөс ыалдьыбат, искэн үрдүнээҕи тирии иһирдьэ тимирбит курдук буолар;',
-                'искэн баар өттүнэн хоннох аннынааҕы былчархай көппүт буолар, эмиийтэн хааннаах убаҕас тахсыан сөп.',
+                <FormattedMessage id="breast_data1_text1_column3" />,
+                <FormattedMessage id="breast_data1_text2_column3" />,
+                <FormattedMessage id="breast_data1_text3_column3" />,
+                <FormattedMessage id="breast_data1_text4_column3" />,
             ],
         },
     ]
@@ -67,8 +68,8 @@ const Gut = () => {
         {
             align: 'start',
             text: [
-                'Үнүстүрүмүөн көмөтүнэн чинчийии ыарыыны сэрэтэр соруктаах уонна диагноһы туруорар соруктаах оҥоһуллар. Бастатан туран маммография оҥоһуллар, ол эрээри маны 35 саастарын туолбут эрэ дьахталларга оҥороллор. 35 саастарын туола илик дьахталлар эмиийдэрин УЗИ-латаллар.',
-                'Эмиий рагыттан өлүүнү кыччатыы сүрүн суола - ыарыыны эрдэ билии. Маммографияны элбэх киһиэхэ оҥорууну киллэрдэххэ эрдэ диагноз туруутун суотугар эмиий рагыттан өлүүнү ортотунан 30% кыччатыахха сөп. Маммография туһата төһө элбэх дьахтары хабартан тутулуктаах. Скрининг олохтоох дьахталлар 70% хаптаҕына туһаны аҕалар. Итиччэ элбэх чинчийиини оҥоруу оннооҕор улахан куораттарга маммографтар уонна анал специалистар аҕыйахтарынан уустук сорук. Онон куттал ордук күүскэ суоһуур бөлөхтөрүн эрэ маммографиялыыр ордук туһалаах буолан тахсар. '
+                <FormattedMessage id="breast_data2_text1_column1" />,
+                <FormattedMessage id="breast_data2_text2_column1" />
             ],
         },
     ]
@@ -76,8 +77,8 @@ const Gut = () => {
     return (
         <div>
             <InfoScreen
-                title="ЭМИИЙ РАГА"
-                description='ЭМИИЙ РАГА - эмиий былчархайдарын килиэккэлэриттэн үөскүүр. Ыарыһахтар 3-10 бырыһыаннарыгар  кинилэр геннарыгар мутация баарын кытта ситимнээх буолар (BRCA1, BRCA2, CHEK, NBS1, tP53). Атыттарга эмиий рага түбэспиччэ көстөр.'
+                title={<FormattedMessage id="breast_cancer" />}
+                description={<FormattedMessage id="breast_description" />}
                 img="Group368"
                 infoImg="Frame6"
             />
