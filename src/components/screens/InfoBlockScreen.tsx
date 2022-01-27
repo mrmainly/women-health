@@ -82,7 +82,6 @@ const InfoBlockScreen: React.FC<InfoBlockScreenProps> = ({ title, description, i
         >
             <RootGrid container>
                 <Grid item lg={6} xl={6} md={6} sm={12} xs={12}>
-                    <MyText variant="h4">Информационный блок:</MyText>
                     <MyText variant="h3" sx={{ mt: 4, mb: 4 }}>{title}</MyText>
                     <MyText variant="h6">
                         {description}
