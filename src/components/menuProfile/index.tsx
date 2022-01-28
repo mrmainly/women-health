@@ -33,11 +33,11 @@ const MenuProfile = () => {
             link: '/surveys',
         },
         {
-            label: 'Түмүктэр',
+            label: <FormattedMessage id="results" />,
             link: '/results',
         },
         {
-            label: 'Араспысаанньа',
+            label: <FormattedMessage id="schudule" />,
             link: '/schedule',
         },
 
@@ -53,7 +53,7 @@ const MenuProfile = () => {
             ))}
             <a href="/" style={{ color: 'rgba(0, 0, 0, 0.5)', fontStyle: 'normal', textDecoration: 'none' }}>
                 <MenuItem sx={{ color: 'rgba(0, 0, 0, 0.5)', fontStyle: 'normal', mt: 0.5 }} onClick={() => { cookie.remove('jwttoken') }}>
-                    Тахсыы
+                    <FormattedMessage id="back" />
                 </MenuItem>
             </a>
         </Root>

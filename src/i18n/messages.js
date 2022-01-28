@@ -472,7 +472,9 @@ export const messages = {
         cervix_survey_go: 'Скриннинг на заболевания шейки матки',
         breast_survey_go: 'Скриннинг на заболевания молочной железы',
         liver_survey_go: 'Скриннинг на заболевания печени',
-
+        back: 'Выйти',
+        results: 'Результаты',
+        schudule: 'Расписание',
     },
     [LOCALES.SAKHA]: {
         question_answers_menu: 'Ыйытыы/хоруй',
@@ -945,5 +947,8 @@ export const messages = {
         cervix_survey_go: 'Киэли хапчаҕайын (шейка матки) ыарыыларын тургутуу',
         breast_survey_go: 'Эмиий ыарыыларын тургутуу ',
         liver_survey_go: 'Быар ыарыыларын тургутуу (быар сыстыганнаах ыарыылара)',
+        back: 'Тахсыы',
+        results: 'Түмүктэр',
+        schudule: 'Араспысаанньа',
     }
 }
