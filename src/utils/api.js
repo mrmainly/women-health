@@ -76,7 +76,7 @@ class API {
             console.log('res', res)
             const danger = res.data.is_danger
             const clinic = res.data.to_clinic
-            if (danger == true && clinic == false) {
+            if (danger == true) {
                 dispatch({ type: 'modalSurvey', payload: { open: true, description: 'Группа высокого риска, это может означать, что у Вас имеются ряд факторов риска, которые могут вызвать развитие рака. Поэтому необходимо пройти обследование.' } })
             }
             if (danger == false && clinic == false) {
@@ -85,6 +85,7 @@ class API {
             if (clinic == true) {
                 dispatch({ type: 'modalSurvey', payload: { open: true, description: ' На сегодня Вам не показано прохождение скрининга, необходимо обратиться к участковому терапевту по месту жительства.' } })
             }
+            console.log(clinic, danger)
         }).catch(() => { dispatch({ type: 'notification', payload: { status: 'error', active: true, text: 'У вас ошибка в форме анкеты' } }) })
     }
     async schedule(date) {

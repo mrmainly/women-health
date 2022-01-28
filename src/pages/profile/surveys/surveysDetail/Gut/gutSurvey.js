@@ -169,9 +169,6 @@ export default function GutSurvey({ arr, id }) {
                 style={{ display: 'flex', justifyContent: "center", alignItems: "center", padding: 20 }}>
                 <FormattedMessage id="name_intestine_survey" />
             </Typography>
-            {/* {show && <ModalTrue />}
-            {showFalse && <ModalFalse />}
-            {showMiddle && <ModalMiddle />} */}
             <Grid container spacing={6}>
                 <Grid item xs={12} sm={12}>
                     <FormControl component="fieldset">
