@@ -455,7 +455,24 @@ export const messages = {
         answer10_yes_intestine_survey: 'Да',
         answer10_no_intestine_survey: 'Нет',
         consent_intestine_survey: 'Согласие на обработку персональных данных',
-        save_intestine_survey: 'СОХРАНИТЬ'
+        save_intestine_survey: 'СОХРАНИТЬ',
+
+        sex_profile: 'Пол',
+        woman_profile: 'Женщина',
+        man_profile: 'Мужчина',
+        birthdate_profile: 'Дата рождения *',
+        snils_profile: 'Снилс *',
+        polis_profile: 'Полис ОМС *',
+        foundation_profile: 'Выбор учреждения *',
+        save_profile: 'Сохранить',
+        check_intestine_survey_go: 'Перейти к исследованию',
+        intestine_survey_go: 'Скриннинг на заболевания толстой и прямой кишки',
+        lung_survey_go: 'Скриннинг на заболевания легкого',
+        prostate_survey_go: 'Скриннинг на заболевания предстательной железы',
+        cervix_survey_go: 'Скриннинг на заболевания шейки матки',
+        breast_survey_go: 'Скриннинг на заболевания молочной железы',
+        liver_survey_go: 'Скриннинг на заболевания печени',
+
     },
     [LOCALES.SAKHA]: {
         question_answers_menu: 'Ыйытыы/хоруй',
@@ -802,7 +819,7 @@ export const messages = {
         have_neoplasms_prostate_survey: 'Бигэргэтиллибит раак ыарыылааххын дуо?',
         answer6_yes_prostate_survey: 'Баар',
         answer6_no_prostate_survey: 'Суох',
-        had_temperature_prostate_survey: '7. Бүтэһик 10 хонук иһигэр температуураҥ 37,5 кыраадыстан үрдүктүк тахса сылдьыбыттаах дуо?',
+        had_temperature_prostate_survey: 'Бүтэһик 10 хонук иһигэр температуураҥ 37,5 кыраадыстан үрдүктүк тахса сылдьыбыттаах дуо?',
         answer7_yes_prostate_survey: 'Тахсан',
         answer7_no_prostate_survey: 'Суох',
         consent_prostate_survey: 'Тэрили өйдөөн хааларга',
@@ -911,6 +928,22 @@ export const messages = {
         answer10_yes_intestine_survey: 'Тахсан',
         answer10_no_intestine_survey: 'Суох',
         consent_intestine_survey: 'Тэрили өйдөөн хааларга',
-        save_intestine_survey: 'ЫЫТАРГА'
+        save_intestine_survey: 'ЫЫТАРГА',
+
+        sex_profile: 'Эр киһитэ-дьахтара',
+        woman_profile: 'Дьахтар',
+        man_profile: 'Эр киһитэ',
+        birthdate_profile: 'Төрөөбүт күнүн-дьылын *',
+        snils_profile: 'Снилс *',
+        polis_profile: 'Полис ОМС *',
+        foundation_profile: 'Тэрилтэ талыы *',
+        save_profile: 'Сохранить',
+        check_intestine_survey_go: 'Чинчийииҕэ көһүү',
+        intestine_survey_go: 'Суон уонна көнө оһоҕос ыарыыларын тургутуу ',
+        lung_survey_go: 'Тыҥа ыарыыларын тургутуу ',
+        prostate_survey_go: 'Самах былчархайын (простата) ыарыыларын тургутуу ',
+        cervix_survey_go: 'Киэли хапчаҕайын (шейка матки) ыарыыларын тургутуу',
+        breast_survey_go: 'Эмиий ыарыыларын тургутуу ',
+        liver_survey_go: 'Быар ыарыыларын тургутуу (быар сыстыганнаах ыарыылара)',
     }
 }

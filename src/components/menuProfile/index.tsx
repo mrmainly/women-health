@@ -51,11 +51,11 @@ const MenuProfile = () => {
                     </MenuItem>
                 </MyLink>
             ))}
-            <MyLink href="/" sx={{ color: 'rgba(0, 0, 0, 0.5)', fontStyle: 'normal' }}>
+            <a href="/" style={{ color: 'rgba(0, 0, 0, 0.5)', fontStyle: 'normal', textDecoration: 'none' }}>
                 <MenuItem sx={{ color: 'rgba(0, 0, 0, 0.5)', fontStyle: 'normal', mt: 0.5 }} onClick={() => { cookie.remove('jwttoken') }}>
                     Тахсыы
                 </MenuItem>
-            </MyLink>
+            </a>
         </Root>
     )
 }

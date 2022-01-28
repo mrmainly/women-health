@@ -116,15 +116,15 @@ const FormProfile = () => {
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
                                     <FormControl component="fieldset">
-                                        <FormLabel component="legend">Пол</FormLabel>
+                                        <FormLabel component="legend"><FormattedMessage id="sex_profile" /></FormLabel>
                                         <RadioGroup aria-label="gender" name="gender1" value={gender} onChange={handleChange}>
-                                            <FormControlLabel value="Ж" control={<Radio />} label="Женщина" />
-                                            <FormControlLabel value="М" control={<Radio />} label="Мужчина" />
+                                            <FormControlLabel value="Ж" control={<Radio />} label={<FormattedMessage id="woman_profile" />} />
+                                            <FormControlLabel value="М" control={<Radio />} label={<FormattedMessage id="man_profile" />} />
                                         </RadioGroup>
                                     </FormControl>
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <TextField id={"outlined-basic"} label={"Дата рождения"} type={"date"}
+                                    <TextField id={"outlined-basic"} label={<FormattedMessage id="birthdate_profile" />} type={"date"}
                                         required
                                         fullWidth
                                         variant={"outlined"}
