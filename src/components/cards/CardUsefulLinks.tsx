@@ -6,6 +6,7 @@ import { styled } from '@mui/system'
 
 import { MyText } from '..'
 import { CardUsefulLinksProps } from '../../interface'
+import { FormattedMessage } from "react-intl";
 
 const CardRoot = styled(Box)({
     display: 'flex',
@@ -26,7 +27,7 @@ const CardUsefulLinks: React.FC<CardUsefulLinksProps> = ({ img, link, descriptio
             <MenuItem sx={{ color: '#EB5757', }} onClick={() => {
                 navigate(link)
             }}>
-                Перейти
+                <FormattedMessage id="go_to" />
             </MenuItem>
         </CardRoot>
     )

@@ -138,7 +138,7 @@ const FormProfile = () => {
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <TextField id={"phone"} label={"Снилс"} variant={"outlined"} name={"phone"}
+                                    <TextField id={"phone"} label={<FormattedMessage id="snils_profile" />} variant={"outlined"} name={"phone"}
                                         required
                                         fullWidth
                                         value={snils}
@@ -148,7 +148,7 @@ const FormProfile = () => {
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
-                                    <TextField id={"phone"} label={"Полис ОМС"} variant={"outlined"} name={"phone"}
+                                    <TextField id={"phone"} label={<FormattedMessage id="polis_profile" />} variant={"outlined"} name={"phone"}
                                         required
                                         fullWidth
                                         value={oms}
@@ -161,7 +161,7 @@ const FormProfile = () => {
                                     <TextField
                                         id="filled-select-currency-native"
                                         select
-                                        label="Куорат"
+                                        label={<FormattedMessage id="foundation_profile" />}
                                         SelectProps={{
                                             native: true,
                                         }}
@@ -183,7 +183,7 @@ const FormProfile = () => {
                                         variant="contained"
                                         onClick={handleUpdateProfile}
                                     >
-                                        Сохранить
+                                        <FormattedMessage id="save_profile" />
                                     </Button>
                                 </Grid>
                             </Grid>

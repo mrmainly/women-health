@@ -148,7 +148,7 @@ export default function CervixLandingForm({ arr, id, }) {
                     score: painf > 0 ? 2 : 0
                 },
                 {
-                    text: ' Было ли выявлено носительство ВПЧ инфекции?',
+                    text: 'Было ли выявлено носительство ВПЧ инфекции?',
                     answer: scoreInc(diseases),
                     score: diseases
                 },

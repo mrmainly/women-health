@@ -57,7 +57,7 @@ interface CardAboutProps {
 
 interface CardUsefulLinksProps {
     img: any,
-    description: string,
+    description: any,
     link: string,
 }
 
@@ -66,7 +66,7 @@ interface TitleScreenProps {
     variant: any,
     children: any,
     width: number,
-    description?: string,
+    description?: any,
     sx?: any
 }
 

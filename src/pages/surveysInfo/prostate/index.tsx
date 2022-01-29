@@ -67,7 +67,7 @@ const Prostate = () => {
                         setState(!state)
                     }}
                 >
-                    Посмотреть доступные анкеты
+                    <FormattedMessage id="view_surveys_liver_cancer" />
                 </MyButton>
             </div>
             {state &&

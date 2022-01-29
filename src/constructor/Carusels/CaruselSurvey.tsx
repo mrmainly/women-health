@@ -6,6 +6,7 @@ import Slider from 'react-slick'
 import { CardSurveyCarusel, ArrowPrev, ArrowNext } from '../../components'
 import { TitleScreen } from '..'
 import CardSurveyCaruselList from '../../Data/CardSurveyCaruselList'
+import { FormattedMessage } from "react-intl";
 
 const CaruselSurvey = () => {
     const [slidesToShow, setSlidesToShow] = useState(0)
@@ -36,7 +37,7 @@ const CaruselSurvey = () => {
     })
     return (
         <Box style={{ overflow: 'hidden', }}>
-            <TitleScreen variant="h4" width={1200} description='“Регистрация - Тестирование - Осмотр”'>Берегите здоровье!</TitleScreen>
+            <TitleScreen variant="h4" width={1200} description={<FormattedMessage id="health_desacription" />}><FormattedMessage id="health" /></TitleScreen>
             <Slider {...settings}>
                 {CardSurveyCaruselList ? CardSurveyCaruselList.map((item, index) => (
                     <CardSurveyCarusel key={index} img={item.img} label={item.label} link={item.link} />

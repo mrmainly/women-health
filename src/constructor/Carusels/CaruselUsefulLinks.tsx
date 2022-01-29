@@ -6,6 +6,7 @@ import Slider from 'react-slick'
 import { CardUsefulLinks, ArrowPrev, ArrowNext } from '../../components'
 import { TitleScreen } from '..'
 import CardUsefulLinksList from '../../Data/CardUsefulLinksList'
+import { FormattedMessage } from "react-intl";
 
 const CaruselUsefulLinks = () => {
     const [slidesToShow, setSlidesToShow] = useState(0)
@@ -36,7 +37,7 @@ const CaruselUsefulLinks = () => {
     })
     return (
         <Box style={{ overflow: 'hidden', }}>
-            <TitleScreen variant="h4" sx={{ mb: 5 }} color="black" width={900} description='на партнеров проекта'>Полезные ссылки </TitleScreen>
+            <TitleScreen variant="h4" sx={{ mb: 5 }} color="black" width={900} description={<FormattedMessage id="partners" />}><FormattedMessage id="usefulLinks" /></TitleScreen>
             <Slider {...settings}>
                 {CardUsefulLinksList ? CardUsefulLinksList.map((item, index) => (
                     <Box key={index}>

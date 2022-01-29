@@ -476,7 +476,11 @@ export const messages = {
         results: 'Результаты',
         schudule: 'Расписание',
 
-        copyright_profile: ' Якутский республиканский онкологический диспансер.'
+        copyright_profile: ' Якутский республиканский онкологический диспансер.',
+        usefulLinks: 'Полезные ссылки',
+        partners: 'на партнеров проекта',
+        health: 'Берегите здоровье!',
+        health_desacription: '“Регистрация - Тестирование - Осмотр”'
     },
     [LOCALES.SAKHA]: {
         question_answers_menu: 'Ыйытыы/хоруй',
@@ -953,6 +957,11 @@ export const messages = {
         results: 'Түмүктэр',
         schudule: 'Араспысаанньа',
 
-        copyright_profile: 'Саха сиринээҕи Онкология диспансера'
+        copyright_profile: 'Саха сиринээҕи Онкология диспансера',
+        usefulLinks: 'Туһалаах сыылкаларr',
+        partners: 'төрүк кыттыгастара',
+
+        health: 'Доруобуйаҕын харыстаа!',
+        health_desacription: '“Регистрация - Тургутуу  - Көрүү”'
     }
 }
