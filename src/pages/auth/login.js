@@ -21,7 +21,7 @@ export default function Login() {
     const { register, handleSubmit } = useForm({
         mode: "onBlur"
     })
-    function Copyright(props: any) {
+    function Copyright(props) {
         return (
             <Typography variant="body2" color="text.secondary" align="center" {...props}>
                 Copyright © Якутский республиканский онкологический диспансер
@@ -30,7 +30,7 @@ export default function Login() {
         );
     }
 
-    const onSubmit = (data: any) => {
+    const onSubmit = (data) => {
         API.getToken({ ...data }, dispatch, navigate)
     }
 
@@ -53,7 +53,14 @@ export default function Login() {
                         Вход
                     </Typography>
                     <Form sx={{ mt: 1 }} onSubmit={handleSubmit(onSubmit)}>
-                        <Input variant="outlined" label="Номер телефона" {...register('username')} id="username" required type="number" />
+                        <InputMask
+                            mask="79999999999"
+                            disabled={false}
+                            maskChar=""
+                            {...register('username')}
+                        >
+                            {() => <Input {...register('username')} id="phone" label="Телефон" required />}
+                        </InputMask>
                         <Input variant="outlined" label="Пароль" {...register('password')} id="password" required />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}

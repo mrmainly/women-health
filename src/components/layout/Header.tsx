@@ -128,7 +128,7 @@ const Header: React.FC = () => {
     const Logo = () => {
         return (
             <BoxLogo>
-                <img style={{ width: 100 }} src={'/img/Element/logo2.png'} />
+                <img style={{ width: 60, marginRight: 10 }} src={'/img/Element/Group69.png'} />
                 <FormControl fullWidth>
                     {/* <InputLabel id="demo-simple-select-label">Выбор языка</InputLabel> */}
                     <Select
