@@ -475,6 +475,8 @@ export const messages = {
         back: 'Выйти',
         results: 'Результаты',
         schudule: 'Расписание',
+
+        copyright_profile: ' Якутский республиканский онкологический диспансер.'
     },
     [LOCALES.SAKHA]: {
         question_answers_menu: 'Ыйытыы/хоруй',
@@ -920,7 +922,7 @@ export const messages = {
         when_colonoscopy_intestine_survey: 'Когда Вы последний раз проходили колоноскопию',
         answer8_date: 'Күнэ-дьыла',
         answer8_normal: 'Этэҥҥэ',
-        answer8_no: 'Ааспатаҕым',
+        answer8_no: 'Суох',
         answer8_had_polyp: 'Полип баара',
         answer8_had_adenoma: 'Аденома баара',
         have_chronic_diseases_intestine_survey: 'Суон оһоҕос ханнык эмит ыарыыта Эйиэхэ баар дуо (Крон ыарыыта, неспецифическэй язвалаах колит, суон оһоҕос раага)?',
@@ -950,5 +952,7 @@ export const messages = {
         back: 'Тахсыы',
         results: 'Түмүктэр',
         schudule: 'Араспысаанньа',
+
+        copyright_profile: 'Саха сиринээҕи Онкология диспансера'
     }
 }
