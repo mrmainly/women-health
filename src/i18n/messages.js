@@ -519,7 +519,7 @@ export const messages = {
         screening_lungs: 'Тыҥаны чинчийии',
         screening_liver: 'Быары чинчийии',
         screening_colon: 'Суон оһоҕоһу чинчийии',
-        screening_cervix: 'Киэли хапчаҕайын чинчийии.',
+        screening_cervix: 'Киэли хапчаҕайын чинчийии',
         screening_prostate: 'Самах былчархайын чинчийии',
         screening_mammary_gland: 'Эмиийи чинчийии',
         our_mission_about_tag_page: 'Биһиги сүрүн сорукпут.',
