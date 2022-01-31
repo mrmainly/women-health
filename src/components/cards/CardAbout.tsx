@@ -10,17 +10,18 @@ const CardAbout: React.FC<CardAboutProps> = ({ title, body, id, bgcolor }) => {
     const CardRoot = styled(Card)({
         minHeight: 400,
         display: 'flex',
-        backgroundColor: bgcolor,
+        backgroundColor: '#61D8C5',
         width: 330,
         padding: 15,
         margin: 10,
         color: 'white',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        textAlign: 'start'
     })
     return (
-        <CardRoot>
+        <CardRoot >
             <Box style={{ display: 'flex', height: 80 }}>
-                <MyText variant="h4">{id}</MyText>
+                <MyText variant="h4" sx={{ marginRight: 1 }}>{id}</MyText>
                 <MyText variant="body2">{title}</MyText>
             </Box>
             <MyText variant="body2" sx={{ mt: 5 }}>{body}</MyText>

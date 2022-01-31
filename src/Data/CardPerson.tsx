@@ -12,7 +12,7 @@ const CardPerson = [
     },
     {
         img: '/img/Element/image76.png',
-        name: <FormattedMessage id={'lena_name_slider'} />,
+        name: <FormattedMessage id={'tatiana_name_slider'} />,
         infoImg: '',
         tag: <FormattedMessage id={'lena_position_slider'} />,
         description: <FormattedMessage id={'lena_description_slider'} />,
