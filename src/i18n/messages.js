@@ -923,7 +923,7 @@ export const messages = {
         incomplete_emptying_intestine_survey: 'Саахтаан бүппүт кэннэ хайдах эрэ ситэ саахтаабатах курдук буолааччы дуо?',
         answer7_yes_intestine_survey: 'Буолааччы',
         answer7_no_intestine_survey: 'Суох',
-        when_colonoscopy_intestine_survey: 'Когда Вы последний раз проходили колоноскопию',
+        when_colonoscopy_intestine_survey: 'Биирдэ эмит колоноскопия ааспыккыт дуо?',
         answer8_date: 'Күнэ-дьыла',
         answer8_normal: 'Этэҥҥэ',
         answer8_no: 'Суох',

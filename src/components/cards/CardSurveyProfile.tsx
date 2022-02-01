@@ -54,7 +54,7 @@ const CardSurveysProfile: React.FC<CaruselSurveyProps> = ({ img, link, label, id
     // let labelCard 
     // switch (label) {
     //     case "Скрининг на заболевание легкого с. Мегино-кангалассы":
-    //       <FormattedMessage id="" />
+    //          <FormattedMessage id="" />
     //       break;
     //     case "Apples":
     //       console.log("Apples are $0.32 a pound.");

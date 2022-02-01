@@ -1,5 +1,7 @@
 import axios from 'axios';
+import React from 'react';
 import cookie from 'js-cookie'
+import { FormattedMessage } from "react-intl";
 
 const testURL = 'http://127.0.0.1:8000/'
 const publicURL = 'https://онкопоисксаха.рф/'
@@ -80,7 +82,7 @@ class API {
                 dispatch({ type: 'modalSurvey', payload: { open: true, description: 'Группа высокого риска, это может означать, что у Вас имеются ряд факторов риска, которые могут вызвать развитие рака. Поэтому необходимо пройти обследование.' } })
             }
             if (danger == false && clinic == false) {
-                dispatch({ type: 'modalSurvey', payload: { open: true, description: 'Тест не является на 100% точным Низкий риск означает, что вероятность развития рака мала, но не равна нулю. Необходимо ежегодно проходить медицинский осмотр.' } })
+                dispatch({ type: 'modalSurvey', payload: { open: true, description: <FormattedMessage id="result_survey_modal" /> } })
             }
             if (clinic == true) {
                 dispatch({ type: 'modalSurvey', payload: { open: true, description: ' На сегодня Вам не показано прохождение скрининга, необходимо обратиться к участковому терапевту по месту жительства.' } })
