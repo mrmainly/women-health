@@ -1,25 +1,28 @@
 
 const CardUsefulLinksList = [
+
+
     {
-        img: 'Group-36',
-        description: 'Министр здравоохранения Республики Саха (Якутия)',
-        link: ''
-    },
-    {
-        img: 'Group-36',
+        img: 'Group-367',
         description: 'Правительство республики Саха (Якутия)',
-        link: ''
+        link: 'https://www.sakha.gov.ru/'
+    },
+    {
+        img: 'Group69',
+        description: 'Якутский республиканский онкологический диспансер',
+        link: 'https://onkosakha.ru'
+    },
+    {
+        img: 'Group-36',
+        description: 'Министерство здравоохранения Российской Федерации',
+        link: 'https://minzdrav.gov.ru/'
     },
     {
         img: 'Group-367',
-        description: 'Министерство здравоохранения Российской Федерации',
-        link: ''
+        description: 'Министерство здравоохранения Республики Саха (Якутия)',
+        link: 'https://minzdrav.sakha.gov.ru/'
     },
-    {
-        img: 'Group-367',
-        description: 'Министерство здравоохранения Российской Федерации',
-        link: ''
-    },
+
 ]
 
 export default CardUsefulLinksList
