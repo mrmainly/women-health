@@ -79,7 +79,7 @@ class API {
             const danger = res.data.is_danger
             const clinic = res.data.to_clinic
             if (danger == true) {
-                dispatch({ type: 'modalSurvey', payload: { open: true, description: 'Группа высокого риска, это может означать, что у Вас имеются ряд факторов риска, которые могут вызвать развитие рака. Поэтому необходимо пройти обследование.' } })
+                dispatch({ type: 'modalSurvey', payload: { open: true, description: <FormattedMessage id="result_survey_modal2" /> } })
             }
             if (danger == false && clinic == false) {
                 dispatch({ type: 'modalSurvey', payload: { open: true, description: <FormattedMessage id="result_survey_modal" /> } })

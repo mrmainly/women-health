@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 // import { makeStyles } from '@material-ui/core/styles';
 import { Button, Box, Typography, Dialog } from "@mui/material";
 import { styled } from '@mui/system'
+import { FormattedMessage } from "react-intl";
 
 import { StateContext } from '../../store'
 
@@ -53,11 +54,7 @@ export default function ModalTrue() {
                     </Typography>
                     <Box>
                         <Typography gutterBottom>
-                            Спешим напомнить, что НЕ ВСЕ тесты могут быть Вам доступны,
-                            в связи с тем, что скрининг разработан согласно
-                            рекомендациям ВОЗ и клиническим рекомендациям Ассоциации
-                            Онкологов России (АОР), учитывая ваш пол и возраст.
-                            С уважением , команда онкопоиска
+                            <FormattedMessage id="modal_surveys" />
                         </Typography>
                     </Box>
                     <Button variant="contained" color={'secondary'} onClick={handleClose} sx={{ mt: 1 }}>
