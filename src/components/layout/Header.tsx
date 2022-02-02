@@ -29,9 +29,10 @@ const BoxLogo = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: '-60px',
-    [theme.breakpoints.down('md')]: {
-        marginLeft: 0
+    marginRight: 10,
+    [theme.breakpoints.down('lg')]: {
+        marginLeft: 0,
+        marginRight: 0,
     },
 }))
 
@@ -63,6 +64,22 @@ const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center'
+}))
+
+const AppBarCustom = styled(AppBar)(({ theme }) => ({
+    background: '#49DDC5',
+    [theme.breakpoints.down('lg')]: {
+        background: 'white',
+        height: 80,
+    },
+}))
+
+const SelectCustom = styled(Select)(({ theme }) => ({
+    color: 'white',
+    [theme.breakpoints.down('lg')]: {
+        color: 'black',
+        width: 150,
+    },
 }))
 
 const Header: React.FC = () => {
@@ -129,36 +146,40 @@ const Header: React.FC = () => {
     const Logo = () => {
         return (
             <BoxLogo>
-                <MenuItem style={{ marginRight: 10 }} onClick={() => navigate('/')}>
-                    <img style={{ width: 60 }} src={'/img/Element/Group69.png'} />
+                <MenuItem onClick={() => navigate('/')}>
+                    <img src={'/img/Element/Group69.png'} style={{ width: 60 }} />
                 </MenuItem>
-                <FormControl fullWidth>
-                    {/* <InputLabel id="demo-simple-select-label">Выбор языка</InputLabel> */}
-                    <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
-                        value={currentLocale}
-                        onChange={(e) => {
-                            changeLocale(e.target.value)
-                        }}
-                        size="small"
-                        variant="standard"
-                        style={{ color: 'white' }}
-                    >
-                        {languages.map(({ name, code }) => (
-                            <MenuItem key={name} value={code}>
-                                {name}
-                            </MenuItem>
-                        ))}
-                    </Select>
-                </FormControl>
             </BoxLogo>
+        )
+    }
+    const FormControlBox = () => {
+        return (
+            <FormControl >
+                {/* <InputLabel id="demo-simple-select-label">Выбор языка</InputLabel> */}
+                <SelectCustom
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={currentLocale}
+                    onChange={(e) => {
+                        changeLocale(e.target.value)
+                    }}
+                    size="small"
+                    variant="standard"
+                >
+                    {languages.map(({ name, code }) => (
+                        <MenuItem key={name} value={code}>
+                            {name}
+                        </MenuItem>
+                    ))}
+                </SelectCustom>
+            </FormControl>
         )
     }
     const Desktop = () => {
         return (
             <Root>
                 <Logo />
+                <FormControlBox />
                 <Links />
             </Root>
         )
@@ -169,7 +190,7 @@ const Header: React.FC = () => {
         const handleDrawerClose = () =>
             setState((prevState) => ({ ...prevState, drawerOpen: false }));
         return (
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', alignItems: 'center', }}>
                 <IconButton
                     {...{
                         edge: "start",
@@ -181,7 +202,7 @@ const Header: React.FC = () => {
                 >
                     <MenuIcon />
                 </IconButton>
-                <Logo />
+                <FormControlBox />
                 <Drawer
                     {...{
                         anchor: "left",
@@ -191,8 +212,9 @@ const Header: React.FC = () => {
                 >
                     <Box style={{
                         width: 250, padding: 15, display: 'flex', flexDirection: 'column',
-                        height: '100%'
+                        height: '100%', alignItems: 'center'
                     }}>
+                        <Logo />
                         <Links />
                     </Box>
                 </Drawer>
@@ -200,13 +222,13 @@ const Header: React.FC = () => {
         )
     }
     return (
-        <AppBar position="static" sx={{ bgcolor: '#49DDC5' }}>
-            <Container>
-                <Toolbar>
+        <AppBarCustom position="static">
+            <Container sx={{ height: '100%' }}>
+                <Toolbar sx={{ display: 'flex', alignItems: 'center', height: '100%' }}>
                     {mobileView ? Mobile() : Desktop()}
                 </Toolbar>
             </Container>
-        </AppBar>
+        </AppBarCustom>
     )
 }
 
