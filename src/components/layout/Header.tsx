@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 
 import { AppBar, Toolbar, MenuItem, Typography, Box, Drawer, IconButton, Container, FormControl, InputLabel, Select } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { styled } from '@mui/system'
 import cookie from 'js-cookie'
 import { LOCALES } from "../../i18n/locales";
@@ -70,12 +70,13 @@ const Header: React.FC = () => {
         mobileView: false,
         drawerOpen: false,
     });
+    const navigate = useNavigate()
     const cookieVar = cookie.get('jwttoken')
     const { mobileView, drawerOpen } = state;
 
     const languages = [
         { name: 'Русский', code: LOCALES.RUSSIAN },
-        { name: 'Якутский', code: LOCALES.SAKHA },
+        { name: 'Саха тыла', code: LOCALES.SAKHA },
     ]
     const { currentLocale, changeLocale } = useContext(LanguageContext)
 
@@ -128,7 +129,9 @@ const Header: React.FC = () => {
     const Logo = () => {
         return (
             <BoxLogo>
-                <img style={{ width: 60, marginRight: 10 }} src={'/img/Element/Group69.png'} />
+                <MenuItem style={{ marginRight: 10 }} onClick={() => navigate('/')}>
+                    <img style={{ width: 60 }} src={'/img/Element/Group69.png'} />
+                </MenuItem>
                 <FormControl fullWidth>
                     {/* <InputLabel id="demo-simple-select-label">Выбор языка</InputLabel> */}
                     <Select

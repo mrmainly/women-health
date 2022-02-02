@@ -11,7 +11,7 @@ const CardPerson = [
         description: <FormattedMessage id={'aisen_description_slider'} />,
     },
     {
-        img: '/img/Element/image76.png',
+        img: '/img/Element/GB0A68041.png',
         name: <FormattedMessage id={'tatiana_name_slider'} />,
         infoImg: '',
         tag: <FormattedMessage id={'lena_position_slider'} />,
