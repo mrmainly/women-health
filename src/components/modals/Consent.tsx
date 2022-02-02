@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Box, Typography, Modal } from "@mui/material";
+import { Box, Typography, Dialog } from "@mui/material";
 import { styled } from "@mui/system";
+
+import { ConsentProps } from '../../interface'
 
 const Paper = styled(Box)(({ theme }) => ({
     width: 600,
@@ -13,16 +15,18 @@ const Paper = styled(Box)(({ theme }) => ({
     paddingTop: 20,
     display: 'flex',
     overflowY: 'scroll',
-    height: '50%'
+    height: '50%',
 }))
 
-const ModalStyle = styled(Modal)(({ theme }) => ({
+const ModalStyle = styled(Dialog)(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
 }))
-const Consent = () => {
-    const [open, setOpen] = useState(true)
+const Consent: React.FC<ConsentProps> = ({ open, setOpen }) => {
+    const handleClose = () => {
+        setOpen(false);
+    };
     const body = (
         <Paper style={{ flexDirection: "column" }}>
             <Typography variant={'h5'} style={{ marginBottom: 20 }}> Согласие лица на обработку их персональных
@@ -77,8 +81,8 @@ const Consent = () => {
     return (
         <Box>
             <ModalStyle
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
+                onClose={handleClose}
+                aria-labelledby="customized-dialog-title"
                 open={open}
             >
                 {body}

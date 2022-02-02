@@ -6,6 +6,7 @@ import { Avatar, FormControlLabel, Checkbox, Grid, Box, Typography, CssBaseline,
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useForm } from 'react-hook-form'
 import InputMask from 'react-input-mask'
+import { FormattedMessage } from "react-intl";
 
 import { Input, Form, MyButton, MyLink } from '../../components'
 import { DispatchContext, StateContext } from '../../store'
@@ -50,7 +51,7 @@ export default function Login() {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Вход
+                        <FormattedMessage id="entry" />
                     </Typography>
                     <Form sx={{ mt: 1 }} onSubmit={handleSubmit(onSubmit)}>
                         <InputMask
@@ -59,12 +60,12 @@ export default function Login() {
                             maskChar=""
                             {...register('username')}
                         >
-                            {() => <Input {...register('username')} id="phone" label="Телефон" required />}
+                            {() => <Input {...register('username')} id="phone" label={<FormattedMessage id="entry_phone" />} required />}
                         </InputMask>
-                        <Input variant="outlined" label="Пароль" {...register('password')} id="password" required />
+                        <Input variant="outlined" label={<FormattedMessage id="entry_password" />} {...register('password')} id="password" required />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
-                            label="Запомнить устройство"
+                            label={<FormattedMessage id="entry_remember_device" />}
                         />
                         <MyButton
                             variant="contained"
@@ -76,12 +77,12 @@ export default function Login() {
                     <Grid container>
                         <Grid item xs>
                             <MyLink href="/forgot" sx={{ fontSize: 14, color: themeMain.palette.primary.main }}>
-                                Забыли пароль?
+                                {<FormattedMessage id="entry_forgot_password" />}
                             </MyLink>
                         </Grid>
                         <Grid item>
                             <MyLink href="/register" sx={{ fontSize: 14, color: themeMain.palette.primary.main, fontWeight: 'bold' }}>
-                                У вас нет аккаунта? Зарегистрируйтесь
+                                {<FormattedMessage id="entry_no_account" />}
                             </MyLink>
                         </Grid>
                     </Grid>

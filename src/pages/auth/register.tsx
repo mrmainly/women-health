@@ -5,8 +5,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Avatar, FormControlLabel, Checkbox, Grid, Box, Typography, CssBaseline, Container, TextField, MenuItem } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useForm } from 'react-hook-form'
+import { FormattedMessage } from "react-intl";
 
-import { Input, Form, MyButton, MyLink } from '../../components'
+import { Input, Form, MyButton, MyLink, MyText, Consent } from '../../components'
 import themeMain from '../../theme'
 import { DispatchContext } from '../../store'
 import API from '../../utils/api'
@@ -15,6 +16,8 @@ const theme = createTheme();
 
 export default function Register() {
     const [city, setCity] = useState([{ name: '1', id: '1' }])
+    const [open, setOpen] = useState(false)
+
     const dispatch = useContext(DispatchContext)
     const navigate = useNavigate()
     const { register, handleSubmit } = useForm({
@@ -44,6 +47,7 @@ export default function Register() {
     }, [])
     return (
         <ThemeProvider theme={theme}>
+            {open && <Consent open={open} setOpen={setOpen} />}
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
@@ -58,28 +62,28 @@ export default function Register() {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Бэлиэтэнии (регистрация)
+                        <FormattedMessage id="registration" />
                     </Typography>
                     <Form sx={{ mt: 1 }} onSubmit={handleSubmit(onSubmit)}>
                         <Input
                             variant="outlined"
-                            label="Аатыҥ*"
+                            label={<FormattedMessage id="registration_name" />}
                             {...register('first_name')}
                         />
                         <Input
                             variant="outlined"
-                            label="Араспаанньаҥ*"
+                            label={<FormattedMessage id="registration_last_name" />}
                             {...register('last_name')}
                         />
                         <Input
                             variant="outlined"
-                            label="Аҕаҥ аата*"
+                            label={<FormattedMessage id="registration_patronymic" />}
                             {...register('patronymic')}
                         />
                         <TextField
                             id="filled-select-currency-native"
                             select
-                            label="Куорат"
+                            label={<FormattedMessage id="registration_city" />}
                             SelectProps={{
                                 native: true,
                             }}
@@ -94,24 +98,29 @@ export default function Register() {
                         </TextField>
                         <Input
                             variant="outlined"
-                            label="Төлөпүөнүҥ нүөмэрэ*"
+                            label={<FormattedMessage id="registration_phone" />}
                             {...register('phone')}
                         />
-                        <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
-                            label="Тус бэйэҥ туһунан дааннайдары туһанарбытын көҥүллүүр сурук"
-                        />
+                        <Box style={{ display: 'flex', justifyContent: 'center', marginTop: 10 }}>
+                            <FormControlLabel
+                                control={<Checkbox value="remember" color="primary" />}
+                                label=""
+                            />
+                            <Typography variant="body1" onClick={() => setOpen(true)} sx={{ cursor: 'pointer', color: themeMain.palette.primary.main, textDecoration: 'underline' }}>
+                                <FormattedMessage id="registration_agreement" />
+                            </Typography>
+                        </Box>
                         <MyButton
                             variant="contained"
                             sx={{ mt: 3, mb: 2, width: '100%', bgcolor: themeMain.palette.primary.main, color: 'black' }}
                         >
-                            Киирии
+                            <FormattedMessage id="enter" />
                         </MyButton>
                     </Form>
                     <Grid container>
                         <Grid item xs>
                             <MyLink href="/login" sx={{ fontSize: 14, color: themeMain.palette.primary.main }}>
-                                Бэлиэтэммитиҥ дуо, урут? Киирэргэ
+                                <FormattedMessage id="recovery_enter_phone_number" />
                             </MyLink>
                         </Grid>
                     </Grid>

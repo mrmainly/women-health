@@ -30,6 +30,7 @@ import ArrowPrev from './arrows/ArrowPrev'
 
 import ModalSurveyStatus from "./modals/ModalSurveyStatus"
 import ModalSurvey from './modals/ModalSurvey'
+import Consent from './modals/Consent'
 
 export {
     Layout,
@@ -64,5 +65,5 @@ export {
 
     ModalSurveyStatus,
     ModalSurvey,
-
+    Consent
 }

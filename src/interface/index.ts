@@ -168,6 +168,11 @@ interface ResultsProps {
     research_type: any
 }
 
+interface ConsentProps {
+    open: any,
+    setOpen: any
+}
+
 export type {
     ButtonProps,
     MyContainerProps,
@@ -191,5 +196,6 @@ export type {
     TabPanelProps,
     CardProps,
     TimeButtonProps,
-    ResultsProps
+    ResultsProps,
+    ConsentProps
 }

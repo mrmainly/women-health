@@ -3,8 +3,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useForm } from 'react-hook-form'
 
-import { Avatar, FormControlLabel, Checkbox, Grid, Box, Typography, CssBaseline, Container } from '@mui/material'
+import { Avatar, Box, Typography, CssBaseline, Container } from '@mui/material'
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { FormattedMessage } from "react-intl";
 
 import { Input, Form, MyButton, MyLink } from '../../components'
 import { DispatchContext } from '../../store';
@@ -46,15 +47,15 @@ export default function ForgotPassword() {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        Аһарыгы (пароль) сөргүтүү
+                        <FormattedMessage id="recovery_password" />
                     </Typography>
                     <Form sx={{ mt: 1 }} onSubmit={handleSubmit(onSubmit)}>
                         <Typography component="h1" variant="body2" style={{ marginBottom: '-10px', fontWeight: 600 }}>
-                            Бэлиэтэнэргэр ыйбыт төлөпүөнүҥ нүөмэрин киллэр.
+                            <FormattedMessage id="recovery_enter_phone_number" />
                         </Typography>
                         <Input
                             variant="outlined"
-                            label="Төлөпүөнүҥ нүөмэрэ *"
+                            label={<FormattedMessage id="registration_phone" />}
                             {...register('phone')}
                             id="phone"
                             required
@@ -63,7 +64,7 @@ export default function ForgotPassword() {
                             variant="contained"
                             sx={{ mt: 3, mb: 2, width: '100%', bgcolor: themeMain.palette.primary.main, color: 'black' }}
                         >
-                            Восстановить пароль
+                            <FormattedMessage id="forgotButtonText" />
                         </MyButton>
                     </Form>
                     <Copyright sx={{ mt: 2, mb: 4 }} />
