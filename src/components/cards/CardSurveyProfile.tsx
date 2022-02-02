@@ -76,7 +76,7 @@ const CardSurveysProfile: React.FC<CaruselSurveyProps> = ({ img, link, label, id
     return (
         <CardRoot style={{ marginTop: 20, marginBottom: 20 }}>
             <Box1>
-                <CardImg image={`/img/Element/${img}.png`} />
+                <CardImg image={img} />
             </Box1>
             <Box2>
                 <MyText variant="h6" sm={25}>{label}</MyText>
