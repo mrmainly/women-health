@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Breast from './breastSurvey'
-import axios from 'axios'
 
 import { useLocation } from 'react-router-dom'
 

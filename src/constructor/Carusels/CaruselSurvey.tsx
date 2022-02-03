@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Box } from '@mui/material'
 import Slider from 'react-slick'
+import { FormattedMessage } from "react-intl";
 
 import { CardSurveyCarusel, ArrowPrev, ArrowNext } from '../../components'
 import { TitleScreen } from '..'
 import CardSurveyCaruselList from '../../Data/CardSurveyCaruselList'
-import { FormattedMessage } from "react-intl";
+import Api from '../../utils/api'
+
 
 const CaruselSurvey = () => {
     const [slidesToShow, setSlidesToShow] = useState(0)
@@ -21,7 +23,7 @@ const CaruselSurvey = () => {
         nextArrow: <ArrowNext />,
         prevArrow: <ArrowPrev />
     };
-    React.useEffect(() => {
+    useEffect(() => {
         function handleResize() {
             if (window.innerWidth < 1290 && window.innerWidth >= 600) {
                 setSlidesToShow(2)
@@ -34,7 +36,7 @@ const CaruselSurvey = () => {
         }
         handleResize()
         window.addEventListener('resize', handleResize)
-    })
+    }, [])
     return (
         <Box style={{ overflow: 'hidden', }}>
             <TitleScreen variant="h4" width={1200} description={<FormattedMessage id="health_desacription" />}><FormattedMessage id="health" /></TitleScreen>
