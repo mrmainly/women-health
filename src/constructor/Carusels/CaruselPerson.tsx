@@ -14,8 +14,8 @@ const CaruselPerson = () => {
         speed: 500,
         slidesToScroll: 1,
         slidesToShow: 1,
-        nextArrow: <ArrowNext />,
-        prevArrow: <ArrowPrev />,
+        nextArrow: <ArrowNext style={{ right: '-20px' }} />,
+        prevArrow: <ArrowPrev style={{ left: '-20px' }} />,
     };
     return (
         <Box >

@@ -12,10 +12,24 @@ const CardPerson = [
     },
     {
         img: '/img/Element/GB0A68041.png',
-        name: <FormattedMessage id={'tatiana_name_slider'} />,
+        name: <FormattedMessage id={'lena_name_slider'} />,
         infoImg: '',
         tag: <FormattedMessage id={'lena_position_slider'} />,
         description: <FormattedMessage id={'lena_description_slider'} />,
+    },
+    {
+        img: '/img/Element/tatiana.jpg',
+        name: <FormattedMessage id={'tatiana_name_slider'} />,
+        infoImg: '',
+        tag: <FormattedMessage id={'tatiana_position_slider'} />,
+        description: <FormattedMessage id={'tatiana_description_slider'} />,
+    },
+    {
+        img: '/img/Element/IMG_11932.png',
+        name: <FormattedMessage id={'feodosia_name_slider'} />,
+        infoImg: '',
+        tag: <FormattedMessage id={'feodosia_position_slider'} />,
+        description: <FormattedMessage id={'feodosia_description_slider'} />,
     },
 ]
 

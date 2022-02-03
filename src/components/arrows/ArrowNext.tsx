@@ -9,17 +9,17 @@ const ArrowNext: React.FC<ArrowNextProps> = (props) => {
     return (
         <MenuItem className="slick-arrow" onClick={onClick} style={{
             ...style,
-            height: 60,
-            width: 60,
+            height: 40,
+            width: 40,
             position: "absolute",
-            top: '45%',
+            top: '50%',
             display: 'flex',
             justifyContent: "center",
             alignItems: "center",
             right: 0,
             backgroundColor: '#EB5757',
         }}>
-            <ArrowForwardIcon fontSize={'large'} htmlColor={'white'} />
+            <ArrowForwardIcon fontSize={'medium'} htmlColor={'white'} />
         </MenuItem>
     )
 }

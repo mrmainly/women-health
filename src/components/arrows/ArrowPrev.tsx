@@ -9,18 +9,17 @@ const ArrowPrev: React.FC<ArrowPrevProps> = (props) => {
     return (
         <MenuItem className="slick-arrow" onClick={onClick} style={{
             ...style,
-            height: 60,
-            width: 60,
+            height: 40,
+            width: 40,
             position: "absolute",
             display: 'flex',
             justifyContent: "center",
             alignItems: "center",
-            top: '45%',
-            left: 0,
+            top: '50%',
             zIndex: 900,
             backgroundColor: '#EB5757'
         }}>
-            <ArrowBackIcon fontSize={'large'} htmlColor={'white'} />
+            <ArrowBackIcon fontSize={'medium'} htmlColor={'white'} />
         </MenuItem>
     )
 }
