@@ -69,7 +69,6 @@ const CustomMenuItem = styled(MenuItem)(({ theme }) => ({
 const AppBarCustom = styled(AppBar)(({ theme }) => ({
     background: '#49DDC5',
     [theme.breakpoints.down('lg')]: {
-        background: 'white',
         height: 80,
     },
 }))
