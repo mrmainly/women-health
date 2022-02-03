@@ -100,6 +100,12 @@ class API {
             console.log(res)
         }).catch((error) => console.log(error))
     }
+    feedback(data, dispatch) {
+        api('api/feedback').post(null, data).then(res => {
+            dispatch({ type: 'notification', payload: { status: 'success', active: true, text: 'ваше сообщение отправлено' } })
+            console.log(res)
+        }).catch((error) => console.log(error))
+    }
     async getResults() {
         let result = await api(`api/report/report`).get(null)
         return result
