@@ -4,9 +4,11 @@ import { InfoScreen, TextInfoScreen, ThreeScreen, FourScreen, LinkToSurveysScree
 
 import { CaruselSurvey, TitleScreen } from '../../../constructor'
 import { FormattedMessage } from "react-intl";
+import { useNavigate } from 'react-router-dom'
+import cookie from 'js-cookie'
 
 const Breath = () => {
-    const [state, setState] = useState(false)
+    const navigate = useNavigate()
     const data1 = [
         {
             type: 'text',
@@ -99,26 +101,20 @@ const Breath = () => {
             <FourScreen data={data3} />
             <LinkToSurveysScreen link="" />
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <MyButton
-                    sx={{
-                        bgcolor: '#EB5757',
-                        mb: 5
-                    }}
+                <MyButton sx={{ bgcolor: '#EB5757', mb: 2 }}
                     onClick={() => {
-                        setState(!state)
+                        navigate(cookie.get('jwttoken') ? '/surveys' : '/login')
                     }}
                 >
-                    <FormattedMessage id="view_surveys_liver_cancer" />
+                    <FormattedMessage id="view_surveys_lung_cancer" />
                 </MyButton>
             </div>
-            {state &&
-                <MyContainer
-                    wrapper={false}
-                    minHeight={600}
-                >
-                    <CaruselSurvey />
-                </MyContainer>
-            }
+            <MyContainer
+                wrapper={false}
+                minHeight={600}
+            >
+                <CaruselSurvey />
+            </MyContainer>
         </div>
     )
 }

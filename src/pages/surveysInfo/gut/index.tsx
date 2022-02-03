@@ -64,7 +64,7 @@ const Gut = () => {
             <FourScreen />
             <LinkToSurveysScreen link="" />
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <MyButton sx={{ bgcolor: '#EB5757', mb: 5 }}
+                <MyButton sx={{ bgcolor: '#EB5757', mb: 2 }}
                     onClick={() => {
                         navigate(cookie.get('jwttoken') ? '/surveys' : '/login')
                     }}
@@ -72,6 +72,12 @@ const Gut = () => {
                     <FormattedMessage id="view_surveys_lung_cancer" />
                 </MyButton>
             </div>
+            <MyContainer
+                wrapper={false}
+                minHeight={600}
+            >
+                <CaruselSurvey />
+            </MyContainer>
         </div>
     )
 }
