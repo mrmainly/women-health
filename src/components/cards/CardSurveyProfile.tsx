@@ -17,26 +17,22 @@ const CardRoot = styled(Box)(({ theme }) => ({
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'center',
-    paddingTop: 20,
+    marginTop: 20,
     boxShadow: '1px 2px 5px rgba(0, 0, 0, 0.15)',
     borderRadius: '25px 0px',
     transition: 'all 1s ease',
     "&:hover": {
         boxShadow: '0px 0px 20px rgba(0,0,0,0.8)'
     },
+    [theme.breakpoints.down('sm')]: {
+        height: '90%',
+        padding: 10
+    },
 }))
 
 const CardImg = styled(CardMedia)(({ theme }) => ({
     width: 210,
     height: 210,
-}))
-
-const Box1 = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    height: 210
 }))
 
 const Box2 = styled(Box)(({ theme }) => ({
@@ -74,15 +70,16 @@ const CardSurveysProfile: React.FC<CaruselSurveyProps> = ({ img, link, label, id
     //   }
 
     return (
-        <CardRoot style={{ marginTop: 20, marginBottom: 20 }}>
-            <Box1>
+        <CardRoot>
+            <Box>
                 <CardImg image={img} />
-            </Box1>
+            </Box>
             <Box2>
                 <MyText variant="h6" sm={25}>{label}</MyText>
                 <MenuItem sx={{ mt: 2, color: '#EB5757' }} onClick={() => {
                     navigate(link, { state: { surveyId: id } })
-                }}><FormattedMessage id="check_intestine_survey_go" /></MenuItem>
+                }}><FormattedMessage id="check_intestine_survey_go" />
+                </MenuItem>
             </Box2>
         </CardRoot>
     )
