@@ -49,7 +49,7 @@ const Results = () => {
     }, [])
 
     const handleOpenReport = (id: any) => {
-        navigate(`https://онкопоисксаха.рф/api/report/report/${id}`)
+        document.location.href='https://онкопоисксаха.рф/api/report/report/' + id
     }
 
     return (
