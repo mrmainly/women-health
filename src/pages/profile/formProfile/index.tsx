@@ -170,6 +170,7 @@ const FormProfile = () => {
                                         fullWidth
                                         variant="filled"
                                         margin="normal"
+                                        defaultValue={city[0].id}
                                     >
                                         {city.map((item, index) => (
                                             <option key={index} value={item.id}>{item.name}</option>
