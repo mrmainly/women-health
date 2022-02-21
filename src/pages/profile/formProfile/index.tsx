@@ -58,7 +58,7 @@ const FormProfile = () => {
             setGender(data.sex)
             setSnils(data.snils)
             setOms(data.oms)
-            setInstitution(data.organisation)
+            setInstitution(data.organisation == null ? 1 : data.organisation)
             cookie.set('date', data.birth_date)
             dispatch({ type: 'modalSurvey', payload: { username: data.first_name } })
             setLoading(false)
