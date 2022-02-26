@@ -30,13 +30,13 @@ const Box1 = styled(Box)(({ theme }) => ({
     flexWrap: 'wrap'
 }))
 
-const ThreeScreen: React.FC = () => {
+const PartnersScreen = () => {
     const CompanyList = ['brand_1_yarod', 'brand_2_min', 'brand_3_iarm', 'brand_4_esph', 'brand_5_aor']
     return (
         <MyContainer wrapper={true}
             sx={{
                 pt: 5,
-                bgcolor: '#F3FEFF'
+                pb: 3
             }}
         >
             <Companys container>
@@ -55,4 +55,4 @@ const ThreeScreen: React.FC = () => {
     )
 }
 
-export default ThreeScreen
+export default PartnersScreen

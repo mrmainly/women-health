@@ -4,7 +4,7 @@ import { Box } from '@mui/material'
 import { styled } from '@mui/system'
 import Slider from 'react-slick'
 
-import CardArray from '../../../Data/CardPerson'
+import CardArray from '../../../local_data/CardPerson'
 import { MyContainer, CardPerson } from '../../../components'
 import { CaruselPerson } from '../../../constructor'
 

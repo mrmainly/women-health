@@ -3,7 +3,7 @@ import React from 'react'
 import { Box, Typography, Grid } from '@mui/material'
 import { styled } from '@mui/system'
 
-import { MyButton, MyContainer } from '../../../components'
+import { MyContainer } from '../../../components'
 import { FormattedMessage } from "react-intl";
 
 const Title = styled(Typography)(({ theme }) => ({
@@ -52,13 +52,19 @@ const Img = styled('img')(({ theme }) => ({
     },
 }))
 
-const StartScreen: React.FC = () => {
-
+const StartScreen = () => {
     return (
-        <MyContainer wrapper={true} md={500} sx={{ bgcolor: '#49DDC5', pb: 5 }}>
+        <MyContainer wrapper={true} sx={{
+            background: `url(${"/img/Background/BG1.png"})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'bottom',
+            minHeight: 804,
+            pb: 5,
+            pt: 10
+        }} sm={700} md={600} lg={700}>
             <Box
                 sx={{
-                    pt: 5,
                     display: 'flex',
                     justifyContent: 'center',
                     flexDirection: 'column',

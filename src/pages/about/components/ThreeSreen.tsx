@@ -4,7 +4,7 @@ import { Box, Grid } from '@mui/material'
 import { styled } from '@mui/system'
 
 import { MyContainer, MyText, CardAbout } from '../../../components'
-import CardAboutList from '../../../Data/CardAbout'
+import CardAboutList from '../../../local_data/CardAbout'
 import { TitleScreen } from '../../../constructor'
 import { FormattedMessage } from "react-intl";
 

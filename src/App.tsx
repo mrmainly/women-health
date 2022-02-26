@@ -12,11 +12,10 @@ import Faq from './pages/faq'
 import Contacts from './pages/contacts'
 
 import Breast from './pages/surveysInfo/breast'
-import Breath from './pages/surveysInfo/breath'
-import Liver from './pages/surveysInfo/liver'
-import Gut from './pages/surveysInfo/gut'
+import Endometriosis from './pages/surveysInfo/endometriosis'
+import ClimaticPeriod from './pages/surveysInfo/climatic_period'
+import Infertility from './pages/surveysInfo/Infertility'
 import Cervix from './pages/surveysInfo/cervix'
-import Prostate from './pages/surveysInfo/prostate'
 
 import BreastForm from './pages/profile/surveys/surveysDetail/Breast/breastWrapper'
 import BreathForm from './pages/profile/surveys/surveysDetail/Breath/breathWrapper'
@@ -61,11 +60,10 @@ const App = () => {
                                     <Route path="contacts" element={<Contacts />} />
 
                                     <Route path="breast" element={<Breast />} />
-                                    <Route path="breath" element={<Breath />} />
-                                    <Route path="liver" element={<Liver />} />
-                                    <Route path="gut" element={<Gut />} />
+                                    <Route path="endometriosis" element={<Endometriosis />} />
+                                    <Route path="Infertility" element={<Infertility />} />
+                                    <Route path="climatic-period" element={<ClimaticPeriod />} />
                                     <Route path="cervix" element={<Cervix />} />
-                                    <Route path="prostate" element={<Prostate />} />
 
                                     <Route path="surveys/breast-survey" element={<BreastForm />} />
                                     <Route path="surveys/lung-survey" element={<BreathForm />} />

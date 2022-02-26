@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FaqData from '../../../Data/FaqData'
+import FaqData from '../../../local_data/FaqData'
 
 import { AccordionSummary, AccordionDetails, Accordion, Typography } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';

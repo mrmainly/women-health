@@ -2,38 +2,24 @@ import React, { useState } from 'react'
 
 import { SurveysListScreen, MyContainer } from '../../components'
 import StartScreen from './components/StartScreen'
-import ThreeScreen from './components/ThreeScreen'
+import PartnersScreen from './components/PartnersScreen'
 import FourScreen from './components/FourScreen'
 import FiveScreen from './components/FiveScreen'
 import SixCaruselScreen from './components/SixCaruselScreen'
 import { CaruselSurvey } from '../../constructor'
 
 const HomePage: React.FunctionComponent = () => {
-    const [stateInnerWidth, setStateInnerWidth] = useState<boolean>(true)
-    React.useEffect(() => {
-        function handleResize() {
-            if (window.innerWidth < 600) {
-                setStateInnerWidth(false)
-            }
-        }
-        handleResize()
-        window.addEventListener('resize', handleResize)
-    })
     return (
-        <>
-            <StartScreen />
-            <ThreeScreen />
-            <FourScreen />
+        <div >
+            <div style={{ background: '#fcf2f5', }}>
+                <StartScreen />
+                <PartnersScreen />
+                <FourScreen />
+            </div>
             <FiveScreen />
             <SixCaruselScreen />
-            {stateInnerWidth ?
-                <SurveysListScreen />
-                :
-                <MyContainer wrapper={false}>
-                    <CaruselSurvey />
-                </MyContainer>
-            }
-        </>
+            <SurveysListScreen />
+        </div>
     )
 }
 

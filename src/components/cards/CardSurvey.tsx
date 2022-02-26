@@ -2,68 +2,66 @@ import React from 'react'
 
 import { styled } from '@mui/system'
 import { Box, Card, CardMedia, MenuItem } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
-import { CaruselSurveyProps } from '../../interface';
+import { CaruselSurveyProps } from '../../interface'
 import { MyText, MyLink } from '..'
-import {FormattedMessage} from "react-intl";
+import { FormattedMessage } from "react-intl";
 
-const CardRoot = styled(Card)(({ theme }) => ({
+const CardRoot = styled(Box)(({ theme }) => ({
     width: '95%',
-    height: 430,
+    height: 400,
     margin: '0 auto',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'center',
-    paddingTop: 20,
-    // [theme.breakpoints.down('md')]: {
-    //     width: 300,
-    //     height: 400
-    // },
-    // [theme.breakpoints.down('sm')]: {
-    //     width: '90%',
-    //     height: 400
-    // },
+    marginTop: 20,
+    boxShadow: '1px 2px 5px rgba(0, 0, 0, 0.15)',
+    borderRadius: '25px 0px',
+    transition: 'all 1s ease',
+    background: 'white',
+    "&:hover": {
+        boxShadow: '0px 0px 20px rgba(0,0,0,0.8)'
+    },
+    [theme.breakpoints.down('sm')]: {
+        height: '90%',
+        padding: 10
+    },
 }))
 
 const CardImg = styled(CardMedia)(({ theme }) => ({
     width: 210,
     height: 210,
-}))
-
-const Box1 = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexDirection: 'column',
-    height: '50%'
+    marginTop: 30
 }))
 
 const Box2 = styled(Box)(({ theme }) => ({
-    height: '50%',
-    background: '#F3F8FF',
+    height: '30%',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 20
+    padding: 15
 }))
 
-const CardSurvey: React.FC<CaruselSurveyProps> = ({ img, link, label }) => {
+const CardSurveys: React.FC<CaruselSurveyProps> = ({ img, link, label }) => {
+    const navigate = useNavigate()
+
     return (
-        <CardRoot style={{ marginTop: 20, marginBottom: 20 }}>
-            <Box1>
+        <CardRoot>
+            <Box>
                 <CardImg image={`/img/Element/${img}.png`} />
-            </Box1>
+            </Box>
             <Box2>
-                <MyText variant="h4" sm={25}>{label}</MyText>
-                <MyLink href={link} sx={{ mt: 2, color: '#6658EA' }}><MenuItem>
-                    <FormattedMessage id={'go_to'}/>
+                <MyText variant="h5" sm={25}>{label}</MyText>
+                <MyLink href={link} sx={{ mt: 2, color: '#EB5757' }}><MenuItem>
+                    <FormattedMessage id="check_intestine_survey_go" />
                 </MenuItem></MyLink>
             </Box2>
         </CardRoot>
     )
 }
 
-export default CardSurvey
+export default CardSurveys

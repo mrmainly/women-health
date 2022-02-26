@@ -5,7 +5,7 @@ import Slider from 'react-slick'
 
 import { CardUsefulLinks, ArrowPrev, ArrowNext } from '../../components'
 import { TitleScreen } from '..'
-import CardUsefulLinksList from '../../Data/CardUsefulLinksList'
+import CardUsefulLinksList from '../../local_data/CardUsefulLinksList'
 import { FormattedMessage } from "react-intl";
 
 const CaruselUsefulLinks = () => {

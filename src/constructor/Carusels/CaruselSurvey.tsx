@@ -6,7 +6,7 @@ import { FormattedMessage } from "react-intl";
 
 import { CardSurveyCarusel, ArrowPrev, ArrowNext } from '../../components'
 import { TitleScreen } from '..'
-import CardSurveyCaruselList from '../../Data/CardSurveyCaruselList'
+import CardSurveyCaruselList from '../../local_data/CardSurveyCaruselList'
 import Api from '../../utils/api'
 
 

@@ -46,7 +46,7 @@ const TextBox = styled(Box)(({ theme }) => ({
 const FourScreen: React.FC = () => {
     const navigate = useNavigate()
     return (
-        <MyContainer wrapper={true} sm={700} sx={{ display: 'flex', alignItems: 'center', bgcolor: '#F3FEFF' }}>
+        <MyContainer wrapper={true} sm={700} sx={{ display: 'flex', alignItems: 'center', pb: 5 }}>
             <MainBox container>
                 <GridText item lg={5} xl={5} md={6} sm={12} xs={12}>
                     <Title variant="h3">

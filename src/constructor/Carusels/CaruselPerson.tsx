@@ -6,7 +6,7 @@ import Slider from 'react-slick'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-import CardPersonData from '../../Data/CardPerson'
+import CardPersonData from '../../local_data/CardPerson'
 import { CardPerson } from '../../components'
 import { ArrowPrevProps } from '../../interface';
 import { ArrowNextProps } from '../../interface';
