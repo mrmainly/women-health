@@ -71,7 +71,7 @@ const StartScreen = () => {
                     alignItems: 'center'
                 }}
             >
-                <Title variant="h4">
+                <Title variant="h4" sx={{ textTransform: 'uppercase' }}>
                     <FormattedMessage id={'index_page_title'} />
                 </Title>
                 <Grid container sx={{ mt: 5 }}>

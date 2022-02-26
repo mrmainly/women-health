@@ -86,7 +86,7 @@ interface InfoBlockScreenProps {
     title: any,
     description: any,
     img: any,
-    infoImg: any
+    infoImg?: any
 }
 
 interface FormProps {

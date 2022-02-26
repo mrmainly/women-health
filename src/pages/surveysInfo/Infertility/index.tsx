@@ -56,8 +56,7 @@ const Gut = () => {
             <InfoScreen
                 title={<FormattedMessage id="gut_cancer" />}
                 description={<FormattedMessage id="gut_description" />}
-                img="gut2"
-                infoImg="Frame72"
+                img="cervix2"
             />
             <TextInfoScreen data={data1} />
             <ThreeScreen data={data2} showInfoText={true} />

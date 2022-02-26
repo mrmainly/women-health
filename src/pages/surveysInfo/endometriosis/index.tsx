@@ -93,8 +93,7 @@ const Breath = () => {
             <InfoScreen
                 title={<FormattedMessage id="lung_cancer" />}
                 description={<FormattedMessage id="description_lung_cancer" />}
-                img="Group"
-                infoImg="Frame7"
+                img="cervix3"
             />
             <TextInfoScreen data={data1} />
             <ThreeScreen data={data2} showInfoText={true} />

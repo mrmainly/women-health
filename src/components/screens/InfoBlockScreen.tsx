@@ -8,7 +8,16 @@ import { InfoBlockScreenProps } from '../../interface'
 
 import themeMain from '../../theme'
 
+const RootGridFull = styled(Grid)(({ theme }) => ({
+    [theme.breakpoints.down('md')]: {
+        paddingTop: 50,
+        paddingBottom: 50
+    },
+}))
+
 const RootGrid = styled(Grid)(({ theme }) => ({
+    display: 'flex',
+    justifyContent: 'space-between',
     [theme.breakpoints.down('md')]: {
         paddingTop: 50,
         paddingBottom: 50
@@ -66,6 +75,7 @@ const MainImg = styled('img')(({ theme }) => ({
 }))
 
 const InfoBlockScreen: React.FC<InfoBlockScreenProps> = ({ title, description, img, infoImg }) => {
+
     return (
         <MyContainer
             wrapper={true}
@@ -87,13 +97,19 @@ const InfoBlockScreen: React.FC<InfoBlockScreenProps> = ({ title, description, i
                         {description}
                     </MyText>
                 </Grid>
-                <Grid item lg={3} xl={3} md={3} sm={6} xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
-                    <ImgCustom src={`/img/Element/${infoImg}.png`} />
-                </Grid>
-                <GridImg item lg={3} xl={3} md={3} sm={6} xs={12}>
-                    <MainImg src={`/img/Element/${img}.png`} />
-                    <BackgroundImage src={'/img/Element/Group70.png'} />
-                </GridImg>
+                {infoImg ? <>
+                    <Grid item lg={3} xl={3} md={3} sm={6} xs={12} style={{ display: 'flex', justifyContent: 'center' }}>
+                        <ImgCustom src={`/img/Element/${infoImg}.png`} />
+                    </Grid>
+                    <GridImg item lg={3} xl={3} md={3} sm={6} xs={12}>
+                        <MainImg src={`/img/Element/${img}.png`} />
+                        <BackgroundImage src={'/img/Element/Group70.png'} />
+                    </GridImg>
+                </>
+                    : <GridImg item lg={5} xl={5} md={5} sm={12} xs={12}>
+                        <MainImg src={`/img/Element/${img}.png`} />
+                        <BackgroundImage src={'/img/Element/Group70.png'} />
+                    </GridImg>}
             </RootGrid>
         </MyContainer>
     )
