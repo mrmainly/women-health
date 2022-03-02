@@ -84,9 +84,11 @@ interface TextInfoScreenProps {
 
 interface InfoBlockScreenProps {
     title: any,
-    description: any,
+    description1?: any,
+    description2?: any,
     img: any,
-    infoImg?: any
+    infoImg?: any,
+    descriptionSize: string
 }
 
 interface FormProps {

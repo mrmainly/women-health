@@ -137,7 +137,7 @@ export default function Register() {
                         </Box>
                         <MyButton
                             variant="contained"
-                            sx={{ mt: 3, mb: 2, width: '100%', bgcolor: themeMain.palette.primary.main, color: 'black' }}
+                            sx={{ mt: 3, mb: 2, width: '100%', bgcolor: themeMain.palette.primary.main }}
                         >
                             <FormattedMessage id="enter" />
                         </MyButton>

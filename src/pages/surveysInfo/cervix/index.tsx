@@ -47,9 +47,9 @@ const Cervix = () => {
 
     const data2 = [
         {
-            align: 'start',
-            text: [
-                <FormattedMessage id="cervix_data1_title_column2" />,
+            title: <FormattedMessage id="cervix_data1_title_column2" />,
+            type: 'column',
+            elem: [
                 <FormattedMessage id="cervix_data1_text1_column2" />,
                 <FormattedMessage id="cervix_data1_text2_column2" />,
                 <FormattedMessage id="cervix_data1_text3_column2" />
@@ -70,9 +70,10 @@ const Cervix = () => {
         <div>
             <InfoScreen
                 title={<FormattedMessage id="cervix_cancer" />}
-                description={<FormattedMessage id="cervix_cancer_description" />}
+                description1={<FormattedMessage id="cervix_cancer_description" />}
                 img="Group66"
                 infoImg="Frame6"
+                descriptionSize='h6'
             />
             <TextInfoScreen data={data1} />
             <ThreeScreen data={data2} showInfoText={true} />

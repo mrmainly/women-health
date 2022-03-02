@@ -68,8 +68,8 @@ const Gut = () => {
 
     const data2 = [
         {
-            align: 'start',
-            text: [
+            type: 'text',
+            elem: [
                 <FormattedMessage id="breast_data2_text1_column1" />,
                 <FormattedMessage id="breast_data2_text2_column1" />
             ],
@@ -80,9 +80,10 @@ const Gut = () => {
         <div>
             <InfoScreen
                 title={<FormattedMessage id="breast_cancer" />}
-                description={<FormattedMessage id="breast_description" />}
+                description1={<FormattedMessage id="breast_description" />}
                 img="Group368"
                 infoImg="Frame6"
+                descriptionSize='h6'
             />
             <TextInfoScreen data={data1} />
             <ThreeScreen data={data2} showInfoText={true} />

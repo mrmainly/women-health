@@ -31,7 +31,7 @@ const Box1 = styled(Box)(({ theme }) => ({
 }))
 
 const PartnersScreen = () => {
-    const CompanyList = ['brand_1_yarod', 'brand_2_min', 'brand_3_iarm', 'brand_4_esph', 'brand_5_aor']
+    const CompanyList = ['brand_1_yarod', 'brand_2_min', 'brand_3_iarm', 'Group2213', 'brand_5_aor']
     return (
         <MyContainer wrapper={true}
             sx={{

@@ -74,27 +74,28 @@ const MainImg = styled('img')(({ theme }) => ({
     },
 }))
 
-const InfoBlockScreen: React.FC<InfoBlockScreenProps> = ({ title, description, img, infoImg }) => {
+const InfoBlockScreen: React.FC<InfoBlockScreenProps> = ({ title, description1, description2, img, infoImg, descriptionSize, }) => {
 
     return (
         <MyContainer
             wrapper={true}
             sx={{
                 bgcolor: themeMain.palette.primary.main,
-                borderEndEndRadius: 50,
-                borderEndStartRadius: 50,
                 color: 'white',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
             }}
-            minHeight={800}
+            minHeight={700}
         >
             <RootGrid container>
                 <Grid item lg={6} xl={6} md={6} sm={12} xs={12}>
                     <MyText variant="h3" sx={{ mt: 4, mb: 4 }}>{title}</MyText>
-                    <MyText variant="h6">
-                        {description}
+                    <MyText variant={descriptionSize}>
+                        {description1}
+                    </MyText>
+                    <MyText variant={descriptionSize} sx={{ mt: 2 }}>
+                        {description2}
                     </MyText>
                 </Grid>
                 {infoImg ? <>
