@@ -38,13 +38,27 @@ const CaruselUsefulLinks = () => {
     return (
         <Box style={{ overflow: 'hidden', }}>
             <TitleScreen variant="h4" sx={{ mb: 5 }} color="black" width={900} description={<FormattedMessage id="partners" />}><FormattedMessage id="usefulLinks" /></TitleScreen>
-            <Slider {...settings}>
+            {/* <Slider {...settings}>
                 {CardUsefulLinksList ? CardUsefulLinksList.map((item, index) => (
                     <Box key={index}>
                         <CardUsefulLinks img={item.img} description={item.description} link={item.link} />
                     </Box>
                 )) : ''}
-            </Slider>
+            </Slider> */}
+            <Box sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                marginTop: 2,
+                marginBottom: 2,
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
+                {CardUsefulLinksList ? CardUsefulLinksList.map((item, index) => (
+                    <Box key={index}>
+                        <CardUsefulLinks img={item.img} description={item.description} link={item.link} />
+                    </Box>
+                )) : ''}
+            </Box>
         </Box>
     )
 }

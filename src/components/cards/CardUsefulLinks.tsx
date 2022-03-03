@@ -8,22 +8,27 @@ import { MyText } from '..'
 import { CardUsefulLinksProps } from '../../interface'
 import { FormattedMessage } from "react-intl";
 
-const CardRoot = styled(Box)({
+const CardRoot = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'center',
-    width: '80%',
-    margin: '0 auto',
-    minHeight: 250,
-})
+    width: 250,
+    marginLeft: 40,
+    marginRight: 40,
+    marginTop: 20,
+    [theme.breakpoints.down('sm')]: {
+        marginLeft: 0,
+        marginRight: 0,
+    },
+}))
 
 const CardUsefulLinks: React.FC<CardUsefulLinksProps> = ({ img, link, description }) => {
     const navigate = useNavigate()
     return (
         <CardRoot>
             <img src={`/img/Element/${img}.png`} style={{ height: 200 }} />
-            <MyText variant="body1" sx={{ height: 50, fontWeight: 500, mt: 1 }}>{description}</MyText>
+            <MyText variant="body1" sx={{ height: 70, fontWeight: 500, mt: 1 }}>{description}</MyText>
             <MenuItem sx={{ color: '#EB5757', }} onClick={() => {
                 navigate(link)
             }}>

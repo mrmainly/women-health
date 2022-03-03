@@ -12,7 +12,6 @@ const About = () => {
         <div>
             <StartScreen />
             <TwoCaruselScreen />
-            <ThreeScreen />
             <FourScreenUsefulLinks />
             <SixSurveyCaruselScreen />
         </div>

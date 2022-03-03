@@ -38,14 +38,14 @@ const CaruselSurvey = () => {
         window.addEventListener('resize', handleResize)
     }, [])
     return (
-        <Box style={{ overflow: 'hidden', }}>
+        <Box style={{ overflow: 'hidden' }} >
             <TitleScreen variant="h4" width={1200} description={<FormattedMessage id="health_desacription" />}><FormattedMessage id="health" /></TitleScreen>
             <Slider {...settings}>
                 {CardSurveyCaruselList ? CardSurveyCaruselList.map((item, index) => (
                     <CardSurveyCarusel key={index} img={item.img} label={item.label} link={item.link} />
                 )) : ''}
             </Slider>
-        </Box>
+        </Box >
     )
 }
 

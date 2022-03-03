@@ -1,28 +1,15 @@
 
 const CardUsefulLinksList = [
-
-
     {
-        img: 'Group-367',
-        description: 'Правительство республики Саха (Якутия)',
+        img: 'image139',
+        description: 'ГБУ РС (Я) ЯРМИАЦ «Единый центр поддержки и сопровождения пациентов»',
         link: 'https://www.sakha.gov.ru/'
     },
     {
-        img: 'Group69',
-        description: 'Якутский республиканский онкологический диспансер',
+        img: 'image239',
+        description: 'Официальный портал Минздрава РФ об онкозаболеваниях',
         link: 'https://onkosakha.ru'
     },
-    {
-        img: 'Group-36',
-        description: 'Министерство здравоохранения Российской Федерации',
-        link: 'https://minzdrav.gov.ru/'
-    },
-    {
-        img: 'Group-367',
-        description: 'Министерство здравоохранения Республики Саха (Якутия)',
-        link: 'https://minzdrav.sakha.gov.ru/'
-    },
-
 ]
 
 export default CardUsefulLinksList

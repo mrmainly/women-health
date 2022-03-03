@@ -43,35 +43,73 @@ const ImgBox = styled(Grid)(({ theme }) => ({
     },
 }))
 
+const BoxCard = styled(Box)(({ theme }) => ({
+    backgroundColor: 'white',
+    color: 'black',
+    padding: 5,
+    minHeight: 200,
+    borderRadius: 15,
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    width: '90%',
+    margin: '0 auto',
+    [theme.breakpoints.down('md')]: {
+        marginTop: 10,
+        marginBottom: 10
+    },
+}))
+
 const StartScreen = () => {
     const data = [
         {
-            number: '964 330',
-            description: <FormattedMessage id="population_about_page" />
+            number: '48.8 лет',
+            description: 'Средний возраст наступления менопаузы в мире'
         },
         {
-            number: '12 881',
-            description: <FormattedMessage id="registered_about_page" />
+            number: '49-51 год',
+            description: 'Средний возраст наступления менопаузы в РФ'
         },
         {
-            number: '1 250',
-            description: <FormattedMessage id="mortality_about_page" />
+            number: '7.4 года',
+            description: 'Средняя продолжительность приливов'
         },
         {
-            number: '24%',
-            description: <FormattedMessage id="population_50_about_page" />
+            number: '75%',
+            description: 'Симптомы климакса беспокоят женщин в возрасте от 45-55 лет'
         }
     ]
 
     return (
-        <MyContainer wrapper={false}>
+        <MyContainer wrapper={true} sx={{
+            background: `url(${"/img/Background/Rectangle471.png"})`,
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'bottom',
+            color: 'white'
+        }}
+            minHeight={800}
+            lg={850}
+            md={1200}
+            sm={1600}
+        >
             <TextBox>
-                <PageHeaderText title={<FormattedMessage id="our_mission_about_page" />} titleSize="h2" tag={<FormattedMessage id="our_mission_about_tag_page" />} />
+                <PageHeaderText
+                    title={<FormattedMessage id="our_mission_about_page" />}
+                    titleSize="h2"
+                    tag={<FormattedMessage id="our_mission_about_tag_page" />}
+                    description="Скрининг климактерического синдрома-при наличии группы высокого риска Вам предлагается сдать гормоны, узи органов малого таза, молочных желез, денситометрия и пройти осмотр врача гинеколога-эндокринолога, при необходимости для правильной оценки состояния нужны дополнительно консультации других специалистов."
+                    descriptionColor="white"
+                    tagColor="white"
+                />
                 <Grid container style={{ marginTop: 80 }}>
                     {data.map(item => (
-                        <Grid item lg={3} xl={3} md={3} sm={3} xs={6} key={item.number}>
-                            <MyText variant="h4" sx={{ fontWeight: 600 }}>{item.number}</MyText>
-                            <MyText variant="body1" sx={{ width: '95%' }}>{item.description}</MyText>
+                        <Grid item lg={3} xl={3} md={3} sm={6} xs={12} key={item.number}>
+                            <BoxCard>
+                                <MyText variant="h4" sx={{ fontWeight: 600 }}>{item.number}</MyText>
+                                <MyText variant="body1" sx={{ width: '95%' }}>{item.description}</MyText>
+                            </BoxCard>
                         </Grid>
                     ))}
                 </Grid>

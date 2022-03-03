@@ -115,6 +115,8 @@ interface PageHeaderTextProps {
     titleSize: any,
     tag: any,
     showLine?: boolean,
+    descriptionColor?: string,
+    tagColor?: string
 }
 
 interface ArrowNextProps {
