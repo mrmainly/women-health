@@ -8,7 +8,7 @@ import { TitleScreen } from '..'
 import CardUsefulLinksList from '../../local_data/CardUsefulLinksList'
 import { FormattedMessage } from "react-intl";
 
-const CaruselUsefulLinks = () => {
+const UsefulLinks = () => {
     const [slidesToShow, setSlidesToShow] = useState(0)
     const settings = {
         dots: false,
@@ -63,4 +63,4 @@ const CaruselUsefulLinks = () => {
     )
 }
 
-export default CaruselUsefulLinks
+export default UsefulLinks

@@ -3,7 +3,7 @@ import React from 'react'
 import StartScreen from './components/StartScreen'
 import ThreeScreen from './components/ThreeScreen'
 import TwoScreen from './components/TwoScreen'
-import { CaruselUsefulLinks, FormFeedBack } from '../../constructor'
+import { UsefulLinks, FormFeedBack } from '../../constructor'
 import { MyContainer } from '../../components'
 
 const Contacts = () => {
@@ -12,7 +12,7 @@ const Contacts = () => {
             <StartScreen />
             <TwoScreen />
             <MyContainer wrapper={false} sx={{ mt: 5 }}>
-                <CaruselUsefulLinks />
+                <UsefulLinks />
                 <FormFeedBack />
             </MyContainer>
         </div>
